@@ -58,4 +58,14 @@ public class TournamentModel {
         return result;
     }
 
+    public ArrayList<TournamentModel>getAllByOwner (String Owner) {
+        ArrayList<TournamentModel>result=new ArrayList<>();
+        for(TournamentEntity tournament:this.tournamentRepository.SelectAllByOwner(Owner)){
+            result.add(new TournamentModel(tournament));
+
+        }
+        return result;
+    }
+
+
 }
