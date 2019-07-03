@@ -41,5 +41,5 @@ public class SignUpActivity extends AppCompatActivity {
         name = editText3.getText().toString();
         password = editText2.getText().toString();
     }
-    
+
 }
