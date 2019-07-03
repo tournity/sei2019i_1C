@@ -9,9 +9,9 @@ public class PlayerEntity {
     private double height;
     private double weight;
     private Bitmap photo;
-    private TeamEntity group;
+    private GroupEntity group;
 
-    private PlayerEntity(int id, String name, int age,double height,double wight, Bitmap photo,TeamEntity group){
+    private PlayerEntity(int id, String name, int age,double height,double wight, Bitmap photo,GroupEntity group){
         this.id = id;
         this.name = name;
         this.age = age;
