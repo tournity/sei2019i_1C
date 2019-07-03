@@ -41,5 +41,12 @@ public class TournamentModel {
        return result;
 
     }
+    public ArrayList<TournamentModel>getAllBySportId(int idSport){
+        ArrayList<TournamentModel>result=new ArrayList<>();
+        for(TournamentEntity tournament:this.tournamentRepository.getAll()){
+            result.add(new TournamentModel(tournament));
+        }
+    return result;
+    }
 
 }
