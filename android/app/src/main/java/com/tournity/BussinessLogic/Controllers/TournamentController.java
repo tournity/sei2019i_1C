@@ -6,6 +6,7 @@ import android.content.Context;
 import com.tournity.DataModels.TournamentModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TournamentController {
     private Context context;
@@ -39,6 +40,13 @@ public ArrayList<TournamentModel>getAllTournamentsBySportId(int idSport)throws E
 throw new Exception("No se encontraron Torneos por El deporte especificado");
 
     }
+
+    public ArrayList<TournamentModel>getAllTournamentsByDate(Date date)throws Exception{
+        ArrayList<TournamentModel>result=this.tournamentModel.getAllByDate(date);
+        if(result!=null)return result;
+        else throw new Exception("No se encontraron resultados por la fecha especificada");
+    }
+
 
 
 }
