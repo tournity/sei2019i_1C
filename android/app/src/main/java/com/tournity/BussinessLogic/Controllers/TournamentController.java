@@ -6,6 +6,7 @@ import android.content.Context;
 import com.tournity.DataModels.TournamentModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TournamentController {
     private Context context;
@@ -39,5 +40,26 @@ public class TournamentController {
         return namesList;
 }
 
+public ArrayList<TournamentModel>getAllTournamentsBySportId(int idSport)throws Exception{
+    ArrayList<TournamentModel>result=this.tournamentModel.getAllBySportId(idSport);
+    if(result!=null){
+        return result;
+    }else
+throw new Exception("No se encontraron Torneos por El deporte especificado");
+
+    }
+
+    public ArrayList<TournamentModel>getAllTournamentsByDate(Date date)throws Exception{
+        ArrayList<TournamentModel>result=this.tournamentModel.getAllByDate(date);
+        if(result!=null)return result;
+        else throw new Exception("No se encontraron resultados por la fecha especificada");
+    }
+
+public ArrayList<TournamentModel>getAllTournamentsByOwner(String owner)throws Exception{
+        ArrayList<TournamentModel>result=this.tournamentModel.getAllByOwner(owner);
+        if(result!=null)return result;
+        else throw new Exception("No se encontraron resultados por el nombre del creador del torneo");
+
+}
 
 }

@@ -6,6 +6,7 @@ import com.tournity.DataAccess.Repositories.TournamentRepository;
 import com.tournity.Entities.TournamentEntity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TournamentModel {
     private Context context;
@@ -41,5 +42,30 @@ public class TournamentModel {
        return result;
 
     }
+    public  ArrayList<TournamentModel>getAllBySportId(int idSport){
+        ArrayList<TournamentModel>result=new ArrayList<>();
+        for(TournamentEntity tournament:this.tournamentRepository.SelectAllBySportId(idSport)){
+            result.add(new TournamentModel(tournament));
+        }
+    return result;
+    }
+
+    public ArrayList<TournamentModel>getAllByDate(Date date){
+           ArrayList<TournamentModel>result=new ArrayList<>();
+        for(TournamentEntity tournament:this.tournamentRepository.SelectAllByInitDate(date)){
+            result.add(new TournamentModel(tournament));
+        }
+        return result;
+    }
+
+    public ArrayList<TournamentModel>getAllByOwner (String Owner) {
+        ArrayList<TournamentModel>result=new ArrayList<>();
+        for(TournamentEntity tournament:this.tournamentRepository.SelectAllByOwner(Owner)){
+            result.add(new TournamentModel(tournament));
+
+        }
+        return result;
+    }
+
 
 }
