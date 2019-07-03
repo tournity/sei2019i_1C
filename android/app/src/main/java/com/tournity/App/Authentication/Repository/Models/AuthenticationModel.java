@@ -1,4 +1,4 @@
-package com.tournity;
+package com.tournity.App.Authentication.Repository.Models;
 
 public class AuthenticationModel {
 

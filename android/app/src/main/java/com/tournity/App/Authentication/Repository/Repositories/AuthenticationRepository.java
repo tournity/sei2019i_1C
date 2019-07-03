@@ -1,4 +1,4 @@
-package com.tournity;
+package com.tournity.App.Authentication.Repository.Repositories;
 
 public class AuthenticationRepository {
     public void create(){

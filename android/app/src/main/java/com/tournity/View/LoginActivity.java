@@ -1,4 +1,4 @@
-package com.tournity;
+package com.tournity.View;
 
 import android.app.Activity;
 
