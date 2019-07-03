@@ -21,6 +21,14 @@ public class TournamentRepository {
             ArrayList<TournamentEntity>result=null;
         return result;
     }
+    public ArrayList<TournamentEntity>SelectAllBySportId(int idSport){
+     ArrayList<TournamentEntity>result=new ArrayList<>();
+
+
+
+
+     return result;
+    }
 
 
 }
