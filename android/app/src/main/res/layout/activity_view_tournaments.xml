@@ -10,7 +10,11 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TypeFilter"></Spinner>
+        android:id="@+id/SpinnerTypeFilter"></Spinner>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SpinnerFilterValue"></Spinner>
     <ListView
     android:id="@+id/ListTournaments"
     android:layout_width="match_parent"
