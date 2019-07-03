@@ -1,21 +1,21 @@
 INSERT INTO "Users"
-    (type, id_number, name, phone, email, hash, salt, last_interaction_date, "createdAt", "updatedAt")
+    (type, id_number, name, phone, email, hash, salt, lastInteractionDate, "createdAt", "updatedAt")
 VALUES
     ('admin', 1, 'Andryut', 1, 'Andryut@correo.com', '787fdfe28e154fc0cbce24d7d1cd5cbe3d324e5516b61bd5073667a1c4c2d772', 'salesita', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO "Users"
-    (type, id_number, name, phone, email, hash, salt, last_interaction_date, "createdAt", "updatedAt")
+    (type, id_number, name, phone, email, hash, salt, lastInteractionDate, "createdAt", "updatedAt")
 VALUES
     ('restaurant_admin', 2, 'corralero', 2, 'corralero@correo.com', '787fdfe28e154fc0cbce24d7d1cd5cbe3d324e5516b61bd5073667a1c4c2d772', 'salesita', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO "Users"
-    (type, id_number, name, phone, email, hash, salt, last_interaction_date, "createdAt", "updatedAt")
+    (type, id_number, name, phone, email, hash, salt, lastInteractionDate, "createdAt", "updatedAt")
 VALUES
     ('shopkeeper', 3, 'tendero', 2, 'tendero@correo.com', '787fdfe28e154fc0cbce24d7d1cd5cbe3d324e5516b61bd5073667a1c4c2d772', 'salesita', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO "Users"
-    (type, id_number, name, phone, email, hash, salt, last_interaction_date, "createdAt", "updatedAt")
+    (type, id_number, name, phone, email, hash, salt, lastInteractionDate, "createdAt", "updatedAt")
 VALUES
     ('customer', 4, 'comprador', 2, 'comprador@correo.com', '787fdfe28e154fc0cbce24d7d1cd5cbe3d324e5516b61bd5073667a1c4c2d772', 'salesita', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO "Users"
-    (type, id_number, name, phone, email, hash, salt, last_interaction_date, "createdAt", "updatedAt")
+    (type, id_number, name, phone, email, hash, salt, lastInteractionDate, "createdAt", "updatedAt")
 VALUES
     ('restaurant_admin', 5, 'homeHambur', 2, 'home@correo.com', '787fdfe28e154fc0cbce24d7d1cd5cbe3d324e5516b61bd5073667a1c4c2d772', 'salesita', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO "Addresses"
