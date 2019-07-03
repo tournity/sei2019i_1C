@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -16,13 +17,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.tournity.R;
 
-public class LoginActivity{
+public class LoginActivity extends AppCompatActivity {
 
 
 
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         final EditText usernameEditText = findViewById(R.id.username);
