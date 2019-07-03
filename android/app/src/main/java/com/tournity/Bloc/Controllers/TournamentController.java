@@ -1,9 +1,9 @@
 
-package com.tournity.BussinessLogic.Controllers;
+package com.tournity.Bloc.Controllers;
 
 import android.content.Context;
 
-import com.tournity.DataModels.TournamentModel;
+import com.tournity.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
 import java.util.Date;

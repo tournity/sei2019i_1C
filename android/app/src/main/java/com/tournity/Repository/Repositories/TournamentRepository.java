@@ -1,4 +1,4 @@
-package com.tournity.DataAccess.Repositories;
+package com.tournity.Repository.Repositories;
 
 import android.content.Context;
 

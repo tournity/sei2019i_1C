@@ -1,8 +1,8 @@
-package com.tournity.DataModels;
+package com.tournity.Repository.Models;
 
 import android.content.Context;
 
-import com.tournity.DataAccess.Repositories.TournamentRepository;
+import com.tournity.Repository.Repositories.TournamentRepository;
 import com.tournity.Entities.TournamentEntity;
 
 import java.util.ArrayList;
