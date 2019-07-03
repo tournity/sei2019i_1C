@@ -1,15 +1,7 @@
-const user = require('./user');
-const restaurant = require('./restaurant');
-const guard = require('./guard');
-const customer = require('./customer');
-const order = require('./order');
-const shoppingCart = require('./shoppingCart');
+const user = require('./user.controller');
+const guard = require('./guard.controller');
 
 module.exports = {
-  user,
-  restaurant,
   guard,
-  customer,
-  order,
-  shoppingCart
+  user
 };
