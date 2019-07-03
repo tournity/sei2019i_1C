@@ -47,6 +47,11 @@ throw new Exception("No se encontraron Torneos por El deporte especificado");
         else throw new Exception("No se encontraron resultados por la fecha especificada");
     }
 
+public ArrayList<TournamentModel>getAllTournamentsByOwner(String owner)throws Exception{
+        ArrayList<TournamentModel>result=this.tournamentModel.getAllByOwner(owner);
+        if(result!=null)return result;
+        else throw new Exception("No se encontraron resultados por el nombre del creador del torneo");
 
+}
 
 }
