@@ -31,5 +31,14 @@ public ArrayList<TournamentModel> getAllTournaments()throws Exception{
 
 }
 
+public ArrayList<TournamentModel>getAllTournamentsBySportId(int idSport)throws Exception{
+    ArrayList<TournamentModel>result=this.tournamentModel.getAllBySportId(idSport);
+    if(result!=null){
+        return result;
+    }else
+throw new Exception("No se encontraron Torneos por El deporte especificado");
+
+    }
+
 
 }
