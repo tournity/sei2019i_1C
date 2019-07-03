@@ -37,5 +37,12 @@ public ArrayList<TournamentEntity>SelectAllByInitDate(Date Initdate){
 
     return result;
     }
+    public ArrayList<TournamentEntity>SelectAllByOwner(String owner){
+        ArrayList<TournamentEntity>result=new ArrayList<>();
+
+
+        return result;
+    }
+
 
 }
