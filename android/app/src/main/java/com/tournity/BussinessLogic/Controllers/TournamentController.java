@@ -19,7 +19,7 @@ public class TournamentController {
 
         this.tournamentModel=new TournamentModel();
     }
-public ArrayList<TournamentModel> getAllTournaments()throws Exception{
+    public ArrayList<TournamentModel> getAllTournaments()throws Exception{
 
         if(this.tournamentModel.getAll()!=null) {
             return this.tournamentModel.getAll();
@@ -29,6 +29,14 @@ public ArrayList<TournamentModel> getAllTournaments()throws Exception{
 
 
 
+
+}
+    public static ArrayList<String> getAllNamesOfTournaments(ArrayList<TournamentModel> listTournaments){
+        ArrayList<String> namesList = new ArrayList<>();
+            for (int i = 0; i<listTournaments.size();i++){
+                namesList.add(listTournaments.get(i).getTournamentEntity().getName());
+            }
+        return namesList;
 }
 
 
