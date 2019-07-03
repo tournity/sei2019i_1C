@@ -5,6 +5,7 @@ import android.content.Context;
 import com.tournity.Entities.TournamentEntity;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TournamentRepository {
     private Context context;
@@ -30,5 +31,11 @@ public class TournamentRepository {
      return result;
     }
 
+public ArrayList<TournamentEntity>SelectAllByInitDate(Date Initdate){
+        ArrayList<TournamentEntity>result=new ArrayList<>();
+
+
+    return result;
+    }
 
 }
