@@ -15,6 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/SpinnerFilterValue"></Spinner>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="Inserta el nombre del Usuario"
+        android:id="@+id/txtOwner"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:background="#04B404"
+        android:textColor="#ffffff"
+        android:id="@+id/btnSearch"/>
     <ListView
     android:id="@+id/ListTournaments"
     android:layout_width="match_parent"
