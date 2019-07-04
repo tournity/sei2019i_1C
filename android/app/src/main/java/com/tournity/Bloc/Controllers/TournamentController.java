@@ -10,20 +10,20 @@ import java.util.Date;
 
 public class TournamentController {
     private Context context;
-    private TournamentModel tournamentModel;
+    private static TournamentModel tournamentModel;
 
     public TournamentController(Context context) {
         this.context = context;
-        this.tournamentModel=new TournamentModel(context);
+        tournamentModel=new TournamentModel(context);
     }
     public TournamentController() {
 
-        this.tournamentModel=new TournamentModel();
+        tournamentModel=new TournamentModel();
     }
-public ArrayList<TournamentModel> getAllTournaments()throws Exception{
+public static ArrayList<TournamentModel> getAllTournaments()throws Exception{
 
-        if(this.tournamentModel.getAll()!=null) {
-            return this.tournamentModel.getAll();
+        if(tournamentModel.getAll()!=null) {
+            return tournamentModel.getAll();
         }else{
             throw new Exception("No se encontraron resultados");
     }
@@ -32,8 +32,8 @@ public ArrayList<TournamentModel> getAllTournaments()throws Exception{
 
 }
 
-public ArrayList<TournamentModel>getAllTournamentsBySportId(int idSport)throws Exception{
-    ArrayList<TournamentModel>result=this.tournamentModel.getAllBySportId(idSport);
+public static ArrayList<TournamentModel>getAllTournamentsBySportId(int idSport)throws Exception{
+    ArrayList<TournamentModel>result=tournamentModel.getAllBySportId(idSport);
     if(result!=null){
         return result;
     }else
@@ -41,14 +41,14 @@ throw new Exception("No se encontraron Torneos por El deporte especificado");
 
     }
 
-    public ArrayList<TournamentModel>getAllTournamentsByDate(Date date)throws Exception{
-        ArrayList<TournamentModel>result=this.tournamentModel.getAllByDate(date);
+    public static ArrayList<TournamentModel>getAllTournamentsByDate(Date date)throws Exception{
+        ArrayList<TournamentModel>result=tournamentModel.getAllByDate(date);
         if(result!=null)return result;
         else throw new Exception("No se encontraron resultados por la fecha especificada");
     }
 
-public ArrayList<TournamentModel>getAllTournamentsByOwner(String owner)throws Exception{
-        ArrayList<TournamentModel>result=this.tournamentModel.getAllByOwner(owner);
+public static ArrayList<TournamentModel>getAllTournamentsByOwner(String owner)throws Exception{
+        ArrayList<TournamentModel>result=tournamentModel.getAllByOwner(owner);
         if(result!=null)return result;
         else throw new Exception("No se encontraron resultados por el nombre del creador del torneo");
 

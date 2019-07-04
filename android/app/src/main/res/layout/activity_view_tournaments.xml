@@ -27,7 +27,8 @@
         android:text="Search"
         android:background="#04B404"
         android:textColor="#ffffff"
-        android:id="@+id/btnSearch"/>
+        android:id="@+id/btnSearch"
+        android:onClick="Search"/>
     <ListView
     android:id="@+id/ListTournaments"
     android:layout_width="match_parent"
@@ -37,6 +38,7 @@
         android:text="Lista"
         android:layout_margin="10dp"
         android:orientation="vertical"
+
     />
 
 </LinearLayout>
