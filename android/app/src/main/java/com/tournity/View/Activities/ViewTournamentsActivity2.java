@@ -13,13 +13,13 @@ import com.tournity.R;
 
 import java.util.ArrayList;
 
-public class ViewTournamentsActivity extends AppCompatActivity {
+public class ViewTournamentsActivity2 extends AppCompatActivity {
     Spinner filterSpinner;
     ListView tournamentListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_tournaments);
+        setContentView(R.layout.activity_view_tournaments2);
 
         filterSpinner = findViewById(R.id.idSpinnerFilters);
         tournamentListView =  findViewById(R.id.idListViewTournaments);
