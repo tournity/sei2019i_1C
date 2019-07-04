@@ -13,8 +13,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.tournity.Bloc.Controllers.SportController;
 import com.tournity.Bloc.Controllers.TournamentController;
 import com.tournity.R;
+import com.tournity.Repository.Models.SportModel;
 import com.tournity.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ private ArrayAdapter<CharSequence>adapter;
 private Context context;
 private ListView list;
 private TournamentController controller;
+private ArrayList<SportModel>sports;
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +54,20 @@ this.Filter.setAdapter(this.adapter);
 this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-      ArrayAdapter<CharSequence>adap=new ArrayAdapter(this,android.R.layout.simple_spinner_item,TournamentController.)
+
+
         if(i==0){
 
-      }
+            sports= SportController.getAll();
+            ArrayList<String>sportsnames=new ArrayList<>();
+            for(SportModel sport:sports){
+                sportsnames.add(sport.getSportEntity().getName());
+            }
+            ArrayAdapter<CharSequence>adap=new ArrayAdapter(context,android.R.layout.simple_spinner_item,sportsnames);
+      }else if(i==2){
+            
+        }
+    }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
