@@ -19,25 +19,40 @@ public class LoginActivity extends AppCompatActivity {
     private Button registerButton;
     private EditText usernameEditText;
     private EditText passwordEditText;
-    public void onCreate(Bundle savedInstanceState){
+    private String username;
+    private String password;
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-         usernameEditText = findViewById(R.id.username);
-         passwordEditText = findViewById(R.id.password);
-         loginButton = findViewById(R.id.loginButton);
-         registerButton = findViewById(R.id.registerButton);
-         registerButton.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 onRegisterClick();
-             }
-         });
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
+        loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButton);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onRegisterClick();
+            }
+        });
+        loginButton = findViewById(R.id.loginButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLogInClick();
+            }
+        });
 
     }
 
-    private void onRegisterClick(){
+    private void onRegisterClick() {
         Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
+    }
+
+    private void onLogInClick() {
+        username = usernameEditText.getText().toString();
+        password = passwordEditText.getText().toString();
     }
 
 
