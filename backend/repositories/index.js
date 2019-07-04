@@ -1,7 +1,7 @@
-const UsersRepository = require('./users.repository');
-const GuardRepository = require('./guard.repository');
+const GuardRepository = require('./guard');
+const AccountRepository = require('./account');
 
 module.exports = {
   GuardRepository,
-  UsersRepository
+  AccountRepository
 };

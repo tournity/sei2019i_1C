@@ -17,6 +17,8 @@ public class TournamentModel {
         this.tournamentRepository=new TournamentRepository();
     }
 
+
+
     public TournamentModel() {
         this.tournamentRepository=new TournamentRepository();
     }

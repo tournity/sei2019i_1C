@@ -1,9 +1,9 @@
-const guard = require('../controllers').guard;
+const GuardController = require('../controllers').GuardController;
 
 var router = require('express').Router();
 
-router.post('/login', guard.authenticate);
-router.post('/login-with-token', guard.authenticateWithToken);
-router.post('/sign-out', guard.authorize, guard.disavow);
+router.post('/login', GuardController.authenticate);
+router.post('/login-with-token', GuardController.authenticateWithToken);
+router.post('/sign-out', GuardController.authorize, GuardController.disavow);
 
 module.exports = router;
