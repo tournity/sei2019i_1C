@@ -25,6 +25,6 @@ public class CreateTeamActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        
+
     }
 }
