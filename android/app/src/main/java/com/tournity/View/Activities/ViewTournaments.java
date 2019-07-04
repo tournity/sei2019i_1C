@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.tournity.Bloc.Controllers.SportController;
 import com.tournity.Bloc.Controllers.TournamentController;
@@ -68,9 +69,9 @@ this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 MapSports.put(sport.getSportEntity().getName(),sport.getSportEntity().getId());
             }
             ArrayAdapter<CharSequence>adap=new ArrayAdapter(context,android.R.layout.simple_spinner_item,sportsnames);
-            list.setAdapter(adap);
+            FilterValue.setAdapter(adap);
       }else if(i==1){
-        
+
         }else if(i==2){
 
         }
@@ -91,7 +92,7 @@ this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       try{
           TournamentController.getAllTournamentsBySportId(MapSports.get(this.FilterValue.getSelectedItem().toString()));
       }catch(Exception e){
-
+          Toast.makeText (context, e.getMessage(), Toast.LENGTH_SHORT).show();
       }
 
     }else if(this.Filter.getSelectedItem().toString().equals("Owner")){
