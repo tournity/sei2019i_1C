@@ -203,3 +203,4 @@ create table match_competitors(
 	status varchar(50) not null
 );
 go
+
