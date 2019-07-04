@@ -1,4 +1,4 @@
-package com.tournity.View;
+package com.tournity.App.Users.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.tournity.App.Authentication.View.Activities.LoginActivity;
 import com.tournity.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -48,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         password = editText2.getText().toString();
     }
     private void onLoginClick(){
-        Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 }

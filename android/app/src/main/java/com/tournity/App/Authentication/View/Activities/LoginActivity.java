@@ -1,4 +1,4 @@
-package com.tournity.View;
+package com.tournity.App.Authentication.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tournity.R;
+import com.tournity.App.Users.View.Activities.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onRegisterClick(){
-        Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
     }
 
