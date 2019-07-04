@@ -1,10 +1,11 @@
-package com.tournity;
+package com.tournity.View.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.tournity.R;
 import com.tournity.View.Activities.ViewTournaments;
 
 public class MainActivity extends AppCompatActivity {

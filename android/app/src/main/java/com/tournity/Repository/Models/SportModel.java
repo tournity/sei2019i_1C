@@ -34,9 +34,10 @@ public class SportModel {
     }
 
 
-    public ArrayList<SportModel>getAll(){
+    public static ArrayList<SportModel>getAll(){
         ArrayList<SportModel>result=new ArrayList<>();
-        for(SportEntity sport:this.sportRepository.selectAll()){
+        SportRepository sportRepository = new SportRepository();
+        for(SportEntity sport: sportRepository.selectAll()){
             result.add(new SportModel(sport));
         }
         return result;

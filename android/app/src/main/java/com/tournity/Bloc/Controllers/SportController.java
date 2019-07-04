@@ -18,8 +18,8 @@ public class SportController {
 
         sportModel=new SportModel();
     }
-    public static ArrayList<SportModel>getAll(){
-        ArrayList<SportModel>result=sportModel.getAll();
+    public static ArrayList<SportModel> getAll(){
+        ArrayList<SportModel>result=SportModel.getAll();
     return result;
     }
 }

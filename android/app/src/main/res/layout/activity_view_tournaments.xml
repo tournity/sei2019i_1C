@@ -10,7 +10,8 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/SpinnerTypeFilter"></Spinner>
+        android:id="@+id/SpinnerTypeFilter"
+        ></Spinner>
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:text="Inserta el nombre del Usuario"
+        android:hint="Inserta el nombre del Usuario"
         android:id="@+id/txtOwner"/>
     <Button
         android:layout_width="match_parent"
