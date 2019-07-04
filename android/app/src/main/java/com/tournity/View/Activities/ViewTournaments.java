@@ -90,7 +90,13 @@ this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
     ArrayList<TournamentModel>result;
     if(this.Filter.getSelectedItem().toString().equals("Sport")){
       try{
-          TournamentController.getAllTournamentsBySportId(MapSports.get(this.FilterValue.getSelectedItem().toString()));
+          ArrayList<TournamentModel>tournaments=TournamentController.getAllTournamentsBySportId(MapSports.get(this.FilterValue.getSelectedItem().toString()));
+          ArrayList<String>tournamentFeatures=new ArrayList<>();
+          for(TournamentModel tournament:tournaments){
+              tournamentFeatures.add(tournament.getTournamentEntity().getName()+"( "+MapSports.get(this.FilterValue.getSelectedItem().toString()+")"));
+          }
+          ArrayAdapter<CharSequence>adap=new ArrayAdapter(context,android.R.layout.simple_spinner_item,tournamentFeatures);
+          list.setAdapter(adap);
       }catch(Exception e){
           Toast.makeText (context, e.getMessage(), Toast.LENGTH_SHORT).show();
       }
@@ -98,6 +104,7 @@ this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
     }else if(this.Filter.getSelectedItem().toString().equals("Owner")){
 
     }else if(this.Filter.getSelectedItem().toString().equals("Date")){
+
    }
 
 
