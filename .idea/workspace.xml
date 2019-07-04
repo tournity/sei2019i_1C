@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1475f891-a671-47dd-b3e7-602c941e863d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Entities/TournamentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Models/TournamentModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Repositories/TournamentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Models/TournamentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Models/TournamentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Repositories/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Repositories/TeamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Repositories/TournamentParticipantsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/tournity/Repository/Repositories/TournamentParticipantsRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
