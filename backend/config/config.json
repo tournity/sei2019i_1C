@@ -1,5 +1,6 @@
 {
   "development": {
+    "sockePath": "tournity:us-central1:toutnity-db",
     "username": "postgres",
     "password": "1234",
     "database": "tournity",
@@ -7,6 +8,7 @@
     "dialect": "postgres"
   },
   "test": {
+    "sockePath": "tournity:us-central1:toutnity-db",
     "username": "postgres",
     "password": "1234",
     "database": "tournity",
@@ -14,6 +16,7 @@
     "dialect": "postgres"
   },
   "production": {
+    "sockePath": "tournity:us-central1:toutnity-db",
     "username": "postgres",
     "password": "1234",
     "database": "tournity",

@@ -1,4 +1,5 @@
 let sequelize = require('../models').sequelize;
+
 const Account = require('../models').Account;
 let Guard = require('./guard');
 
@@ -8,7 +9,7 @@ module.exports.findByEmail = async function(email) {
   });
 };
 
-let create = function(accountData, t) {
+let create = function(accountData, transaction) {
   let credentials = Guard.generateCredentials(accountData.password);
   return Account.create(
     {
@@ -20,7 +21,7 @@ let create = function(accountData, t) {
       lastInteractionDate: Date.now(),
       status: 'active'
     },
-    { transaction: t }
+    { transaction: transaction }
   );
 };
 

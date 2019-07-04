@@ -1,7 +1,7 @@
 let jwt = require('jsonwebtoken');
 let crypto = require('crypto');
 const config = require('../config/config.js');
-let User = require('./account');
+let AccountRepository = require('./account');
 
 let generateRandomString = function(length) {
   return crypto
@@ -31,14 +31,21 @@ module.exports.checkToken = async function(req) {
   if (token) {
     if (token.startsWith('Bearer ')) token = token.slice(7, token.length);
     let decoded = jwt.verify(token, config.secret);
-    let user = await AccountRepository.findByEmail(decoded.email);
+    let account = await AccountRepository.findByEmail(decoded.email);
     if (
-      user &&
-      user.token == token &&
-      diferenceBetweenDatesInMinutes(user.lastInteractionDate, Date.now()) < 600
+      account &&
+      account.token == token &&
+      diferenceBetweenDatesInMinutes(account.lastInteractionDate, Date.now()) <
+        600
     ) {
-      await user.update({ lastInteractionDate: Date.now() });
-      return user.dataValues;
+      await account.update({ lastInteractionDate: Date.now() });
+      return {
+        id: account.id,
+        type: account.type,
+        name: account.name,
+        email: account.email,
+        status: account.status
+      };
     } else {
       throw Error('Token unauthorized');
     }
@@ -47,36 +54,38 @@ module.exports.checkToken = async function(req) {
   }
 };
 
-module.exports.createToken = async function(userData) {
-  let email = userData.email;
-  let password = userData.password;
+module.exports.createToken = async function(accountData) {
+  let email = accountData.email;
+  let password = accountData.password;
   if (email && password) {
-    let user = await AccountRepository.findByEmail(email);
+    let account = await AccountRepository.findByEmail(email);
+
     let hash = crypto
       .createHash('SHA256')
-      .update(password + user.salt)
+      .update(password + account.salt)
       .digest('hex');
-    if (hash === user.hash) {
+
+    if (hash === account.encryptedPassword) {
       let token = jwt.sign(
         {
-          id: user.id,
-          type: user.type,
-          name: user.name,
-          email: user.email,
-          status: user.status
+          id: account.id,
+          type: account.type,
+          name: account.name,
+          email: account.email,
+          status: account.status
         },
         config.secret,
         { expiresIn: '24h' }
       );
-      await user.update({ token: token, lastInteractionDate: Date.now() });
+      await account.update({ token: token, lastInteractionDate: Date.now() });
       return {
-        token: token,
         user_data: {
-          id: user.id,
-          type: user.type,
-          name: user.name,
-          email: user.email,
-          status: user.status
+          id: account.id,
+          type: account.type,
+          name: account.name,
+          email: account.email,
+          token: token,
+          status: account.status
         }
       };
     } else {
@@ -87,7 +96,7 @@ module.exports.createToken = async function(userData) {
   }
 };
 
-module.exports.deleteToken = async function(userData) {
-  let user = await AccountRepository.findByEmail(userData.email);
+module.exports.deleteToken = async function(accountData) {
+  let user = await AccountRepository.findByEmail(accountData.email);
   await user.update({ token: null, connected: false });
 };
