@@ -1,7 +1,8 @@
 var express = require('express');
 var cors = require('cors');
 
-var indexRouter = require('./routes/index.js');
+var AccountRouter = require('./routes').AccountRouter;
+var GuardRouter = require('./routes').GuardRouter;
 
 var app = express();
 
@@ -9,11 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/user', indexRouter.user);
-app.use('/api/guard', indexRouter.guard);
-app.use('/api/customer', indexRouter.customer);
-app.use('/api/restaurant', indexRouter.restaurant);
-app.use('/api/order', indexRouter.order);
-app.use('/api/shopping-cart', indexRouter.shoppingCart);
+app.use('/api/account', AccountRouter);
+app.use('/api/guard', GuardRouter);
 
 module.exports = app;

@@ -1,7 +1,7 @@
 let jwt = require('jsonwebtoken');
 let crypto = require('crypto');
 const config = require('../config/config.js');
-let User = require('./users.repository');
+let User = require('./account');
 
 let generateRandomString = function(length) {
   return crypto
@@ -12,12 +12,12 @@ let generateRandomString = function(length) {
 
 module.exports.generateCredentials = function(password) {
   let salt = generateRandomString(100);
-  let hash = crypto
+  let encryptedPassword = crypto
     .createHash('SHA256')
     .update(password + salt)
     .digest('hex');
   return {
-    hash: hash,
+    encryptedPassword: encryptedPassword,
     salt: salt
   };
 };
@@ -31,12 +31,11 @@ module.exports.checkToken = async function(req) {
   if (token) {
     if (token.startsWith('Bearer ')) token = token.slice(7, token.length);
     let decoded = jwt.verify(token, config.secret);
-    let user = await User.findByEmail(decoded.email);
+    let user = await AccountRepository.findByEmail(decoded.email);
     if (
       user &&
       user.token == token &&
-      diferenceBetweenDatesInMinutes(user.lastInteractionDate, Date.now()) <
-        600
+      diferenceBetweenDatesInMinutes(user.lastInteractionDate, Date.now()) < 600
     ) {
       await user.update({ lastInteractionDate: Date.now() });
       return user.dataValues;
@@ -52,7 +51,7 @@ module.exports.createToken = async function(userData) {
   let email = userData.email;
   let password = userData.password;
   if (email && password) {
-    let user = await User.findByEmail(email);
+    let user = await AccountRepository.findByEmail(email);
     let hash = crypto
       .createHash('SHA256')
       .update(password + user.salt)
@@ -63,7 +62,8 @@ module.exports.createToken = async function(userData) {
           id: user.id,
           type: user.type,
           name: user.name,
-          email: user.email
+          email: user.email,
+          status: user.status
         },
         config.secret,
         { expiresIn: '24h' }
@@ -75,7 +75,8 @@ module.exports.createToken = async function(userData) {
           id: user.id,
           type: user.type,
           name: user.name,
-          email: user.email
+          email: user.email,
+          status: user.status
         }
       };
     } else {
@@ -87,6 +88,6 @@ module.exports.createToken = async function(userData) {
 };
 
 module.exports.deleteToken = async function(userData) {
-  let user = await User.findByEmail(userData.email);
+  let user = await AccountRepository.findByEmail(userData.email);
   await user.update({ token: null, connected: false });
 };

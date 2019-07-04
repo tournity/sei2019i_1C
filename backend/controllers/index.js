@@ -1,7 +1,7 @@
-const user = require('./user.controller');
-const guard = require('./guard.controller');
+const GuardController = require('./guard');
+const AccountController = require('./account');
 
 module.exports = {
-  guard,
-  user
+  GuardController,
+  AccountController
 };
