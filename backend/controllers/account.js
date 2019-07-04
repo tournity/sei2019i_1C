@@ -6,18 +6,11 @@ app.get('/products/:id', cors(config.corsOptions), function (req, res, next) {
   res.json({msg: 'This is CORS-enabled for only example.com.'})
 });
 */
-const UsersRepository = require('../repositories').UsersRepository;
+const AccountRepository = require('../repositories').AccountRepository;
 
 module.exports.register = (req, res) => {
-  if (
-    req.body.email &&
-    req.body.password &&
-    req.body.type &&
-    req.body.id_number &&
-    req.body.name &&
-    req.body.phone
-  ) {
-    UsersRepository.register(req.body)
+  if (req.body.type && req.body.name && req.body.email && req.body.password) {
+    AccountRepository.register(req.body)
       .then(() => {
         res.json({
           success: true,
@@ -26,6 +19,7 @@ module.exports.register = (req, res) => {
       })
       .catch(error => res.status(500).json({ message: error.message }));
   } else {
+    console.log(req);
     res.status(400).json({
       success: false,
       message: 'wrong Parameters'
