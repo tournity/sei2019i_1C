@@ -9,7 +9,6 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.tournity.BussinessLogic.Controllers.TournamentController;
 import com.tournity.R;
 
 import java.util.ArrayList;
