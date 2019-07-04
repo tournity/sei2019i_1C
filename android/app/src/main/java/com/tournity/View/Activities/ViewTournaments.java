@@ -20,6 +20,7 @@ import com.tournity.Repository.Models.SportModel;
 import com.tournity.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class ViewTournaments extends AppCompatActivity {
 private EditText txtOwner;
@@ -32,10 +33,12 @@ private Context context;
 private ListView list;
 private TournamentController controller;
 private ArrayList<SportModel>sports;
+private TreeMap<String,Integer> MapSports;
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.context=this;
+        this.MapSports=new TreeMap<>();
         this.controller=new TournamentController(context);
         setContentView(R.layout.activity_view_tournaments);
         this.datos=new String[]{"Owner","Sport","Date"};
@@ -62,10 +65,14 @@ this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             ArrayList<String>sportsnames=new ArrayList<>();
             for(SportModel sport:sports){
                 sportsnames.add(sport.getSportEntity().getName());
+                MapSports.put(sport.getSportEntity().getName(),sport.getSportEntity().getId());
             }
             ArrayAdapter<CharSequence>adap=new ArrayAdapter(context,android.R.layout.simple_spinner_item,sportsnames);
-      }else if(i==2){
-            
+            list.setAdapter(adap);
+      }else if(i==1){
+        
+        }else if(i==2){
+
         }
     }
 
@@ -81,6 +88,11 @@ this.Filter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
    public void Search(View view){
     ArrayList<TournamentModel>result;
     if(this.Filter.getSelectedItem().toString().equals("Sport")){
+      try{
+          TournamentController.getAllTournamentsBySportId(MapSports.get(this.FilterValue.getSelectedItem().toString()));
+      }catch(Exception e){
+
+      }
 
     }else if(this.Filter.getSelectedItem().toString().equals("Owner")){
 
