@@ -18,7 +18,7 @@ public class SportRepository {
 public ArrayList<SportEntity>selectAll(){
 
         ArrayList<SportEntity>result=new ArrayList<>();
-        
+
 
 
         return result;
