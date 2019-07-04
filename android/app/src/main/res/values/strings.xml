@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">android</string>
+    <string name="title_select_filter">Select  filter</string>
+    <string name="title_tournament_tournamentV">Tournament: </string>
+    <string name="subTitle_match_to_play">Match to play</string>
+    <string name="subTitle_match_played">Match played</string>
     <string name="title_select_create_team">Select Group</string>
     <string name="title_group">Group: </string>
     <string name="edTxt_create_team">Team name</string>

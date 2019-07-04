@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_combo">
+        <item>Unfiltered</item>
+        <item>Filter by sport</item>
+        <item>Filter by user</item>
+        <item>Filter by date</item>
+    </string-array>
+</resources>
