@@ -24,13 +24,13 @@ module.exports.authenticateWithToken = (req, res, next) => {
 };
 
 module.exports.authenticate = (req, res) => {
+  console.log(req.body);
   GuardRepository.createToken(req.body)
-    .then(passport =>
+    .then(accountData =>
       res.json({
         success: true,
         message: 'Authentication successful',
-        token: passport.token,
-        user_data: passport.user_data
+        accountData: accountData
       })
     )
     .catch(error => res.status(500).json({ message: error.message }));
