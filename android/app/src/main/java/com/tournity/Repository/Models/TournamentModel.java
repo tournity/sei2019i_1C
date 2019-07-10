@@ -114,7 +114,7 @@ public static void Create (String name, String description, String st_date, Stri
             }
         };
 
-        TournamentRepository.SelectAllByDate(new Date(InitDate)),context,tournaments);
+        TournamentRepository.SelectAllByDate(new Date(InitDate),context,tournaments);
     }
 
 

@@ -9,7 +9,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.tournity.App.Authentication.Entities.AccountEntity;
 import com.tournity.Entities.TournamentEntity;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.RepositoryListener;
@@ -76,7 +75,7 @@ public static void Insert(final TournamentEntity entity, final Context context, 
     public static void  selectAll(Context context, RepositoryListener<ArrayList<TournamentEntity>>listener){//ANALIZAR COMO ES EL RESPOND DE UN GET
         RequestQueue queue = Volley.newRequestQueue(context);
         String url ="http://10.203.183.88:3000/api/guard/login";
-        StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+       /* StringRequest MyStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -108,7 +107,7 @@ public static void Insert(final TournamentEntity entity, final Context context, 
                 return headers;
             }
         };
-        queue.add(MyStringRequest);
+        queue.add(MyStringRequest);*/
 
     }
 
