@@ -24,7 +24,7 @@ public class UserModel {
 
             }
         };
-        UserRe
+       UserEntity newuser=new UserEntity();
 
     }
 }
