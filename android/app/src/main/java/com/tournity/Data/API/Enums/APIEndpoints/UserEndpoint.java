@@ -1,4 +1,4 @@
-package com.tournity.Data.API.APIEndpoints;
+package com.tournity.Data.API.Enums.APIEndpoints;
 
 public enum UserEndpoint {
     Authentication("authentication"),

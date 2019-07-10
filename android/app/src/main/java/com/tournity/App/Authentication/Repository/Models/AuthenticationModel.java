@@ -16,7 +16,7 @@ public class AuthenticationModel {
         this.currentUser = currentUser;
     }
 
-    public static void authorize(String email, String password, Context ctx, final ModelListener<AuthenticationModel> listener){
+    public static void authorize(Context ctx, String email, String password, final ModelListener<AuthenticationModel> listener){
         AccountEntity authorizationData = new AccountEntity();
         authorizationData.setEmail(email);
         authorizationData.setEncryptedPassword(password);
@@ -32,7 +32,7 @@ public class AuthenticationModel {
                 listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
-        AuthenticationRepository.authenticate(authorizationData, ctx, repoListener);
+        AuthenticationRepository.authenticate(ctx, authorizationData, repoListener);
 
 
     };

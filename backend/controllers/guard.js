@@ -11,11 +11,11 @@ module.exports.authorize = (req, res, next) => {
 
 module.exports.authenticateWithToken = (req, res, next) => {
   GuardRepository.checkToken(req)
-    .then(user_data => {
+    .then(accountData => {
       res.json({
         success: true,
         message: 'Authentication successful',
-        user_data: user_data
+        data: accountData
       });
       req.decoded = decoded;
       next();
@@ -30,7 +30,7 @@ module.exports.authenticate = (req, res) => {
       res.json({
         success: true,
         message: 'Authentication successful',
-        accountData: accountData
+        data: accountData
       })
     )
     .catch(error => res.status(500).json({ message: error.message }));
