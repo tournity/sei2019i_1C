@@ -1,9 +1,9 @@
 
-package com.tournity.App.Tournaments.Bloc.Controllers;
+package com.tournity.Bloc.Controllers;
 
 import android.content.Context;
 
-import com.tournity.App.Tournaments.Repository.Models.TournamentModel;
+import com.tournity.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
 import java.util.Date;

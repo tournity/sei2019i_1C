@@ -1,4 +1,4 @@
-package com.tournity.App.Tournaments.Entities;
+package com.tournity.Entities;
 
 import java.util.Date;
 
