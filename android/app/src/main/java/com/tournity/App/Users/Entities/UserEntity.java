@@ -1,4 +1,4 @@
-package com.tournity.Entities;
+package com.tournity.App.Users.Entities;
 
 import com.tournity.App.Authentication.Entities.AccountEntity;
 

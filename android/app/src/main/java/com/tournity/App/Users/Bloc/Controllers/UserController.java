@@ -1,4 +1,4 @@
-package com.tournity.Bloc.Controllers;
+package com.tournity.App.Users.Bloc.Controllers;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -6,7 +6,7 @@ import android.widget.Toast;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
-import com.tournity.Repository.Models.UserModel;
+import com.tournity.App.Users.Repository.Models.UserModel;
 
 public class UserController {
     private Context context;

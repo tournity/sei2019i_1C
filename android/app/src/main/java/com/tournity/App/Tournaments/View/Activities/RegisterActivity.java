@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Tournaments.View.Activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.tournity.Bloc.Controllers.UserController;
+import com.tournity.App.Users.Bloc.Controllers.UserController;
 import com.tournity.Bloc.Enums.ControllerError;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.R;

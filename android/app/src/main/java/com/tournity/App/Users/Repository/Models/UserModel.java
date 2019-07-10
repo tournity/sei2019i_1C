@@ -1,14 +1,14 @@
-package com.tournity.Repository.Models;
+package com.tournity.App.Users.Repository.Models;
 
 import android.content.Context;
 
 import com.tournity.App.Authentication.Entities.AccountEntity;
-import com.tournity.Entities.UserEntity;
+import com.tournity.App.Users.Entities.UserEntity;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
-import com.tournity.Repository.Repositories.UserRepository;
+import com.tournity.App.Users.Repository.Repositories.UserRepository;
 
 import java.util.Date;
 
