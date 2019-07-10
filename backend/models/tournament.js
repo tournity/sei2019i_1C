@@ -1,10 +1,10 @@
 'use strict';
+const TournamentDefnition = require('../table_definitions').TournamentDefnition;
+
 module.exports = (sequelize, DataTypes) => {
   const Tournament = sequelize.define(
     'Tournament',
-    {
-      status: DataTypes.ENUM('active', 'deleted')
-    },
+    TournamentDefnition.build(DataTypes),
     {}
   );
   Tournament.associate = function(models) {
