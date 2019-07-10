@@ -30,7 +30,7 @@ public class UserController {
 
          }
      };
-       this.model.
+       this.model.Register(Username,email,Password,registeredlistener);
 
      }else{
          Toast.makeText(context, "Las Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
