@@ -31,9 +31,7 @@ public class TournamentRepository {
 
     public TournamentRepository() {
     }
-public static void Create(  String name,String description,String st_date,String end_date,int iduser_sport_group,String created){
 
-}
     public static void  selectAll(Context context, RepositoryListener<ArrayList<TournamentEntity>>listener){
         RequestQueue queue = Volley.newRequestQueue(context);
         String url ="http://10.203.183.88:3000/api/guard/login";
