@@ -1,9 +1,9 @@
-package com.tournity.App.CreateGroup.Repository.Models;
+package com.tournity.App.CreateAndViewGroup.Repository.Models;
 
 import android.content.Context;
 
-import com.tournity.App.CreateGroup.Entities.GroupEntity;
-import com.tournity.App.CreateGroup.Repository.Repositories.CreateGroupRepository;
+import com.tournity.App.CreateAndViewGroup.Entities.GroupEntity;
+import com.tournity.App.CreateAndViewGroup.Repository.Repositories.CreateGroupRepository;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
