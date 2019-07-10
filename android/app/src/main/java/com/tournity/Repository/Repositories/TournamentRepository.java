@@ -126,17 +126,16 @@ public static void Insert(final TournamentEntity entity, final Context context, 
 
 
 
-public ArrayList<TournamentEntity>SelectAllByInitDate(Date Initdate){
+public static void SelectAllByDate(Date Initdate,Context context,RepositoryListener<ArrayList<TournamentEntity>>listener){
         ArrayList<TournamentEntity>result=new ArrayList<>();
 
 
-    return result;
     }
-    public ArrayList<TournamentEntity>SelectAllByOwner(String owner){
+    public static void SelectAllByOwner(int owner,Context context,RepositoryListener<ArrayList<TournamentEntity>>listener){
         ArrayList<TournamentEntity>result=new ArrayList<>();
 
 
-        return result;
+
     }
 
 

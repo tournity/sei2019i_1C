@@ -9,7 +9,6 @@ import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class TournamentController {
     private Context context;
@@ -74,20 +73,40 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
 
             }
         };
+        TournamentModel.getAllBySportId(idSport,context,tournaments);
 
     }
 
-    public ArrayList<TournamentModel>getAllTournamentsByDate(Date date)throws Exception{
-        ArrayList<TournamentModel>result=this.tournamentModel.getAllByDate(date);
-        if(result!=null)return result;
-        else throw new Exception("No se encontraron resultados por la fecha especificada");
+    public void getAllTournamentsByDate(String initDate, final ControllerListener<ArrayList<TournamentModel>>listener){
+        ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
+            @Override
+            public void onSuccess(ArrayList<TournamentModel> model) {
+                listener.Then();
+            }
+
+            @Override
+            public void onError(ModelError error) {
+
+            }
+        };
+        TournamentModel.getAllByDate(initDate,context,tournaments);
+
+    }
+    public void getAllTournamentsByOwner(int IdOwner, final ControllerListener<ArrayList<TournamentModel>>listener){
+        ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
+            @Override
+            public void onSuccess(ArrayList<TournamentModel> model) {
+                listener.Then();
+            }
+
+            @Override
+            public void onError(ModelError error) {
+
+            }
+        };
+        TournamentModel.getAllByOwner(IdOwner,context,tournaments);
+
     }
 
-public ArrayList<TournamentModel>getAllTournamentsByOwner(String owner)throws Exception{
-        ArrayList<TournamentModel>result=this.tournamentModel.getAllByOwner(owner);
-        if(result!=null)return result;
-        else throw new Exception("No se encontraron resultados por el nombre del creador del torneo");
-
-}
 
 }

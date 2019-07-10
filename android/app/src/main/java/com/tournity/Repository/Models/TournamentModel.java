@@ -59,7 +59,7 @@ public static void Create (String name, String description, String st_date, Stri
 
        TournamentRepository.Insert(tournament,context,registered);
 }
-    public void getAll(Context context, final ModelListener <ArrayList<TournamentModel>> listener){
+    public static void getAll(Context context, final ModelListener <ArrayList<TournamentModel>> listener){
         RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
             @Override
             public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
@@ -78,7 +78,7 @@ public static void Create (String name, String description, String st_date, Stri
         TournamentRepository.selectAll(context,tournaments);
 
     }
-    public  void getAllBySportId(int idSport, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
+    public  static void getAllBySportId(int idSport, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
         RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
             @Override
             public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
@@ -97,21 +97,44 @@ public static void Create (String name, String description, String st_date, Stri
         TournamentRepository.SelectAllBySportId(idSport,context,tournaments);
     }
 
-    public ArrayList<TournamentModel>getAllByDate(Date date){
-           ArrayList<TournamentModel>result=new ArrayList<>();
-        for(TournamentEntity tournament:this.tournamentRepository.SelectAllByInitDate(date)){
-            result.add(new TournamentModel(tournament));
-        }
-        return result;
+    public  static void getAllByDate(String InitDate, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
+        RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
+            @Override
+            public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
+                ArrayList<TournamentModel>arr=new ArrayList<>();
+                for(TournamentEntity t:entity){
+                    arr.add(new TournamentModel(t));
+                }
+                listener.onSuccess(arr);
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+
+            }
+        };
+
+        TournamentRepository.SelectAllByDate(new Date(InitDate)),context,tournaments);
     }
 
-    public ArrayList<TournamentModel>getAllByOwner (String Owner) {
-        ArrayList<TournamentModel>result=new ArrayList<>();
-        for(TournamentEntity tournament:this.tournamentRepository.SelectAllByOwner(Owner)){
-            result.add(new TournamentModel(tournament));
 
-        }
-        return result;
+    public  static void getAllByOwner(int idOwner, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
+        RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
+            @Override
+            public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
+                ArrayList<TournamentModel>arr=new ArrayList<>();
+                for(TournamentEntity t:entity){
+                    arr.add(new TournamentModel(t));
+                }
+                listener.onSuccess(arr);
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+
+            }
+        };
+        TournamentRepository.SelectAllByOwner(idOwner,context,tournaments);
     }
 
 
