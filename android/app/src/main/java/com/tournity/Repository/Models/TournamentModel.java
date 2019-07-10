@@ -2,8 +2,11 @@ package com.tournity.Repository.Models;
 
 import android.content.Context;
 
-import com.tournity.Repository.Repositories.TournamentRepository;
 import com.tournity.Entities.TournamentEntity;
+import com.tournity.Repository.Enums.RepositoryError;
+import com.tournity.Repository.Listeners.ModelListener;
+import com.tournity.Repository.Listeners.RepositoryListener;
+import com.tournity.Repository.Repositories.TournamentRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,20 +39,42 @@ public class TournamentModel {
         this.tournamentEntity = tournamentEntity;
     }
 
-    public ArrayList<TournamentModel>getAll(){
-        ArrayList<TournamentModel>result=new ArrayList<>();
-        for(TournamentEntity tournament:this.tournamentRepository.getAll()){
-            result.add(new TournamentModel(tournament));
-        }
-       return result;
+    public void getAll(Context context, final ModelListener <ArrayList<TournamentModel>> listener){
+        RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
+            @Override
+            public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
+                ArrayList<TournamentModel>arr=new ArrayList<>();
+                for(TournamentEntity t:entity){
+                    arr.add(new TournamentModel(t));
+                }
+                listener.onSuccess(arr);
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+
+            }
+        };
+        TournamentRepository.selectAll(context,tournaments);
 
     }
-    public  ArrayList<TournamentModel>getAllBySportId(int idSport){
-        ArrayList<TournamentModel>result=new ArrayList<>();
-        for(TournamentEntity tournament:this.tournamentRepository.SelectAllBySportId(idSport)){
-            result.add(new TournamentModel(tournament));
-        }
-    return result;
+    public  void getAllBySportId(int idSport, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
+        RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
+            @Override
+            public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
+              ArrayList<TournamentModel>arr=new ArrayList<>();
+              for(TournamentEntity t:entity){
+                  arr.add(new TournamentModel(t));
+              }
+                listener.onSuccess(arr);
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+
+            }
+        };
+        TournamentRepository.SelectAllBySportId(idSport,context,tournaments);
     }
 
     public ArrayList<TournamentModel>getAllByDate(Date date){

@@ -3,6 +3,9 @@ package com.tournity.Bloc.Controllers;
 
 import android.content.Context;
 
+import com.tournity.Bloc.Listeners.ControllerListener;
+import com.tournity.Repository.Enums.ModelError;
+import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
@@ -20,13 +23,18 @@ public class TournamentController {
 
         this.tournamentModel=new TournamentModel();
     }
-    public ArrayList<TournamentModel> getAllTournaments()throws Exception{
+    public void getAllTournaments()throws Exception{
+        ModelListener<ArrayList<TournamentModel>>listener=new ModelListener<ArrayList<TournamentModel>>() {
+            @Override
+            public void onSuccess(ArrayList<TournamentModel> model) {
+            }
 
-        if(this.tournamentModel.getAll()!=null) {
-            return this.tournamentModel.getAll();
-        }else{
-            throw new Exception("No se encontraron resultados");
-    }
+            @Override
+            public void onError(ModelError error) {
+
+            }
+        };
+       this.tournamentModel.getAll(context,listener);
 
 
 
@@ -40,12 +48,18 @@ public class TournamentController {
         return namesList;
 }
 
-public ArrayList<TournamentModel>getAllTournamentsBySportId(int idSport)throws Exception{
-    ArrayList<TournamentModel>result=this.tournamentModel.getAllBySportId(idSport);
-    if(result!=null){
-        return result;
-    }else
-throw new Exception("No se encontraron Torneos por El deporte especificado");
+public void getAllTournamentsBySportId(int idSport, ControllerListener<ArrayList<TournamentModel>>listener){
+        ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
+            @Override
+            public void onSuccess(ArrayList<TournamentModel> model) {
+                listener.Then();
+            }
+
+            @Override
+            public void onError(ModelError error) {
+
+            }
+        }
 
     }
 
