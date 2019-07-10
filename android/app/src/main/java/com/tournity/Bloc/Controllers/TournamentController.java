@@ -23,8 +23,19 @@ public class TournamentController {
 
         this.tournamentModel=new TournamentModel();
     }
-    public static void Create(  String name,String description,String st_date,String end_date,int iduser_sport_group,Context context,ControllerListener<TournamentModel>listener){
+    public static void Create(  String name,String description,String st_date,String end_date,int iduser_sport_group,Context context,final ControllerListener<TournamentModel>listener){
+    ModelListener<TournamentModel>createdTournament=new ModelListener<TournamentModel>() {
+        @Override
+        public void onSuccess(TournamentModel model) {
+            listener.Then();
+        }
 
+        @Override
+        public void onError(ModelError error) {
+
+        }
+    };
+        TournamentModel.Create(name, description, st_date, end_date, iduser_sport_group, context,createdTournament);
     }
     public void getAllTournaments()throws Exception{
         ModelListener<ArrayList<TournamentModel>>listener=new ModelListener<ArrayList<TournamentModel>>() {
@@ -51,7 +62,7 @@ public class TournamentController {
         return namesList;
 }
 
-public void getAllTournamentsBySportId(int idSport, ControllerListener<ArrayList<TournamentModel>>listener){
+public void getAllTournamentsBySportId(int idSport, final ControllerListener<ArrayList<TournamentModel>>listener){
         ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
@@ -62,7 +73,7 @@ public void getAllTournamentsBySportId(int idSport, ControllerListener<ArrayList
             public void onError(ModelError error) {
 
             }
-        }
+        };
 
     }
 

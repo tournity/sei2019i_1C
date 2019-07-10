@@ -79,8 +79,11 @@ public class TournamentRepository {
 
 
 
-     return result;
+
     }
+
+
+
 
 public ArrayList<TournamentEntity>SelectAllByInitDate(Date Initdate){
         ArrayList<TournamentEntity>result=new ArrayList<>();

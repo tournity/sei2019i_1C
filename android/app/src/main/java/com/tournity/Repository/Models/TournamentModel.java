@@ -38,7 +38,20 @@ public class TournamentModel {
     public void setTournamentEntity(TournamentEntity tournamentEntity) {
         this.tournamentEntity = tournamentEntity;
     }
+public static void Create (String name, String description, String st_date, String end_date, int iduser_sport_group, Context context, final ModelListener<TournamentModel>listener){
+       RepositoryListener<TournamentEntity> registered=new RepositoryListener<TournamentEntity>() {
+           @Override
+           public void onQueryCompleted(TournamentEntity entity) {
+         listener.onSuccess(new TournamentModel(entity));
+           }
 
+           @Override
+           public void onQueryFailed(RepositoryError error) {
+
+           }
+       };
+       TournamentRepository
+}
     public void getAll(Context context, final ModelListener <ArrayList<TournamentModel>> listener){
         RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
             @Override
