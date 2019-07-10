@@ -2,6 +2,9 @@ package com.tournity.Entities;
 
 import com.tournity.App.Authentication.Entities.AccountEntity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class UserEntity {
 private int Id;
 private AccountEntity account;
@@ -27,5 +30,11 @@ private AccountEntity account;
 
     public void setAccount(AccountEntity account) {
         this.account = account;
+    }
+    public static UserEntity fromJSON(JSONObject userData) throws JSONException{
+        UserEntity myEntity = new UserEntity();
+        myEntity.setId(userData.getInt("id"));
+        myEntity.setAccount(new AccountEntity().fromJSON(userData.getJSONObject("account")));
+        return myEntity;
     }
 }

@@ -1,7 +1,10 @@
 package com.tournity.Repository.Models;
 
+import android.content.Context;
+
 import com.tournity.App.Authentication.Entities.AccountEntity;
 import com.tournity.Entities.UserEntity;
+import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
@@ -16,7 +19,10 @@ public class UserModel {
         this.user = user;
     }
 
-    public void Register(String Username, String email, String Password, final ModelListener<UserModel>listener){
+    public UserModel() {
+    }
+
+    public void Register(String Username, String email, String Password, Context context, final ModelListener<UserModel>listener){
         RepositoryListener<UserEntity>userRegistered=new RepositoryListener<UserEntity>() {
             @Override
             public void onQueryCompleted(UserEntity entity) {
@@ -25,7 +31,7 @@ public class UserModel {
 
             @Override
             public void onQueryFailed(RepositoryError error) {
-
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
        UserEntity newuser=new UserEntity();
@@ -37,7 +43,7 @@ public class UserModel {
        newaccount.setCreatedAt(new Date());
        newaccount.setStatus("active");
        newuser.setAccount(newaccount);
-        UserRepository.Insert(newuser,userRegistered);
+        UserRepository.Insert(newuser,context,userRegistered);
     }
 }
 

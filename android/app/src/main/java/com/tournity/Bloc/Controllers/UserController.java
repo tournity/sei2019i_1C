@@ -22,15 +22,15 @@ public class UserController {
      ModelListener<UserModel>registeredlistener=new ModelListener<UserModel>() {
          @Override
          public void onSuccess(UserModel model) {
-
+    listener.Then();
          }
 
          @Override
          public void onError(ModelError error) {
-
+             Toast.makeText(context, "Los datos no pueden ser usados pues ya existen", Toast.LENGTH_SHORT).show();
          }
      };
-       this.model.Register(Username,email,Password,registeredlistener);
+       this.model.Register(Username,email,Password,context,registeredlistener);
 
      }else{
          Toast.makeText(context, "Las Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
