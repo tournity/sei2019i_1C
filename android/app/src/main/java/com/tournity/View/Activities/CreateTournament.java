@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.tournity.Bloc.Enums.ControllerError;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.R;
+import com.tournity.Repository.Models.TournamentModel;
 import com.tournity.Repository.Repositories.TournamentRepository;
 
 public class CreateTournament extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class CreateTournament extends AppCompatActivity {
 
     }
     public void CreateTournament(View v){
-        TournamentRepository.
+        TournamentModel.Create(txtTournamentName.getText().toString(),txtDescription.getText().toString(),String st_date,String end_date,int iduser_sport_group,String created,Context context,ModelListener<TournamentModel>listener);
 
 
         ControllerListener listener=new ControllerListener() {
