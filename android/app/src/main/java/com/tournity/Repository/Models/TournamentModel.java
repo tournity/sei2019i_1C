@@ -38,9 +38,7 @@ public class TournamentModel {
     public void setTournamentEntity(TournamentEntity tournamentEntity) {
         this.tournamentEntity = tournamentEntity;
     }
-    public static void Create(  String name,String description,String st_date,String end_date,int iduser_sport_group,String created,Context context,ModelListener<TournamentModel>listener){
 
-    }
     public void getAll(Context context, final ModelListener <ArrayList<TournamentModel>> listener){
         RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
             @Override

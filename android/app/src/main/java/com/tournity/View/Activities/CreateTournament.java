@@ -9,17 +9,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tournity.Bloc.Controllers.TournamentController;
 import com.tournity.Bloc.Enums.ControllerError;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.R;
-import com.tournity.Repository.Models.TournamentModel;
-import com.tournity.Repository.Repositories.TournamentRepository;
 
 public class CreateTournament extends AppCompatActivity {
 
     EditText txtTournamentName;
     EditText txtDescription;
-    EditText txtDate;
+    EditText txtDateInit;
+    EditText txtDateFinish;
     Button btnCreateTournament;
     Context context;
     @Override
@@ -29,12 +29,13 @@ public class CreateTournament extends AppCompatActivity {
         this.context=this;
         txtTournamentName = (EditText) findViewById(R.id.TournamentName);
         txtDescription = (EditText) findViewById(R.id.Description);
-        txtDate = (EditText) findViewById(R.id.Date);
+        txtDateInit = (EditText) findViewById(R.id.Date);
+        txtDateFinish = (EditText) findViewById(R.id.DateFinish);
         btnCreateTournament=(Button)findViewById(R.id.CreateTournament);
 
     }
     public void CreateTournament(View v){
-        TournamentModel.Create(txtTournamentName.getText().toString(),txtDescription.getText().toString(),String st_date,String end_date,int iduser_sport_group,String created,Context context,ModelListener<TournamentModel>listener);
+
 
 
         ControllerListener listener=new ControllerListener() {
@@ -48,6 +49,8 @@ public class CreateTournament extends AppCompatActivity {
 
             }
         };
+        TournamentController.Create(txtTournamentName.getText().toString(),txtDescription.getText().toString(),txtDateInit.getText().toString(),txtDateFinish.getText().toString(),1,context,listener);
+        //por defecto se pone el grupo 1 pero hay que reconocer el grupo al que se hace referencia
     }
 
 }

@@ -23,6 +23,9 @@ public class TournamentController {
 
         this.tournamentModel=new TournamentModel();
     }
+    public static void Create(  String name,String description,String st_date,String end_date,int iduser_sport_group,Context context,ControllerListener<TournamentModel>listener){
+
+    }
     public void getAllTournaments()throws Exception{
         ModelListener<ArrayList<TournamentModel>>listener=new ModelListener<ArrayList<TournamentModel>>() {
             @Override
