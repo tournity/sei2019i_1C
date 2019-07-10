@@ -1,4 +1,4 @@
-package com.tournity.Entities;
+package com.tournity.App.Tournaments.Entities;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONException;

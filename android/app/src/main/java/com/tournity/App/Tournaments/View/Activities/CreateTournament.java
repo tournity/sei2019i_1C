@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Tournaments.View.Activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.tournity.Bloc.Controllers.TournamentController;
+import com.tournity.App.Tournaments.Bloc.Controllers.TournamentController;
 import com.tournity.Bloc.Enums.ControllerError;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.R;

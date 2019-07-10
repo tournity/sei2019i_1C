@@ -1,4 +1,4 @@
-package com.tournity.Repository.Repositories;
+package com.tournity.App.Tournaments.Repository.Repositories;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -9,7 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.tournity.Entities.TournamentEntity;
+import com.tournity.App.Tournaments.Entities.TournamentEntity;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.RepositoryListener;
 

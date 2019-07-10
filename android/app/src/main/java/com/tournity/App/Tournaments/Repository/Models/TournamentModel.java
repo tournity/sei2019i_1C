@@ -1,12 +1,12 @@
-package com.tournity.Repository.Models;
+package com.tournity.App.Tournaments.Repository.Models;
 
 import android.content.Context;
 
-import com.tournity.Entities.TournamentEntity;
+import com.tournity.App.Tournaments.Entities.TournamentEntity;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
-import com.tournity.Repository.Repositories.TournamentRepository;
+import com.tournity.App.Tournaments.Repository.Repositories.TournamentRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
