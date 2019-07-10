@@ -47,7 +47,7 @@ public class UserRepository {
             protected Map<String, String> getParams() {
                 Map<String, String> MyData = new HashMap<String, String>();
                 MyData.put("id", ""+newUser.getId());
-                MyData.put("password", userData.getEncryptedPassword());
+             //   MyData.put("password", userData.getEncryptedPassword());
                 return MyData;
             }
             @Override
