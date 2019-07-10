@@ -50,7 +50,14 @@ public static void Create (String name, String description, String st_date, Stri
 
            }
        };
-       TournamentRepository
+       TournamentEntity tournament=new TournamentEntity();
+       tournament.setName(name);
+       tournament.setDescription(description);
+       tournament.setStartDate(new Date(st_date));
+       tournament.setEndDate(new Date(end_date));
+       tournament.setUserSportGroup(iduser_sport_group);
+
+       TournamentRepository.Insert(tournament,context,registered);
 }
     public void getAll(Context context, final ModelListener <ArrayList<TournamentModel>> listener){
         RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
