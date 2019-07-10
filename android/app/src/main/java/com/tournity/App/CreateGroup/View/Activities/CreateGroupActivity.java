@@ -1,4 +1,26 @@
 package com.tournity.App.CreateGroup.View.Activities;
 
-public class CreateGroupActivity {
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.tournity.App.CreateGroup.Bloc.Controllers.CreateGroupController;
+import com.tournity.R;
+
+public class CreateGroupActivity extends AppCompatActivity {
+    CreateGroupController controller;
+    EditText editText;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_group);
+
+        controller = new CreateGroupController(this);
+        editText = (EditText) findViewById(R.id.idGroupName);
+    }
+
+    public void onClick(View v){
+        controller.create(editText.getText().toString());
+    }
 }

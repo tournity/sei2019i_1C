@@ -8,4 +8,6 @@
     <string name="title_group">Group: </string>
     <string name="edTxt_create_team">Team name</string>
     <string name="btn_select_players">Select players</string>
+    <string name="title_create_group">Create Group</string>
+    <string name="txt_name">Name</string>
 </resources>
