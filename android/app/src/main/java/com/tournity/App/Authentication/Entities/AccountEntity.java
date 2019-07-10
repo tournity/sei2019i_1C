@@ -1,20 +1,21 @@
 package com.tournity.App.Authentication.Entities;
 
-import com.tournity.Entities.Entity;
-
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Date;
 
-public class AccountEntity implements Entity<AccountEntity> {
+public class AccountEntity{
     private int id;
     private String type;
     private String name;
     private String email;
-    private Date lastInteractionDate;
-    private String password;
+    private String encryptedPassword;
+    private String salt;
     private String token;
+    private Date lastInteractionDate;
     private String status;
     private Date createdAt;
     private Date updatedAt;
@@ -54,20 +55,20 @@ public class AccountEntity implements Entity<AccountEntity> {
         this.email = email;
     }
 
-    public Date getLastInteractionDate() {
-        return lastInteractionDate;
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
-    public void setLastInteractionDate(Date lastInteractionDate) {
-        this.lastInteractionDate = lastInteractionDate;
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSalt() {
+        return salt;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public String getToken() {
@@ -76,6 +77,14 @@ public class AccountEntity implements Entity<AccountEntity> {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Date getLastInteractionDate() {
+        return lastInteractionDate;
+    }
+
+    public void setLastInteractionDate(Date lastInteractionDate) {
+        this.lastInteractionDate = lastInteractionDate;
     }
 
     public String getStatus() {
@@ -102,8 +111,12 @@ public class AccountEntity implements Entity<AccountEntity> {
         this.updatedAt = updatedAt;
     }
 
-    public AccountEntity fromJSON(String json) throws IOException {
-        return new ObjectMapper().readValue(json, AccountEntity.class);
+    public static AccountEntity fromJSON(JSONObject accountData) throws JSONException {
+        AccountEntity myEntity = new AccountEntity();
+        myEntity.id = accountData.getInt("id");
+        myEntity.type = accountData.getString("type");
+        myEntity.token = accountData.getString("token");
+        return myEntity;
     }
 
     public String toJSON() throws IOException {

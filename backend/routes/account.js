@@ -2,6 +2,6 @@ const AccountController = require('../controllers').AccountController;
 
 var router = require('express').Router();
 
-router.post('/signup', AccountController.register);
+router.post('/', AccountController.register);
 
 module.exports = router;

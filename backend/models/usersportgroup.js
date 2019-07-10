@@ -1,10 +1,11 @@
 'use strict';
+const UserSportGroupDefnition = require('../table_definitions')
+  .UserSportGroupDefnition;
+
 module.exports = (sequelize, DataTypes) => {
   const UserSportGroup = sequelize.define(
     'UserSportGroup',
-    {
-      status: DataTypes.ENUM('active', 'deleted')
-    },
+    UserSportGroupDefnition.build(DataTypes),
     {}
   );
   UserSportGroup.associate = function(models) {
