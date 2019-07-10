@@ -25,7 +25,7 @@ UserController controller;
         txtEmail=(EditText)findViewById(R.id.txtEmail);
         txtPassword=(EditText)findViewById(R.id.txtPassword);
         txtPasswordConfirm=(EditText)findViewById(R.id.txtPasswordConfirm);
-   controller
+   controller=new UserController(this);
     }
     public void Register(View v){
         ControllerListener listener=new ControllerListener() {
@@ -39,6 +39,7 @@ UserController controller;
 
             }
         };
+        controller.Register(txtUsername.getText().toString(),txtEmail.getText().toString(),txtPassword.getText().toString(),txtPasswordConfirm.getText().toString(),listener);
 
     }
 }
