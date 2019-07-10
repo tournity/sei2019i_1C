@@ -6,6 +6,9 @@ public class UserEntity {
 private int Id;
 private AccountEntity account;
 
+    public UserEntity() {
+    }
+
     public UserEntity(int id) {
         Id = id;
     }
