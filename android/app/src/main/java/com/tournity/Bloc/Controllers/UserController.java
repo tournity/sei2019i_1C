@@ -19,24 +19,23 @@ public class UserController {
 
     public  void Register(String Username,String email,String Password,String PasswordConfirm,final ControllerListener listener){
      if(Password.equals(PasswordConfirm)){
+     ModelListener<UserModel>registeredlistener=new ModelListener<UserModel>() {
+         @Override
+         public void onSuccess(UserModel model) {
+
+         }
+
+         @Override
+         public void onError(ModelError error) {
+
+         }
+     };
+       this.model.
 
      }else{
          Toast.makeText(context, "Las Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
     }
-    public void Exist(String Username, String email){
 
-        ModelListener <UserModel>modelListener=new ModelListener<UserModel>() {
-            @Override
-            public void onSuccess(UserModel model) {
-
-            }
-
-            @Override
-            public void onError(ModelError error) {
-
-            }
-
-        };
 
 
     }
