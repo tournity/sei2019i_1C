@@ -1,4 +1,4 @@
-package com.tournity.App.CreateAndViewGroup.Entities;
+package com.tournity.App.CreateAndListGroup.Entities;
 
 public class GroupEntity {
     private int id;

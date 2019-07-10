@@ -1,8 +1,8 @@
-package com.tournity.App.CreateAndViewGroup.Repository.Repositories;
+package com.tournity.App.CreateAndListGroup.Repository.Repositories;
 
 import android.content.Context;
 
-import com.tournity.App.CreateAndViewGroup.Entities.GroupEntity;
+import com.tournity.App.CreateAndListGroup.Entities.GroupEntity;
 import com.tournity.Data.API.API;
 import com.tournity.Data.API.Enums.APIEndpoints.CeateGroupEndpoint;
 import com.tournity.Data.API.Enums.APIErrors.APIError;

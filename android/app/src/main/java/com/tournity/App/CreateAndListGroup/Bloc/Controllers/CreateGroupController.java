@@ -1,9 +1,9 @@
-package com.tournity.App.CreateAndViewGroup.Bloc.Controllers;
+package com.tournity.App.CreateAndListGroup.Bloc.Controllers;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.tournity.App.CreateAndViewGroup.Repository.Models.CreateGroupModel;
+import com.tournity.App.CreateAndListGroup.Repository.Models.CreateGroupModel;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
 
