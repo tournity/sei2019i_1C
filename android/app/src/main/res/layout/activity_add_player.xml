@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/idTextTitleAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title_add_player"
@@ -17,7 +17,7 @@
         android:text="@string/player_name" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/idNameAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,7 +30,7 @@
         android:text="@string/player_type" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/idTypeAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,7 +43,7 @@
         android:text="@string/playerDescription" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/idDescriptionAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -56,14 +56,14 @@
         android:text="@string/playerGroup" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/idSportGroupAddSport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/btn_add_player"
+        android:id="@+id/idbtn_add_player"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_add_player" />

@@ -28,7 +28,7 @@ public class GroupRepository {
                 try {
                     for (int i = 0; i < responseData.length(); i++) {
                         groupArray.add(GroupEntity.fromJSON(responseData.getJSONObject(i)));
-
+                        listener.onQueryCompleted(groupArray);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
