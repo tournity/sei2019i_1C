@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Group.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tournity.App.Team.View.Activities.CreateTeamActivity;
 import com.tournity.R;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class CreateTeamSelectGroupActivity extends AppCompatActivity {
         listViewGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(CreateTeamSelectGroupActivity.this,CreateTeamActivity.class);
+                Intent intent = new Intent(CreateTeamSelectGroupActivity.this, CreateTeamActivity.class);
 
                 Bundle bundle = new Bundle();
                 bundle.putString("name",listViewGroup.getTransitionName());
