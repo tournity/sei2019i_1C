@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Team.View.Activities;
 
 import android.os.Bundle;
 import android.view.View;
