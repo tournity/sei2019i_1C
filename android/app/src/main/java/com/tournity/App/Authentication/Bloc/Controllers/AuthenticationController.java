@@ -1,5 +1,6 @@
 package com.tournity.App.Authentication.Bloc.Controllers;
 
+import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
@@ -14,13 +15,12 @@ public class AuthenticationController {
         this.ctx = ctx;
     };
 
-    public void login(String email, String password, final ControllerListener listener){
+    public void login(String email, String password){
         if(validateEmail(email) && validatePassword(password)){
             ModelListener authListener = new ModelListener<AuthenticationModel>() {
                 @Override
                 public void onSuccess(AuthenticationModel model) {
                     Toast.makeText(ctx, "Login", Toast.LENGTH_SHORT).show();
-                    listener.Then();
                 }
 
                 @Override
@@ -28,7 +28,7 @@ public class AuthenticationController {
                     Toast.makeText(ctx, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                 }
             };
-            AuthenticationModel.authorize(email, password, ctx, authListener);
+            AuthenticationModel.authorize(ctx, email, password, authListener);
         }else{
             Toast.makeText(ctx, "Datos inválidos", Toast.LENGTH_SHORT).show();
         }
@@ -39,6 +39,6 @@ public class AuthenticationController {
     }
 
     public boolean validatePassword(String password){
-        return password.length() >= 5;
+        return password.length() >= 2;
     }
 }

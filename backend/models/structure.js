@@ -1,10 +1,10 @@
 'use strict';
+const StructureDefnition = require('../table_definitions').StructureDefnition;
+
 module.exports = (sequelize, DataTypes) => {
   const Structure = sequelize.define(
     'Structure',
-    {
-      status: DataTypes.ENUM('active', 'deleted')
-    },
+    StructureDefnition.build(DataTypes),
     {}
   );
   Structure.associate = function(models) {

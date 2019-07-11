@@ -1,10 +1,11 @@
 'use strict';
+const StageGroupCompetitorDefnition = require('../table_definitions')
+  .StageGroupCompetitorDefnition;
+
 module.exports = (sequelize, DataTypes) => {
   const StageGroupCompetitor = sequelize.define(
     'StageGroupCompetitor',
-    {
-      status: DataTypes.ENUM('active', 'deleted')
-    },
+    StageGroupCompetitorDefnition.build(DataTypes),
     {}
   );
   StageGroupCompetitor.associate = function(models) {

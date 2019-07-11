@@ -10,6 +10,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tournity.App.Authentication.Entities.AccountEntity;
+import com.tournity.Data.API.API;
+import com.tournity.Data.API.Enums.APIEndpoints.GuardEndpoint;
+import com.tournity.Data.API.Enums.APIErrors.APIError;
+import com.tournity.Data.API.Listeners.HttpLitener;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.RepositoryListener;
 
@@ -21,41 +25,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AuthenticationRepository {
-    public static void authenticate(final AccountEntity accountData, final Context context, final RepositoryListener<AccountEntity> listener){
-        RequestQueue queue = Volley.newRequestQueue(context);
-        String url ="http://10.203.183.88:3000/api/guard/login";
-        StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+    public static void authenticate(final Context context, final AccountEntity accountData, final RepositoryListener<AccountEntity> listener){
+        HttpLitener authListener = new HttpLitener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONObject responseData) {
                 try {
-                    AccountEntity account = AccountEntity.fromJSON(new JSONObject(response).getJSONObject("accountData"));
-                    Toast.makeText(context, account.getId(), Toast.LENGTH_SHORT).show();
+                    AccountEntity account = AccountEntity.fromJSON(responseData);
                     listener.onQueryCompleted(account);
                 } catch (JSONException e) {
                     listener.onQueryFailed(RepositoryError.JSON_ERROR);
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                listener.onQueryFailed(RepositoryError.DATA_ERROR);
-            }
-        }) {
 
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> MyData = new HashMap<String, String>();
-                MyData.put("email", accountData.getEmail());
-                MyData.put("password", accountData.getEncryptedPassword());
-                return MyData;
-            }
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String,String> headers = new HashMap<String, String>();
-                headers.put("Content-Type","application/x-www-form-urlencoded");
-                return headers;
+            public void onErrorResponse(APIError error) {
+                listener.onQueryFailed(RepositoryError.DATA_ERROR);
             }
         };
-        queue.add(MyStringRequest);
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("email", accountData.getEmail());
+        params.put("password", accountData.getEncryptedPassword());
+
+        API.sendRequestToEndpoint(context, GuardEndpoint.Login, params, authListener);
     };
 }

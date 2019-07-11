@@ -25,18 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLogin(View v){
-        ControllerListener listener = new ControllerListener() {
-            @Override
-            public void Then() {
-
-            }
-
-            @Override
-            public void Catch(ControllerError error) {
-
-            }
-        };
-        controller.login(email.getText().toString(), pass.getText().toString(), listener);
+        controller.login(email.getText().toString(), pass.getText().toString());
     }
 
     public void onSignUp(View v){
