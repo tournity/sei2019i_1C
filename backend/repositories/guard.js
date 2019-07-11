@@ -79,14 +79,12 @@ module.exports.createToken = async function(accountData) {
       );
       await account.update({ token: token, lastInteractionDate: Date.now() });
       return {
-        user_data: {
-          id: account.id,
-          type: account.type,
-          name: account.name,
-          email: account.email,
-          token: token,
-          status: account.status
-        }
+        id: account.id,
+        type: account.type,
+        name: account.name,
+        email: account.email,
+        token: token,
+        status: account.status
       };
     } else {
       throw Error('Wrong password or email');
