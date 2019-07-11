@@ -5,7 +5,8 @@ import com.tournity.Data.API.Enums.APIResponseDataType;
 
 public enum GroupEndpoint implements Endpoint {
     getAll("accounts/", Request.Method.GET, APIResponseDataType.ARRAY),
-    getById("accounts/%i", Request.Method.GET, APIResponseDataType.OBJECT)
+    getById("accounts/%i", Request.Method.GET, APIResponseDataType.OBJECT),
+    Create("groups/", Request.Method.POST,null)
     ;
     private String endPoint;
     private int method;

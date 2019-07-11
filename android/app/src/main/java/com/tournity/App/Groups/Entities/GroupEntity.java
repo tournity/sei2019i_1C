@@ -1,4 +1,8 @@
-package com.tournity.App.CreateAndListGroup.Entities;
+package com.tournity.App.Groups.Entities;
+
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class GroupEntity {
     private int id;
@@ -21,5 +25,11 @@ public class GroupEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public static GroupEntity fromJSON(JSONObject groupData) throws JSONException {
+        GroupEntity gE = new GroupEntity();
+        gE.id = groupData.getInt("id");
+        gE.name = groupData.getString("name");
+        return  gE;
     }
 }
