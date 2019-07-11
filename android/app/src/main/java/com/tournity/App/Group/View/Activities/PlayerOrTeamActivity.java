@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Group.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tournity.App.Player.View.Activities.PlayersActivity;
+import com.tournity.App.Team.View.Activities.TeamsActivity;
 import com.tournity.R;
 
 public class PlayerOrTeamActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Team.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ public class TeamsActivity extends AppCompatActivity {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TeamsActivity.this,CreateTeamActivity.class);
+                Intent intent = new Intent(TeamsActivity.this, CreateTeamActivity.class);
                 startActivity(intent);
             }
         });
