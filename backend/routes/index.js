@@ -1,9 +1,9 @@
 const GuardRouter = require('./guard');
 const AccountRouter = require('./account');
-const TeamPlayer = require('./TeamPlayer')
+const CompetitorRouter = require('./competitor')
 
 module.exports = {
   GuardRouter,
   AccountRouter,
-  TeamPlayer
+  CompetitorRouter
 };

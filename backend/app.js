@@ -3,6 +3,7 @@ var cors = require('cors');
 
 var AccountRouter = require('./routes').AccountRouter;
 var GuardRouter = require('./routes').GuardRouter;
+var CompetitorRouter = require('./routes').CompetitorRouter;
 
 var app = express();
 
@@ -12,5 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/accounts', AccountRouter);
 app.use('/api/guard', GuardRouter);
+app.use('/api/competitor', CompetitorRouter);
 
 module.exports = app;
