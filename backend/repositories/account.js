@@ -9,6 +9,7 @@ module.exports.findByEmail = async function(email) {
   });
 };
 
+
 const create = function(accountData, transaction) {
   const credentials = Guard.generateCredentials(accountData.password);
   return Account.create(
