@@ -9,6 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.tournity.App.Authentication.Entities.AccountEntity;
 import com.tournity.App.Users.Entities.UserEntity;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.RepositoryListener;
@@ -22,16 +23,16 @@ import java.util.Map;
 public class UserRepository {
     public UserRepository() {
     }
-    public static void Insert(final UserEntity newUser, final Context context, final RepositoryListener<UserEntity>listener){
+    public static void Insert(final UserEntity newUser, final Context context, final RepositoryListener<AccountEntity>listener){
         RequestQueue queue = Volley.newRequestQueue(context);
         String url ="http://10.203.183.88:3000/api/guard/login";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    UserEntity user = UserEntity.fromJSON(new JSONObject(response).getJSONObject("userData"));
-                    Toast.makeText(context, user.getId(), Toast.LENGTH_SHORT).show();
-                    listener.onQueryCompleted(user);
+                    AccountEntity account = AccountEntity.fromJSON(new JSONObject(response).getJSONObject("accountData"));
+                    Toast.makeText(context, account.getId(), Toast.LENGTH_SHORT).show();
+                    listener.onQueryCompleted(account);
                 } catch (JSONException e) {
                     listener.onQueryFailed(RepositoryError.JSON_ERROR);
                 }

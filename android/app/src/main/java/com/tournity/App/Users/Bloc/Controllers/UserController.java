@@ -3,6 +3,7 @@ package com.tournity.App.Users.Bloc.Controllers;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.tournity.App.Accounts.Repository.Model.AccountModel;
 import com.tournity.App.Authentication.Entities.AccountEntity;
 import com.tournity.App.Users.Entities.UserEntity;
 import com.tournity.App.Users.Repository.Models.UserModel;
@@ -21,9 +22,9 @@ public class UserController {
 
     public void Register(String username, String email, String Password, String PasswordConfirm) {
         if (Password.equals(PasswordConfirm)) {
-            ModelListener<UserModel> registeredlistener = new ModelListener<UserModel>() {
+            ModelListener<AccountModel> registeredlistener = new ModelListener<AccountModel>() {
                 @Override
-                public void onSuccess(UserModel model) {
+                public void onSuccess(AccountModel model) {
                     Toast.makeText(context, "Sucessful Register", Toast.LENGTH_SHORT).show();
 
                 }

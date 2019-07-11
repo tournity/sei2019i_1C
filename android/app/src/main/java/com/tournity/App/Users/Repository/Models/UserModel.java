@@ -2,6 +2,7 @@ package com.tournity.App.Users.Repository.Models;
 
 import android.content.Context;
 
+import com.tournity.App.Accounts.Repository.Model.AccountModel;
 import com.tournity.App.Authentication.Entities.AccountEntity;
 import com.tournity.App.Users.Entities.UserEntity;
 import com.tournity.App.Users.Repository.Repositories.UserRepository;
@@ -20,8 +21,8 @@ public class UserModel {
     public UserModel() {
     }
 
-    public void Register(AccountEntity newaccount, Context context, final ModelListener<UserModel>listener){
-        RepositoryListener<UserEntity>userRegistered=new RepositoryListener<AccountEntity>() {
+    public void Register(AccountEntity newaccount, Context context, final ModelListener<AccountModel>listener){
+        RepositoryListener<AccountEntity>userRegistered=new RepositoryListener<AccountEntity>() {
             @Override
             public void onQueryCompleted(AccountEntity entity) {
                 listener.onSuccess(new AccountModel(entity));
