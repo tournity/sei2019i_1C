@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Users.View.Activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -28,18 +28,8 @@ UserController controller;
    controller=new UserController(this);
     }
     public void Register(View v){
-        ControllerListener listener=new ControllerListener() {
-            @Override
-            public void Then() {
 
-            }
-
-            @Override
-            public void Catch(ControllerError error) {
-
-            }
-        };
-        controller.Register(txtUsername.getText().toString(),txtEmail.getText().toString(),txtPassword.getText().toString(),txtPasswordConfirm.getText().toString(),listener);
+        controller.Register(txtUsername.getText().toString(),txtEmail.getText().toString(),txtPassword.getText().toString(),txtPasswordConfirm.getText().toString());
 
     }
 }
