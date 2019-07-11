@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Activities.CreateTournament">
+    tools:context=".App.Tournaments.View.Activities.CreateTournament">
 
     <EditText
         android:id="@+id/TournamentName"
@@ -49,7 +49,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#3F51B5"
         android:enabled="true"
         android:text="Create tournament"
@@ -58,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Date"
-        app:layout_constraintVertical_bias="0.313" />
+        app:layout_constraintVertical_bias="0.313"
+        android:onClick="CreateTournament"/>
 
     <ProgressBar
         android:id="@+id/loading"
@@ -95,11 +96,21 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Date"
+        android:hint="Date Init"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Description" />
-
+    <EditText
+        android:id="@+id/DateFinish"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Date Finish"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Description" />
     <RadioGroup
         android:id="@+id/grupo"
         android:layout_width="wrap_content"
@@ -107,7 +118,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Date">
+        app:layout_constraintTop_toBottomOf="@+id/DateFinish">
 
         <RadioButton
             android:id="@+id/Group"
