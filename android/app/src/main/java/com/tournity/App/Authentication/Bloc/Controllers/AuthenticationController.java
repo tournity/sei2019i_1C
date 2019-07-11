@@ -25,7 +25,7 @@ public class AuthenticationController {
 
                 @Override
                 public void onError(ModelError error) {
-                    Toast.makeText(ctx, "Unuario no encontrado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ctx, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
                 }
             };
             AuthenticationModel.authorize(ctx, email, password, authListener);
