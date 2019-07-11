@@ -1,8 +1,11 @@
 package com.tournity.Data.API.Enums.APIEndpoints;
 
+import com.android.volley.Request;
 import com.tournity.Data.API.Enums.APIResponseDataType;
 
 public enum GroupEndpoint implements Endpoint {
+    getAll("accounts/", Request.Method.GET, APIResponseDataType.ARRAY),
+    getById("accounts/%i", Request.Method.GET, APIResponseDataType.OBJECT)
     ;
     private String endPoint;
     private int method;
