@@ -5,7 +5,13 @@
     <string name="subTitle_match_to_play">Match to play</string>
     <string name="subTitle_match_played">Match played</string>
     <string name="title_select_create_team">Select Group</string>
-    <string name="title_group">Group: </string>
+    <string name="title_list_group">Teams</string>
+    <string name="title_group">Create Group: </string>
     <string name="edTxt_create_team">Team name</string>
     <string name="btn_select_players">Select players</string>
+    <string name="title_list_players">Players</string>
+    <string name="title_add_player">Add Player</string>
+    <string name="player_name">Name</string>
+    <string name="player_height">Height</string>
+    <string name="btn_add_team">Create Team</string>
 </resources>
