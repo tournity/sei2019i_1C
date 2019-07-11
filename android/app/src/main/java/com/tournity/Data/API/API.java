@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class API {
-    static final String URL = "http://10.203.151.196:3000/%s";
+    static final String URL = "http://192.168.0.28:3000/api/%s";
 
 
     static String getURL(Endpoint api) {
@@ -58,12 +58,14 @@ public class API {
                     responseListener.onResponse(data);
                 } catch (JSONException e) {
                     responseListener.onErrorResponse(GuardErrors.INCORRECT_PASSWORD);
+                    e.printStackTrace();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 responseListener.onErrorResponse(GuardErrors.INCORRECT_PASSWORD);
+                error.printStackTrace();
             }
         }) {
 
@@ -74,14 +76,14 @@ public class API {
 
             @Override
             public Map<String, String> getHeaders() {
-                return getHeadters();
+                return API.getHeaders();
             }
         };
         queue.add(MyStringRequest);
         queue.start();
     }
 
-    static Map<String, String> getHeadters() {
+    static Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded");
         return headers;
