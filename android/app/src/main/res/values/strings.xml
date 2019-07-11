@@ -12,6 +12,10 @@
     <string name="title_list_players">Players</string>
     <string name="title_add_player">Add Player</string>
     <string name="player_name">Name</string>
-    <string name="player_height">Height</string>
+    <string name="player_type">Type</string>
     <string name="btn_add_team">Create Team</string>
+    <string name="btn_players">Players</string>
+    <string name="btn_teams">Teams</string>
+    <string name="playerDescription">Description</string>
+    <string name="playerGroup">User sport group</string>
 </resources>
