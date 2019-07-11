@@ -50,4 +50,28 @@ public class AuthenticationRepository {
 
         API.sendRequestToEndpoint(context, GuardEndpoint.Login, params, authListener);
     };
+
+    public static void authenticateWithToken(final Context context, final RepositoryListener<AccountEntity> listener){
+        HttpLitener authListener = new HttpLitener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject responseData) {
+                try {
+                    AccountEntity account = AccountEntity.fromJSON(responseData);
+                    listener.onQueryCompleted(account);
+                } catch (JSONException e) {
+                    listener.onQueryFailed(RepositoryError.JSON_ERROR);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onErrorResponse(APIError error) {
+                listener.onQueryFailed(RepositoryError.DATA_ERROR);
+
+            }
+        };
+        HashMap<String, String> params = new HashMap<String, String>();
+
+        API.sendRequestToEndpoint(context, GuardEndpoint.LoginWithToken, params, authListener);
+    };
 }

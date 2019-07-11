@@ -4,7 +4,8 @@ import com.android.volley.Request;
 import com.tournity.Data.API.Enums.APIResponseDataType;
 
 public enum GuardEndpoint implements Endpoint {
-    Login("guard/login/", Request.Method.POST, APIResponseDataType.OBJECT)
+    Login("guard/login/", Request.Method.POST, APIResponseDataType.OBJECT),
+    LoginWithToken("guard/login-with-token/", Request.Method.POST, APIResponseDataType.OBJECT)
     ;
 
     private String endPoint;

@@ -27,6 +27,7 @@ let diferenceBetweenDatesInMinutes = function(date1, date2) {
 };
 
 module.exports.checkToken = async function(req) {
+  console.log(req.headers);
   let token = req.headers['x-access-token'] || req.headers['authorization'];
   if (token) {
     if (token.startsWith('Bearer ')) token = token.slice(7, token.length);

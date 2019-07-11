@@ -17,7 +17,7 @@ module.exports.authenticateWithToken = (req, res, next) => {
         message: 'Authentication successful',
         data: accountData
       });
-      req.decoded = decoded;
+      req = decoded;
       next();
     })
     .catch(error => res.status(500).json({ message: error.message }));

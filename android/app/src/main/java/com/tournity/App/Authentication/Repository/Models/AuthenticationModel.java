@@ -33,7 +33,13 @@ public class AuthenticationModel {
             }
         };
         AuthenticationRepository.authenticate(ctx, authorizationData, repoListener);
+    }
 
+    public String getToken(){
+        return currentUser.getToken();
+    }
 
-    };
+    public AccountEntity getCurrentUser() {
+        return currentUser;
+    }
 }

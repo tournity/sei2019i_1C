@@ -6,6 +6,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.tournity.Bloc.Services.SessionService;
 import com.tournity.Data.API.Enums.APIEndpoints.Endpoint;
 import com.tournity.Data.API.Enums.APIErrors.GuardErrors;
 import com.tournity.Data.API.Enums.APIResponseDataType;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class API {
-    static final String URL = "http://192.168.0.28:3000/api/%s";
+    static final String URL = "http://192.168.43.48:3000/api/%s";
 
 
     static String getURL(Endpoint api) {
@@ -86,6 +87,7 @@ public class API {
     static Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded");
+        headers.put("authorization", SessionService.getAccessToken());
         return headers;
     }
 }
