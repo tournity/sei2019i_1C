@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class API {
-    static final String URL = "http://192.168.0.28:3000/api/%s";
+    static final String URL = "http://192.168.0.12:3000/api/%s";
 
 
     static String getURL(Endpoint api) {

@@ -2,13 +2,16 @@
 package com.tournity.App.Tournaments.Bloc.Controllers;
 
 import android.content.Context;
+import android.widget.Toast;
 
+import com.tournity.App.Tournaments.Entities.TournamentEntity;
+import com.tournity.App.Tournaments.Repository.Models.TournamentModel;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
-import com.tournity.App.Tournaments.Repository.Models.TournamentModel;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TournamentController {
     private Context context;
@@ -22,11 +25,13 @@ public class TournamentController {
 
         this.tournamentModel=new TournamentModel();
     }
-    public static void Create(  String name,String description,String st_date,String end_date,int iduser_sport_group,Context context,final ControllerListener<TournamentModel>listener){
+    public static void Create(String name, String description, String st_date, String end_date, int iduser_sport_group, final Context context){
     ModelListener<TournamentModel>createdTournament=new ModelListener<TournamentModel>() {
         @Override
         public void onSuccess(TournamentModel model) {
-            listener.Then();
+
+            Toast.makeText(context, "Sucessful Registered Tournament", Toast.LENGTH_SHORT).show();
+
         }
 
         @Override
@@ -34,7 +39,15 @@ public class TournamentController {
 
         }
     };
-        TournamentModel.Create(name, description, st_date, end_date, iduser_sport_group, context,createdTournament);
+        TournamentEntity tournament=new TournamentEntity();
+tournament.setName(name);
+tournament.setDescription(description);
+tournament.setStartDate(new Date(st_date));
+tournament.setEndDate(new Date(end_date));
+tournament.setUserSportGroup(iduser_sport_group);
+
+
+        TournamentModel.Create(tournament, context,createdTournament);
     }
     public void getAllTournaments()throws Exception{
         ModelListener<ArrayList<TournamentModel>>listener=new ModelListener<ArrayList<TournamentModel>>() {

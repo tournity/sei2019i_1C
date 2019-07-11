@@ -33,12 +33,9 @@ public class UserModel {
                 listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
-       UserEntity newuser=new UserEntity();
 
 
-
-       newuser.setAccount(newaccount);
-        UserRepository.Insert(newuser,context,userRegistered);
+        UserRepository.Insert(newaccount,context,userRegistered);
     }
 }
 

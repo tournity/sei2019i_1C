@@ -38,7 +38,7 @@ public class TournamentModel {
     public void setTournamentEntity(TournamentEntity tournamentEntity) {
         this.tournamentEntity = tournamentEntity;
     }
-public static void Create (String name, String description, String st_date, String end_date, int iduser_sport_group, Context context, final ModelListener<TournamentModel>listener){
+public static void Create (TournamentEntity tournament, Context context, final ModelListener<TournamentModel>listener){
        RepositoryListener<TournamentEntity> registered=new RepositoryListener<TournamentEntity>() {
            @Override
            public void onQueryCompleted(TournamentEntity entity) {
@@ -50,12 +50,7 @@ public static void Create (String name, String description, String st_date, Stri
 
            }
        };
-       TournamentEntity tournament=new TournamentEntity();
-       tournament.setName(name);
-       tournament.setDescription(description);
-       tournament.setStartDate(new Date(st_date));
-       tournament.setEndDate(new Date(end_date));
-       tournament.setUserSportGroup(iduser_sport_group);
+
 
        TournamentRepository.Insert(tournament,context,registered);
 }
