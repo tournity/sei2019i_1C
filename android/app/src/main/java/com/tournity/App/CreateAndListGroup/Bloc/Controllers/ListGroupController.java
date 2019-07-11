@@ -38,5 +38,6 @@ public class ListGroupController {
 
             }
         };
+        ListGroupModel.listGroups(context,grListener);
     }
 }
