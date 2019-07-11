@@ -3,6 +3,8 @@ package com.tournity.App.Users.Bloc.Controllers;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.tournity.App.Authentication.Entities.AccountEntity;
+import com.tournity.App.Users.Entities.UserEntity;
 import com.tournity.App.Users.Repository.Models.UserModel;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
@@ -17,7 +19,7 @@ public class UserController {
     }
 
 
-    public void Register(String Username, String email, String Password, String PasswordConfirm) {
+    public void Register(String username, String email, String Password, String PasswordConfirm) {
         if (Password.equals(PasswordConfirm)) {
             ModelListener<UserModel> registeredlistener = new ModelListener<UserModel>() {
                 @Override
@@ -31,7 +33,12 @@ public class UserController {
                     Toast.makeText(context, "Los datos no pueden ser usados pues ya existen", Toast.LENGTH_SHORT).show();
                 }
             };
-            this.model.Register(Username, email, Password, context, registeredlistener);
+            UserEntity user=new UserEntity();
+            AccountEntity account=new AccountEntity();
+            account.setName(username);
+            account.setEmail(email);
+            account.setEncryptedPassword(Password);
+            this.model.Register( account,context, registeredlistener);
 
         } else {
             Toast.makeText(context, "Las Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
