@@ -4,7 +4,7 @@ import com.android.volley.Request;
 import com.tournity.Data.API.Enums.APIResponseDataType;
 
 public enum GuardEndpoint implements Endpoint {
-    Login("guard/login", Request.Method.POST, APIResponseDataType.OBJECT)
+    Login("guard/login/", Request.Method.POST, APIResponseDataType.OBJECT)
     ;
 
     private String endPoint;
@@ -19,16 +19,16 @@ public enum GuardEndpoint implements Endpoint {
 
     @Override
     public String getEndpoint() {
-        return null;
+        return endPoint;
     }
 
     @Override
     public int getMethod() {
-        return 0;
+        return method;
     }
 
     @Override
     public APIResponseDataType getResponseDataType() {
-        return null;
+        return dataType;
     }
 }

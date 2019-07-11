@@ -9,19 +9,25 @@ import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
 
-public class GroupModel {
-    GroupEntity [] myGroupArray;
+import java.util.ArrayList;
 
-    public GroupModel(GroupEntity[] myGroupArray) {
-        this.myGroupArray = myGroupArray;
+public class GroupModel {
+    GroupEntity  groupEntity;
+
+    public GroupModel(GroupEntity myGroupArray) {
+        this.groupEntity = myGroupArray;
     }
 
-    public static void listGroups(Context context, final ModelListener<GroupModel> listener){
-        RepositoryListener repositoryListener = new RepositoryListener<GroupEntity []>() {
+    public static void listGroups(Context context, final ModelListener<ArrayList<GroupModel>> listener){
+        RepositoryListener repositoryListener = new RepositoryListener<ArrayList<GroupEntity>>() {
             @Override
-            public void onQueryCompleted(GroupEntity [] entity) {
-                GroupModel groupModel = new GroupModel(entity);
-                listener.onSuccess(groupModel);
+            public void onQueryCompleted(ArrayList<GroupEntity>  entities) {
+                ArrayList arrayList = new ArrayList<GroupModel>();
+                for (GroupEntity entity:entities) {
+                    GroupModel groupModel = new GroupModel(entity);
+                    arrayList.add(groupModel);
+                }
+                listener.onSuccess(arrayList);
             }
 
             @Override
@@ -29,12 +35,9 @@ public class GroupModel {
                 listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
-        GroupRepository.getAll(context,repositoryListener);
+        GroupRepository.selectAll(context,repositoryListener);
     }
 
-    public GroupEntity[] getMyGroupArray() {
-        return myGroupArray;
-    }
     public static void assemble(Context context,String name,final ModelListener<GroupModel> listener){
         GroupEntity group = new GroupEntity();
         group.setName(name);
@@ -49,6 +52,10 @@ public class GroupModel {
                 listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
-        GroupRepository.createGroup(context,group,repoListener);
+        GroupRepository.insert(context,group,repoListener);
+    }
+
+    public String getName() {
+        return groupEntity.getName();
     }
 }

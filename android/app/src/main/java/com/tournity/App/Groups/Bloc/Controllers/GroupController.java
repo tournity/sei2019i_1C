@@ -19,13 +19,12 @@ public class GroupController {
     }
 
     public void listGroups() {
-        final ArrayList<String> listGroupName = new ArrayList<>();
-        ModelListener grListener = new ModelListener<GroupModel>() {
+        ModelListener grListener = new ModelListener<ArrayList<GroupModel>>() {
             @Override
-            public void onSuccess(GroupModel model) {
-
-                for (int i = 0; i < model.getMyGroupArray().length; i++) {
-                    listGroupName.add(model.getMyGroupArray()[i].getName());
+            public void onSuccess(ArrayList<GroupModel> models) {
+                ArrayList<String> listGroupName = new ArrayList<>();
+                for (GroupModel model:models) {
+                    listGroupName.add(model.getName());
                 }
                 ArrayAdapter adapter = new ArrayAdapter(context,
                         android.R.layout.simple_expandable_list_item_1, listGroupName);
@@ -42,9 +41,9 @@ public class GroupController {
 
     public void create(String name) {
         if (validateNameLength(name)) {
-            ModelListener crGrListener = new ModelListener() {
+            ModelListener crGrListener = new ModelListener<GroupModel>() {
                 @Override
-                public void onSuccess(Object model) {
+                public void onSuccess(GroupModel model) {
                     Toast.makeText(context, "OK", Toast.LENGTH_SHORT).show();
                 }
 

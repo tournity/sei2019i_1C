@@ -12,23 +12,27 @@ import com.tournity.Repository.Listeners.RepositoryListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GroupRepository {
-    static GroupEntity[] groupArray;
 
-    public static void getAll(Context context, final RepositoryListener<GroupEntity[]> listener) {
+
+    public static void selectAll(Context context, final RepositoryListener<ArrayList<GroupEntity>> listener) {
         HttpLitener grListener = new HttpLitener<JSONArray>() {
             @Override
             public void onResponse(JSONArray responseData) {
-                groupArray = new GroupEntity[responseData.length()];
-                for (int i = 0; i < responseData.length(); i++) {
-                    try {
-                        groupArray[i] = GroupEntity.fromJSON(responseData.getJSONObject(i));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                ArrayList groupArray = new ArrayList<GroupEntity>();
+                try {
+                    for (int i = 0; i < responseData.length(); i++) {
+                        groupArray.add(GroupEntity.fromJSON(responseData.getJSONObject(i)));
+
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onQueryFailed(RepositoryError.JSON_ERROR);
                 }
             }
 
@@ -41,7 +45,7 @@ public class GroupRepository {
         API.sendRequestToEndpoint(context, GroupEndpoint.getAll, params, grListener);
     }
 
-    public static void createGroup(final Context context, final GroupEntity groupData, final RepositoryListener<GroupEntity> listener) {
+    public static void insert(final Context context, final GroupEntity groupData, final RepositoryListener<GroupEntity> listener) {
         HttpLitener createGListener = new HttpLitener() {
             @Override
             public void onResponse(Object responseData) {

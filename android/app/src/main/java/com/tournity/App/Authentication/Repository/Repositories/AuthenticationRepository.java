@@ -34,12 +34,14 @@ public class AuthenticationRepository {
                     listener.onQueryCompleted(account);
                 } catch (JSONException e) {
                     listener.onQueryFailed(RepositoryError.JSON_ERROR);
+                    e.printStackTrace();
                 }
             }
 
             @Override
             public void onErrorResponse(APIError error) {
                 listener.onQueryFailed(RepositoryError.DATA_ERROR);
+
             }
         };
         HashMap<String, String> params = new HashMap<String, String>();
