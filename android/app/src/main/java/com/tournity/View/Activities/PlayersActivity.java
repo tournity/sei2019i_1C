@@ -14,7 +14,7 @@ public class PlayersActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle bundleSavedInstance) {
         super.onCreate(bundleSavedInstance);
-        setContentView(R.layout.activity_list_players);
+        setContentView(R.layout.activity_players_list);
         btnAddPlayer = findViewById(R.id.buttonAddPlayer);
         btnAddPlayer.setOnClickListener(new View.OnClickListener() {
             @Override

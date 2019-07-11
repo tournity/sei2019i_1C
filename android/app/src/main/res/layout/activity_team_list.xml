@@ -14,7 +14,7 @@
         android:layout_height="613dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCreateTeam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_add_team" />
