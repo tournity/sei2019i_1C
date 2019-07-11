@@ -18,4 +18,5 @@
     <string name="btn_teams">Teams</string>
     <string name="playerDescription">Description</string>
     <string name="playerGroup">User sport group</string>
+    <string name="btn_add_player">Add player</string>
 </resources>
