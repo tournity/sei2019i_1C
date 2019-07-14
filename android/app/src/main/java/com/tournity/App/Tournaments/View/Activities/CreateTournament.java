@@ -22,26 +22,27 @@ public class CreateTournament extends AppCompatActivity {
     EditText txtDateFinish;
     Button btnCreateTournament;
     Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_tournament);
-        this.context=this;
+        this.context = this;
         txtTournamentName = (EditText) findViewById(R.id.TournamentName);
         txtDescription = (EditText) findViewById(R.id.Description);
         txtDateInit = (EditText) findViewById(R.id.Date);
         txtDateFinish = (EditText) findViewById(R.id.DateFinish);
-        btnCreateTournament=(Button)findViewById(R.id.CreateTournament);
+        btnCreateTournament = (Button) findViewById(R.id.CreateTournament);
 
     }
-    public void CreateTournament(View v){
+
+    public void CreateTournament(View v) {
 
 
-
-        ControllerListener listener=new ControllerListener() {
+        ControllerListener listener = new ControllerListener() {
             @Override
             public void Then() {
-                Toast.makeText(context,"Successful register",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Successful register", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -49,7 +50,6 @@ public class CreateTournament extends AppCompatActivity {
 
             }
         };
-        TournamentController.Create(txtTournamentName.getText().toString(),txtDescription.getText().toString(),txtDateInit.getText().toString(),txtDateFinish.getText().toString(),1,context,listener);
         //por defecto se pone el grupo 1 pero hay que reconocer el grupo al que se hace referencia
     }
 

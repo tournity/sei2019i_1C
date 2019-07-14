@@ -29,7 +29,6 @@ public class UserRepository {
             }
         };
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("name", groupData.getName());
         API.sendRequestToEndpoint(context, GroupEndpoint.Create, params, createAccountListener);
     }
 

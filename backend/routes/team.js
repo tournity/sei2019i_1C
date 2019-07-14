@@ -1,8 +1,9 @@
 const TeamController = require('../controllers').TeamController;
-const GuardController = require('../controllers').GuardController;
+const AuthenticationController = require('../app/authentication/controllers')
+  .AuthenticationController;
 
 var router = require('express').Router();
 
-router.post('/',GuardController.authorize, TeamController.register);
+router.post('/', AuthenticationController.authorize, TeamController.register);
 
 module.exports = router;

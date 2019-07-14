@@ -1,7 +1,8 @@
-let GuardRepository = require('../repositories').GuardRepository;
+let AuthenticationRepository = require('../repositories')
+  .AuthenticationRepository;
 
 module.exports.authorize = (req, res, next) => {
-  GuardRepository.checkToken(req)
+  AuthenticationRepository.checkToken(req)
     .then(decoded => {
       req.decoded = decoded;
       next();
@@ -10,7 +11,7 @@ module.exports.authorize = (req, res, next) => {
 };
 
 module.exports.authenticateWithToken = (req, res, next) => {
-  GuardRepository.checkToken(req)
+  AuthenticationRepository.checkToken(req)
     .then(accountData => {
       res.json({
         success: true,
@@ -25,7 +26,7 @@ module.exports.authenticateWithToken = (req, res, next) => {
 
 module.exports.authenticate = (req, res) => {
   console.log(req.body);
-  GuardRepository.createToken(req.body)
+  AuthenticationRepository.createToken(req.body)
     .then(accountData =>
       res.json({
         success: true,
@@ -37,7 +38,7 @@ module.exports.authenticate = (req, res) => {
 };
 
 module.exports.disavow = (req, res) => {
-  GuardRepository.deleteToken(req.decoded)
+  AuthenticationRepository.deleteToken(req.decoded)
     .then(() =>
       res.json({
         success: true,
