@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".App.Tournaments.View.Activities.CreateTournament">
+    tools:context=".App.Tournament.View.Activities.CreateTournament">
 
     <EditText
         android:id="@+id/TournamentName"
