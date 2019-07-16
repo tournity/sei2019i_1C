@@ -14,7 +14,7 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/title_home"
+        android:text="@string/title_tournament"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,8 +31,20 @@
         app:menu="@menu/bottom_nav_menu" >
 
         <fragment
+            android:id="@+id/fragment2"
+            android:name="com.tournity.View.Fragments.SportFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <fragment
             android:id="@+id/fragment"
             android:name="com.tournity.View.Fragments.TournamentFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragment3"
+            android:name="com.tournity.View.Fragments.UserFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
