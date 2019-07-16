@@ -1,4 +1,4 @@
-const CompetitorRouter = require('./competitor');
+const CompetitorRouter = require('../authentication/routes/competitor');
 const TeamRouter = require('./team');
 const UserSportGroupRouter = require('./user-sport-group');
 const SportRouter = require('./sport');
