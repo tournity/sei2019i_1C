@@ -1,7 +1,7 @@
 const AuthenticationRouter = require('./authentication');
-const AccountRouter = require('./account');
+const ActiveAccountRouter = require('./activeAccount');
 
 module.exports = {
   AuthenticationRouter,
-  AccountRouter
+  ActiveAccountRouter
 };

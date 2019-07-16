@@ -7,21 +7,11 @@ module.exports.findByEmail = async function(email) {
   });
 };
 
-module.exports.create = function(accountData, transaction) {
-  let salt = CryptographyAssistant.generateRandomString(100);
-  let encryptedPassword = CryptographyAssistant.encryptWithSHA2(
-    accountData.password + salt
+module.exports.create = async function(accountData, transaction) {
+  accountData.salt = CryptographyAssistant.generateRandomString(100);
+  accountData.encryptedPassword = CryptographyAssistant.encryptWithSHA2(
+    accountData.password + accountData.salt
   );
-  return Account.create(
-    {
-      type: accountData.type,
-      name: accountData.name,
-      email: accountData.email,
-      encryptedPassword: encryptedPassword,
-      salt: salt,
-      lastInteractionDate: Date.now(),
-      status: 'active'
-    },
-    { transaction: transaction }
-  );
+  accountData.status = 'active';
+  return await Account.create(accountData, { transaction: transaction });
 };
