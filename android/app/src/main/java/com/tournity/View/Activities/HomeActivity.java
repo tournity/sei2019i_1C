@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class HomeActivty extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

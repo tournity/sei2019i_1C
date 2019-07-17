@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.tournity.App.Authentication.Bloc.Controllers.AuthenticationController;
 import com.tournity.App.User.View.Activities.RegisterActivity;
 import com.tournity.R;
-import com.tournity.View.Activities.HomeActivty;
+import com.tournity.View.Activities.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     AuthenticationController controller;
@@ -26,8 +26,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.password);
+        btnLogin=findViewById(R.id.btnLogin);
+        btnSignUp=findViewById(R.id.btnSignUp);
         controller = new AuthenticationController(this);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+       /* btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             onLogin(view);
@@ -38,12 +40,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 onSignUp(view);
             }
-        });
+        });*/
     }
 
     public void onLogin(View v) {
         controller.login(email.getText().toString(), pass.getText().toString());
-        Intent intent = new Intent(this, HomeActivty.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
