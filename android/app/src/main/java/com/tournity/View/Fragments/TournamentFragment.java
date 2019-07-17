@@ -45,22 +45,14 @@ public class TournamentFragment extends Fragment {
      * @return A new instance of fragment TournamentFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TournamentFragment newInstance(String param1, String param2) {
+    public static TournamentFragment newInstance() {
         TournamentFragment fragment = new TournamentFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override

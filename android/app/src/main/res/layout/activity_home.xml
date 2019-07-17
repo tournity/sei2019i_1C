@@ -25,19 +25,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <!---
+
         <fragment
-                android:id="@+id/fragment2"
-                android:name="com.tournity.View.Fragments.SportFragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            android:id="@+id/fragment2"
+            android:name="com.tournity.View.Fragments.SportFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-                <fragment
-                    android:id="@+id/fragment3"
-                    android:name="com.tournity.View.Fragments.UserFragment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />    -->
+        <fragment
+            android:id="@+id/fragment3"
+            android:name="com.tournity.View.Fragments.UserFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>
