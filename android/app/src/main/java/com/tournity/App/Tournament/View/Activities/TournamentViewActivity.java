@@ -1,4 +1,4 @@
-package com.tournity.View.Activities;
+package com.tournity.App.Tournament.View.Activities;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
