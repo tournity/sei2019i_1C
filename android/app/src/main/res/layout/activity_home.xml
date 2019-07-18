@@ -6,46 +6,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Activities.HomeActivity">
+
     <FrameLayout
         android:id="@+id/frame_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/nav_view"
+        android:layout_width="417dp"
+        android:layout_height="658dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:animateLayoutChanges="true"
-       >
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="8dp"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu">
-
-        <fragment
-            android:id="@+id/fragment"
-            android:name="com.tournity.View.Fragments.TournamentFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <fragment
-            android:id="@+id/fragment2"
-            android:name="com.tournity.View.Fragments.SportFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <fragment
-            android:id="@+id/fragment3"
-            android:name="com.tournity.View.Fragments.UserFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/bottom_nav_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/holo_green_dark"
+
     tools:context=".View.Fragments.SportFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,9 +15,9 @@
         android:text="@string/title_sports"
         android:textSize="25sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
+        android:id="@+id/idListGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/recycler_view_item_1" />
+        android:layout_height="613dp" />
 
 </LinearLayout>
