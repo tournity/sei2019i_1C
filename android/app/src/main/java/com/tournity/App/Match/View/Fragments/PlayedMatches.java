@@ -70,7 +70,7 @@ public class PlayedMatches extends Fragment {
         Partidos.add("Partido 2");
         Partidos.add("Partido 3");
         Partidos.add("Partido 4");
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, Partidos);
+        ArrayAdapter adaptador = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, Partidos);
        this.matchlist.setAdapter(adaptador);
 
 
