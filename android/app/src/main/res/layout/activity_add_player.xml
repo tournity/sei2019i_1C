@@ -8,63 +8,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title_add_player"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/player_name" />
+        android:textSize="30dp" />
 
     <EditText
         android:id="@+id/idNameAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:hint="@string/player_name"
+        android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/player_type" />
 
     <EditText
         android:id="@+id/idTypeAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:hint="@string/player_type"
+        android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/playerDescription" />
 
     <EditText
         android:id="@+id/idDescriptionAddPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/playerGroup" />
+        android:inputType="textPersonName"
+        android:hint="@string/playerDescription"
+        android:textSize="20dp"
+        />
 
     <EditText
         android:id="@+id/idSportGroupAddSport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:hint="@string/txt_group"
+        android:textSize="20dp"/>
 
     <Button
-        android:id="@+id/idbtn_add_player"
-        android:layout_width="match_parent"
+        android:id="@+id/idBtn_add_player"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_add_player" />
+        android:text="@string/btn_save"
+        android:textSize="20dp"/>
 </LinearLayout>

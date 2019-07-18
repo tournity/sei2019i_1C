@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".App.Player.View.Activities.NewPlayerActivity"></activity>
+        <activity android:name=".App.Player.View.Activities.EditPlayerProfileActivity"></activity>
         <activity android:name=".App.Player.View.Activities.RecordPlayerActivity" />
         <activity android:name=".View.Activities.MenuPlayerTeamActivity" />
         <activity android:name=".App.User.View.Activities.RegisterActivity" />

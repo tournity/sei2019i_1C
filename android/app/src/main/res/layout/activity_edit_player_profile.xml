@@ -4,64 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".App.Player.View.Activities.RecordPlayerActivity">
+    tools:context=".App.Player.View.Activities.EditPlayerProfileActivity">
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
+
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_profile"
-            android:textSize="30dp"/>
+            android:text="@string/title_edit_profile"
+            android:textSize="30dp" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start">
+            android:gravity="start"
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/idTxtName"
+                android:id="@+id/idEditTxtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_name"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/idEditEdTxtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/txt_name"
+                android:textSize="20dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start">
+            android:gravity="start"
+            android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/idTxtHeight"
+                android:id="@+id/idEditTxtHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_height"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/idEditEdTxtHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/txt_height"
+                android:textSize="20dp"
+                android:inputType="number"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start">
+            android:gravity="start"
+            android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/idTxtStatus"
+                android:id="@+id/idEditTxtStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_status"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/idEditEdTxtStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/txt_status"
+                android:textSize="20dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end">
+            android:gravity="end"
+            android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_edit"
-                android:textSize="20dp"
-                android:onClick="onClick"/>
+                android:text="@string/btn_save"
+                android:textSize="20dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

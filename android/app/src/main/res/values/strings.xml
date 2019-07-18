@@ -21,4 +21,12 @@
     <string name="btn_teams">Teams</string>
     <string name="playerDescription">Description</string>
     <string name="title_list_team">Team List</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_edit_profile">Edit Player Profile</string>
+    <string name="title_new_player">New Player</string>
+    <string name="txt_height">Height</string>
+    <string name="txt_status">Status</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_save">Save</string>
+    <string name="txt_group">Group</string>
 </resources>
