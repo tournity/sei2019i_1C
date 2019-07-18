@@ -18,12 +18,12 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PlayedMatches.OnFragmentInteractionListener} interface
+ * {@link PlayedMatchesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PlayedMatches#newInstance} factory method to
+ * Use the {@link PlayedMatchesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlayedMatches extends Fragment {
+public class PlayedMatchesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,7 +35,7 @@ public class PlayedMatches extends Fragment {
     private ListView matchlist;
     private OnFragmentInteractionListener mListener;
 
-    public PlayedMatches() {
+    public PlayedMatchesFragment() {
         // Required empty public constructor
     }
 
@@ -45,11 +45,11 @@ public class PlayedMatches extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PlayedMatches.
+     * @return A new instance of fragment PlayedMatchesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PlayedMatches newInstance(String param1, String param2) {
-        PlayedMatches fragment = new PlayedMatches();
+    public static PlayedMatchesFragment newInstance(String param1, String param2) {
+        PlayedMatchesFragment fragment = new PlayedMatchesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

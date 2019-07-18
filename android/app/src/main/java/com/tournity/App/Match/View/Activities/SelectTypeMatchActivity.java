@@ -11,31 +11,33 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.tournity.App.Match.View.Fragments.ForPlayMatchesFragment;
-import com.tournity.App.Match.View.Fragments.PlayedMatches;
+import com.tournity.App.Match.View.Fragments.PlayedMatchesFragment;
 import com.tournity.R;
 
-public class SelectTypeMatchActivity extends AppCompatActivity implements ForPlayMatchesFragment.OnFragmentInteractionListener, PlayedMatches.OnFragmentInteractionListener {
+public class SelectTypeMatchActivity extends AppCompatActivity implements ForPlayMatchesFragment.OnFragmentInteractionListener, PlayedMatchesFragment.OnFragmentInteractionListener {
     private TextView mTextMessage;
-    PlayedMatches played;
+    PlayedMatchesFragment played;
     ForPlayMatchesFragment forplay;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentTransaction transaction;
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                     transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.containerFragment, forplay);
+                    transaction.commit();
 
-                    return true;
                 case R.id.navigation_dashboard:
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.containerFragment, played);
                     transaction.commit();
-                    return true;
-                //case R.id.navigation_notifications:
-                //  return true;
+
             }
-            return false;
+            return true;
         }
     };
 
@@ -47,7 +49,7 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         forplay = new ForPlayMatchesFragment();
-        played = new PlayedMatches();
+        played = new PlayedMatchesFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragment, forplay).commit();
 
 
