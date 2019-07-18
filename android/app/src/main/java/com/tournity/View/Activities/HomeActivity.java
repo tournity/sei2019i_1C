@@ -30,7 +30,6 @@ public class HomeActivity extends AppCompatActivity implements TournamentFragmen
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             // Fragment selectedFragment = null;
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            System.out.println("Pressed " + item.getItemId());
             switch (item.getItemId()) {
                 case R.id.navigation_tournament:
                     //selectedFragment = TournamentFragment.newInstance();

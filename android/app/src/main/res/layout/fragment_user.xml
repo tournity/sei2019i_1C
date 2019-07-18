@@ -14,7 +14,7 @@
         android:textSize="25sp" />
 
     <ListView
-        android:id="@+id/idListData"
+        android:id="@+id/idDataUser"
         android:layout_width="match_parent"
         android:layout_height="613dp" />
 </LinearLayout>

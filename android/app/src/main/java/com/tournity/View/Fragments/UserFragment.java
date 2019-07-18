@@ -31,8 +31,8 @@ public class UserFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ListView sportList;
-    private ArrayAdapter<String> sportAdapter;
+    private ListView userData;
+    private ArrayAdapter<String> userAdapter;
     private OnFragmentInteractionListener mListener;
 
     public UserFragment() {
@@ -63,10 +63,10 @@ public class UserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root= inflater.inflate(R.layout.fragment_user,container,false);
-        sportList = root.findViewById(R.id.idListData);
-        String[] data={"Futbol","Tenis","Baloncesto","Beisbol"};
-        sportAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
-        sportList.setAdapter(sportAdapter);
+        userData = root.findViewById(R.id.idDataUser);
+        String[] data={"Enderson Gonzalo Diaz Muñoz","Entrenador","Baloncesto","Colombia"};
+        userAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
+        userData.setAdapter(userAdapter);
 
         // Inflate the layout for this fragment
         return root;

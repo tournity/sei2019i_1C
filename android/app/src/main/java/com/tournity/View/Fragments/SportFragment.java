@@ -63,7 +63,7 @@ public class SportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.fragment_sport,container,false);
-        sportList = root.findViewById(R.id.idListData);
+        sportList = root.findViewById(R.id.idListSport);
         String[] data={"Futbol","Tenis","Baloncesto","Beisbol"};
         sportAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
         sportList.setAdapter(sportAdapter);
