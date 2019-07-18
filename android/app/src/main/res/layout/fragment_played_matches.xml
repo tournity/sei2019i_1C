@@ -13,6 +13,7 @@
         android:text="Played Matches"
         android:textSize="25sp"/>
     <ListView
+        android:id="@+id/listmatches"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="35dp"></ListView>
