@@ -1,16 +1,20 @@
 package com.tournity.App.Tournament.View.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tournity.App.Match.View.Activities.SelectTypeMatchActivity;
 import com.tournity.R;
 
 import java.util.ArrayList;
 
 public class TournamentViewActivity extends AppCompatActivity {
-    ListView listViewMPlay,listViewMPlayed;
+    ListView listViewMPlay, listViewMPlayed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,14 @@ public class TournamentViewActivity extends AppCompatActivity {
         listViewMPlayed.setAdapter(listViewAdapterMPlayed);
 */
 
+
+    }
+
+    public void onClick(View view) {
+
+
+        Intent intent = new Intent(this, SelectTypeMatchActivity.class);
+        startActivity(intent);
 
     }
 }

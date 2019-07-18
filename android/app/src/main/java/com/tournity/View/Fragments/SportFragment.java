@@ -1,6 +1,7 @@
 package com.tournity.View.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -9,9 +10,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.tournity.App.Group.View.Activities.ListGroupActivity;
 import com.tournity.R;
 
 /**
@@ -67,9 +70,19 @@ public class SportFragment extends Fragment {
         String[] data={"Futbol","Tenis","Baloncesto","Beisbol"};
         sportAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
         sportList.setAdapter(sportAdapter);
+        sportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                onSelectedItem();
+            }
+        });
 
         // Inflate the layout for this fragment
         return root;
+    }
+    public void onSelectedItem(){
+        Intent intent = new Intent(this.getActivity(), ListGroupActivity.class);
+        startActivity(intent);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -143,6 +143,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="430dp"
         android:text="Partidos"
+        android:onClick="onClick"
         />
     <!--  <TextView
           android:id="@+id/textView"

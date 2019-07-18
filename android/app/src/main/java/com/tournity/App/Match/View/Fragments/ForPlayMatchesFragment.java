@@ -51,20 +51,12 @@ public class ForPlayMatchesFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static ForPlayMatchesFragment newInstance(String param1, String param2) {
         ForPlayMatchesFragment fragment = new ForPlayMatchesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       /* if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
 
     }
 
@@ -73,6 +65,11 @@ public class ForPlayMatchesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_for_play_matches, container, false);
+        setData();
+        return view;
+    }
+
+    public void setData(){
         ArrayList<String> Partidos = new ArrayList<>();
         Partidos.add("Partido 1");
         Partidos.add("Partido 2");
@@ -81,14 +78,10 @@ public class ForPlayMatchesFragment extends Fragment {
         listForPlay = (ListView) view.findViewById(R.id.listmatchesforplay);
         ArrayAdapter adaptador = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, Partidos);
         listForPlay.setAdapter(adaptador);
-        return view;
     }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+
     }
 
     @Override

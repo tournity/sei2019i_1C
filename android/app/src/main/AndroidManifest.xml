@@ -17,6 +17,8 @@
             android:label="@string/title_activity_home_activty"></activity>
         <activity android:name=".App.User.View.Activities.RegisterActivity" />
         <activity android:name=".App.Group.View.Activities.PlayerOrTeamActivity" />
+        <activity android:name=".App.Group.View.Activities.ListGroupActivity"/>
+        <activity android:name=".App.Tournament.View.Activities.TournamentViewActivity"/>
         <activity
             android:name=".App.Match.View.Activities.SelectTypeMatchActivity"
             android:label="@string/title_activity_select_type_match"></activity>
