@@ -14,10 +14,10 @@ import com.tournity.App.Match.View.Fragments.ForPlayMatchesFragment;
 import com.tournity.App.Match.View.Fragments.PlayedMatches;
 import com.tournity.R;
 
-public class SelectTypeMatchActivity extends AppCompatActivity implements ForPlayMatchesFragment.OnFragmentInteractionListener,PlayedMatches.OnFragmentInteractionListener{
+public class SelectTypeMatchActivity extends AppCompatActivity implements ForPlayMatchesFragment.OnFragmentInteractionListener, PlayedMatches.OnFragmentInteractionListener {
     private TextView mTextMessage;
-PlayedMatches played;
-ForPlayMatchesFragment forplay;
+    PlayedMatches played;
+    ForPlayMatchesFragment forplay;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -28,12 +28,12 @@ ForPlayMatchesFragment forplay;
 
                     return true;
                 case R.id.navigation_dashboard:
-                    FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.containerFragment,played);
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.containerFragment, played);
                     transaction.commit();
                     return true;
                 //case R.id.navigation_notifications:
-                  //  return true;
+                //  return true;
             }
             return false;
         }
@@ -43,12 +43,12 @@ ForPlayMatchesFragment forplay;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_type_match);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        BottomNavigationView navView = findViewById(R.id.nav_view_match);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        forplay=new ForPlayMatchesFragment();
-        played=new PlayedMatches();
-        getSupportFragmentManager().beginTransaction().add(R.id.containerFragment,forplay).commit();
+        forplay = new ForPlayMatchesFragment();
+        played = new PlayedMatches();
+        getSupportFragmentManager().beginTransaction().add(R.id.containerFragment, forplay).commit();
 
 
     }

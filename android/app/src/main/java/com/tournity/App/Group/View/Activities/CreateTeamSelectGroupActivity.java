@@ -22,7 +22,7 @@ public class CreateTeamSelectGroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_team_select_group);
 
 
-        listViewGroup = findViewById(R.id.idListGroup);
+        listViewGroup = findViewById(R.id.idDataUser);
 
         ArrayList<String> listGroupString = new ArrayList<>();
         //listGroupString = ...
