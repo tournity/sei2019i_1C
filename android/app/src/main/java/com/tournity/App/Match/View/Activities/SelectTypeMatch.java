@@ -25,13 +25,14 @@ public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+
+                    return true;
+                case R.id.navigation_dashboard:
+                    mTextMessage.setText(R.string.title_dashboard);
                     FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                     PlayedMatches played=new PlayedMatches();
                     transaction.replace(R.id.containerFragment,played);
                     transaction.commit();
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
@@ -56,6 +57,6 @@ public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-        
+
     }
 }
