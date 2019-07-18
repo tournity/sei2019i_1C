@@ -1,5 +1,6 @@
 package com.tournity.App.Match.View.Activities;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import com.tournity.App.Match.View.Fragments.ForPlayMatches;
 import com.tournity.App.Match.View.Fragments.PlayedMatches;
 import com.tournity.R;
 
-public class SelectTypeMatch extends AppCompatActivity {
+public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches.OnFragmentInteractionListener,PlayedMatches.OnFragmentInteractionListener{
     private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -53,4 +54,8 @@ public class SelectTypeMatch extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        
+    }
 }
