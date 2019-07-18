@@ -35,15 +35,17 @@ public class HomeActivity extends AppCompatActivity implements TournamentFragmen
                     //selectedFragment = TournamentFragment.newInstance();
                     System.out.println("tournament");
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, tournamentFragment).commit();
+                    break;
                 case R.id.navigation_sport:
                     //selectedFragment= SportFragment.newInstance();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, sportFragment).commit();
                     System.out.println("sport");
-
+                    break;
                 case R.id.navigation_profile:
                     //selectedFragment = UserFragment.newInstance();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, userFragment).commit();
                     System.out.println("profile");
+                    break;
             }
             /*FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_layout,selectedFragment);*/

@@ -1,5 +1,6 @@
 package com.tournity.App.Match.View.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
     private TextView mTextMessage;
     PlayedMatchesFragment played;
     ForPlayMatchesFragment forplay;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -28,13 +30,18 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                      transaction = getSupportFragmentManager().beginTransaction();
+                     //forplay.setData();
                     transaction.replace(R.id.containerFragment, forplay);
                     transaction.commit();
-
+                    System.out.println("forplay");
+                    break;
                 case R.id.navigation_dashboard:
                     transaction = getSupportFragmentManager().beginTransaction();
+                   // played.setData();
+                    System.out.println("played");
                     transaction.replace(R.id.containerFragment, played);
                     transaction.commit();
+                    break;
 
             }
             return true;
@@ -46,11 +53,10 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_type_match);
         BottomNavigationView navView = findViewById(R.id.nav_view_match);
-        mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         forplay = new ForPlayMatchesFragment();
         played = new PlayedMatchesFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.containerFragment, forplay).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.containerFragment, forplay).commit();
 
 
     }
