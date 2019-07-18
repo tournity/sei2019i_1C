@@ -9,7 +9,6 @@ import com.tournity.App.Team.View.Activities.CreateTeamActivity;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
 
-
 public class TeamController {
     Context ctx;
 
