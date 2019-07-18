@@ -1,11 +1,11 @@
 package com.tournity.App.Authentication.View.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tournity.App.Authentication.Bloc.Controllers.AuthenticationController;
 import com.tournity.App.User.View.Activities.RegisterActivity;
