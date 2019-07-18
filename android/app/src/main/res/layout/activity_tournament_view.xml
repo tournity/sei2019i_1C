@@ -1,52 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="35sp"
-        android:text="@string/title_tournament_tournamentV"/>
+        android:text="Tournament Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+       
+        />
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20sp"
-        android:text="@string/subTitle_match_to_play"
-        android:layout_marginTop="10sp"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10sp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ListView
-                android:id="@+id/idListViewMatchToPlay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </ScrollView>
+        android:textStyle="bold"
+        />
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:text="Description of Tournament"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <TextView
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="@string/subTitle_match_played"
-        android:textSize="20sp"
-        android:layout_marginTop="100sp"/>
-    <ScrollView
-        android:layout_width="match_parent"
+        android:text="Start Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="210dp"
+        android:layout_marginStart="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10sp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ListView
-                android:id="@+id/idListViewMatchPlayed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </ScrollView>
+        android:text="Start Date txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="210dp"
+        android:layout_marginStart="130dp"
 
 
-</LinearLayout>
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Finish Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Finish Date txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="130dp"
+
+
+        />
+    <TextView
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:text="Created Date"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="290dp"
+    android:layout_marginStart="15dp"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Created Date txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="290dp"
+        android:layout_marginStart="130dp"
+
+
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="330dp"
+        android:layout_marginStart="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Status txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="330dp"
+        android:layout_marginStart="130dp"
+        />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="430dp"
+        android:text="Partidos"
+        />
+    <!--  <TextView
+          android:id="@+id/textView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/subTitle_match_to_play"
+          android:textSize="20sp" />
+      <ScrollView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10sp">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+              <ListView
+                  android:id="@+id/idListViewMatchToPlay"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+      </ScrollView>
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/subTitle_match_played"
+          android:textSize="20sp"
+          android:layout_marginTop="100sp"/>
+      <ScrollView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10sp">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+              <ListView
+                  android:id="@+id/idListViewMatchPlayed"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+      </ScrollView>
+
+
+
+  -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
