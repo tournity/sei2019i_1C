@@ -15,7 +15,7 @@ public class ListGroupActivity extends AppCompatActivity implements AdapterView.
     GroupController controller;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        listView = findViewById(R.id.idListGroup);
+        listView = findViewById(R.id.idListData);
         controller.listGroups();
         listView.setOnItemClickListener(this);
 

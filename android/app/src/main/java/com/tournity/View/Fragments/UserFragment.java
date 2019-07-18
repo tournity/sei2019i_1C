@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.tournity.R;
 
@@ -29,7 +31,8 @@ public class UserFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private ListView sportList;
+    private ArrayAdapter<String> sportAdapter;
     private OnFragmentInteractionListener mListener;
 
     public UserFragment() {
@@ -59,7 +62,14 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View root= inflater.inflate(R.layout.fragment_user,container,false);
+        sportList = root.findViewById(R.id.idListData);
+        String[] data={"Futbol","Tenis","Baloncesto","Beisbol"};
+        sportAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
+        sportList.setAdapter(sportAdapter);
+
+        // Inflate the layout for this fragment
+        return root;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

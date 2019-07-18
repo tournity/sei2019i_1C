@@ -21,7 +21,7 @@ public class CreateTeamSelectGroupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_team_select_group);
 
-        listViewGroup = findViewById(R.id.idListGroup);
+        listViewGroup = findViewById(R.id.idListData);
 
         ArrayList<String> listGroupString = new ArrayList<>();
         //listGroupString = ...

@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@android:color/holo_green_dark"
+    android:orientation="vertical"
 
     tools:context=".View.Fragments.SportFragment">
 
@@ -16,7 +16,7 @@
         android:textSize="25sp" />
 
     <ListView
-        android:id="@+id/idListGroup"
+        android:id="@+id/idListData"
         android:layout_width="match_parent"
         android:layout_height="613dp" />
 

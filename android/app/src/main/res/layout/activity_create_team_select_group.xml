@@ -8,7 +8,7 @@
         android:text="@string/title_select_create_team"
         android:textSize="30sp"/>
     <ListView
-        android:id="@+id/idListGroup"
+        android:id="@+id/idListData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
