@@ -7,8 +7,12 @@
     tools:context=".View.Fragments.UserFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Space
         android:layout_width="match_parent"
+        android:layout_height="34dp" />
+
+    <TextView
+        android:layout_width="373dp"
         android:layout_height="wrap_content"
         android:text="@string/title_profile"
         android:textSize="25sp" />
