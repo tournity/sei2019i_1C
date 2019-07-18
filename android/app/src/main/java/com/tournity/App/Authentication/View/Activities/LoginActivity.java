@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tournity.App.Authentication.Bloc.Controllers.AuthenticationController;
 import com.tournity.App.Match.View.Activities.SelectTypeMatchActivity;
+import com.tournity.App.User.View.Activities.RegisterActivity;
 import com.tournity.R;
 import com.tournity.View.Activities.HomeActivity;
 
