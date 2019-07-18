@@ -6,8 +6,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tournity.App.Match.View.Fragments.ForPlayMatches;
+import com.tournity.App.Match.View.Fragments.PlayedMatches;
 import com.tournity.R;
 
 public class SelectTypeMatch extends AppCompatActivity {
@@ -21,6 +24,10 @@ public class SelectTypeMatch extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+                    FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+                    PlayedMatches played=new PlayedMatches();
+                    transaction.replace(R.id.containerFragment,played);
+                    transaction.commit();
                     return true;
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
@@ -40,6 +47,10 @@ public class SelectTypeMatch extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        ForPlayMatches forplay=new ForPlayMatches();
+        getSupportFragmentManager().beginTransaction().add(R.id.containerFragment,forplay).commit();
+
+
     }
 
 }
