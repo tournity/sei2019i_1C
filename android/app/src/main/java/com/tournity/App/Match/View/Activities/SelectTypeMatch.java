@@ -16,7 +16,8 @@ import com.tournity.R;
 
 public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches.OnFragmentInteractionListener,PlayedMatches.OnFragmentInteractionListener{
     private TextView mTextMessage;
-
+PlayedMatches played;
+ForPlayMatches forplay;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -30,7 +31,6 @@ public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
                     FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-                    PlayedMatches played=new PlayedMatches();
                     transaction.replace(R.id.containerFragment,played);
                     transaction.commit();
                     return true;
@@ -49,7 +49,8 @@ public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        ForPlayMatches forplay=new ForPlayMatches();
+        forplay=new ForPlayMatches();
+        played=new PlayedMatches();
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragment,forplay).commit();
 
 
