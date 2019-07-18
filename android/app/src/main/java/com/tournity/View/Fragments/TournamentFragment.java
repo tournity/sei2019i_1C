@@ -1,6 +1,7 @@
 package com.tournity.View.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -9,9 +10,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.tournity.App.Tournament.View.Activities.TournamentViewActivity;
 import com.tournity.R;
 
 /**
@@ -64,9 +67,18 @@ public class TournamentFragment extends Fragment {
         // Inflate the layout for this fragment
         View root= inflater.inflate(R.layout.fragment_tournament,container,false);
         tournamentList = root.findViewById(R.id.idListTournaments);
+
+        //----Test--------------------------------------
         String[] data={"Liga 1","Torneo 1","Copa del rey","Libertadores"};
         tournamentAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
         tournamentList.setAdapter(tournamentAdapter);
+        tournamentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                onClick();
+            }
+        });
+        //---------------------------------------------------
 
         // Inflate the layout for this fragment
         return root;    }
@@ -76,6 +88,11 @@ public class TournamentFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    public void onClick(){
+        Intent intent = new Intent(this.getActivity(), TournamentViewActivity.class);
+        startActivity(intent);
     }
 
     @Override
