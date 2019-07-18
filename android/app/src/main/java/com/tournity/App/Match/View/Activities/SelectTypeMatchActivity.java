@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.tournity.App.Match.View.Fragments.ForPlayMatches;
+import com.tournity.App.Match.View.Fragments.ForPlayMatchesFragment;
 import com.tournity.App.Match.View.Fragments.PlayedMatches;
 import com.tournity.R;
 
-public class SelectTypeMatch extends AppCompatActivity implements ForPlayMatches.OnFragmentInteractionListener,PlayedMatches.OnFragmentInteractionListener{
+public class SelectTypeMatchActivity extends AppCompatActivity implements ForPlayMatchesFragment.OnFragmentInteractionListener,PlayedMatches.OnFragmentInteractionListener{
     private TextView mTextMessage;
 PlayedMatches played;
-ForPlayMatches forplay;
+ForPlayMatchesFragment forplay;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -25,18 +25,15 @@ ForPlayMatches forplay;
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
 
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
                     FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.containerFragment,played);
                     transaction.commit();
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                //case R.id.navigation_notifications:
+                  //  return true;
             }
             return false;
         }
@@ -49,7 +46,7 @@ ForPlayMatches forplay;
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        forplay=new ForPlayMatches();
+        forplay=new ForPlayMatchesFragment();
         played=new PlayedMatches();
         getSupportFragmentManager().beginTransaction().add(R.id.containerFragment,forplay).commit();
 

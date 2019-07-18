@@ -18,25 +18,25 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ForPlayMatches.OnFragmentInteractionListener} interface
+ * {@link ForPlayMatchesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ForPlayMatches#newInstance} factory method to
+ * Use the {@link ForPlayMatchesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ForPlayMatches extends Fragment {
+public class ForPlayMatchesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-private View view;
-private ListView listForPlay;
+    private View view;
+    private ListView listForPlay;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public ForPlayMatches() {
+    public ForPlayMatchesFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +46,11 @@ private ListView listForPlay;
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ForPlayMatches.
+     * @return A new instance of fragment ForPlayMatchesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ForPlayMatches newInstance(String param1, String param2) {
-        ForPlayMatches fragment = new ForPlayMatches();
+    public static ForPlayMatchesFragment newInstance(String param1, String param2) {
+        ForPlayMatchesFragment fragment = new ForPlayMatchesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,22 +65,22 @@ private ListView listForPlay;
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
-        ArrayList<String> Partidos=new ArrayList<>();
-        Partidos.add("Partido 1");
-        Partidos.add("Partido 2");
-        Partidos.add("Partido 3");
-        Partidos.add("Partido 4");
-        this.listForPlay=(ListView)this.view.findViewById(R.id.listmatchesforplay);
-        ArrayAdapter adaptador = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, Partidos);
-        this.listForPlay.setAdapter(adaptador);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        this.view=inflater.inflate(R.layout.fragment_for_play_matches, container, false);
-
+        view = inflater.inflate(R.layout.fragment_for_play_matches, container, false);
+        ArrayList<String> Partidos = new ArrayList<>();
+        Partidos.add("Partido 1");
+        Partidos.add("Partido 2");
+        Partidos.add("Partido 3");
+        Partidos.add("Partido 4");
+        listForPlay = (ListView) view.findViewById(R.id.listmatchesforplay);
+        ArrayAdapter adaptador = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, Partidos);
+        listForPlay.setAdapter(adaptador);
         return view;
     }
 

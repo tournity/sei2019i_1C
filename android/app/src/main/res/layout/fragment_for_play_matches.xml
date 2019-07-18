@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".App.Match.View.Fragments.ForPlayMatches">
+    tools:context=".App.Match.View.Fragments.ForPlayMatchesFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

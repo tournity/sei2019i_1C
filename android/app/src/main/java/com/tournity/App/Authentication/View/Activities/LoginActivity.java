@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tournity.App.Authentication.Bloc.Controllers.AuthenticationController;
-import com.tournity.App.User.View.Activities.RegisterActivity;
+import com.tournity.App.Match.View.Activities.SelectTypeMatchActivity;
 import com.tournity.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onSignUp(View v){
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, SelectTypeMatchActivity.class);
         startActivity(intent);
     }
 }
