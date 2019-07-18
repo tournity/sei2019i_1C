@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tournity.App.Authentication.Bloc.Controllers.AuthenticationController;
 import com.tournity.App.Match.View.Activities.SelectTypeMatchActivity;
+import com.tournity.App.User.View.Activities.RegisterActivity;
 import com.tournity.R;
 import com.tournity.View.Activities.HomeActivity;
 
@@ -50,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onSignUp(View v) {
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, SelectTypeMatchActivity.class);
         startActivity(intent);
     }
 }
