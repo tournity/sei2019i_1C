@@ -7,8 +7,15 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="Matches For Play"
+        android:textSize="25sp"/>
+    <ListView
+        android:id="@+id/listmatchesforplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="35dp"></ListView>
 
 </FrameLayout>

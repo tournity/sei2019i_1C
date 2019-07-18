@@ -17,7 +17,7 @@
             android:label="@string/title_activity_select_type_match"></activity>
         <activity android:name=".App.User.View.Activities.RegisterActivity" />
         <activity android:name=".App.Group.View.Activities.PlayerOrTeamActivity" />
-           
+
         <activity android:name=".App.Authentication.View.Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
