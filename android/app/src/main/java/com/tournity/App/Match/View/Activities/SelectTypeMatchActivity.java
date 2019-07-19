@@ -28,14 +28,14 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
             FragmentTransaction transaction;
 
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_forplay:
                      transaction = getSupportFragmentManager().beginTransaction();
                      //forplay.setData();
                     transaction.replace(R.id.containerFragment, forplay);
                     transaction.commit();
                     System.out.println("forplay");
                     break;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_played:
                     transaction = getSupportFragmentManager().beginTransaction();
                    // played.setData();
                     System.out.println("played");

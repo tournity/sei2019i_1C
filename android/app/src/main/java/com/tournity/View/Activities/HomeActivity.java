@@ -78,4 +78,8 @@ public class HomeActivity extends AppCompatActivity implements TournamentFragmen
 
     public void onClick(View view) {
     }
+
+    public TournamentFragment getTournamentFragment() {
+        return tournamentFragment;
+    }
 }

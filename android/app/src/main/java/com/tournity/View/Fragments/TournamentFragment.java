@@ -17,6 +17,8 @@ import android.widget.ListView;
 import com.tournity.App.Tournament.View.Activities.TournamentViewActivity;
 import com.tournity.R;
 
+import java.util.StringTokenizer;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -42,18 +44,15 @@ public class TournamentFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TournamentFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static TournamentFragment newInstance() {
         TournamentFragment fragment = new TournamentFragment();
         return fragment;
+    }
+
+    public ListView getTournamentList() {
+        return tournamentList;
     }
 
     @Override
@@ -69,13 +68,16 @@ public class TournamentFragment extends Fragment {
         tournamentList = root.findViewById(R.id.idListTournaments);
 
         //----Test--------------------------------------
-        String[] data={"Liga 1","Torneo 1","Copa del rey","Libertadores"};
+        String[] data={"1 Liga","1 Torneo","3 Copa del rey","4 Libertadores"};
         tournamentAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
         tournamentList.setAdapter(tournamentAdapter);
         tournamentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                onClick();
+                String item=(String)adapterView.getItemAtPosition(i);
+                StringTokenizer st=new StringTokenizer(item);
+
+                onClick(st.nextToken());
             }
         });
         //---------------------------------------------------
@@ -90,8 +92,9 @@ public class TournamentFragment extends Fragment {
         }
     }
 
-    public void onClick(){
+    public void onClick(String SportId){
         Intent intent = new Intent(this.getActivity(), TournamentViewActivity.class);
+        intent.putExtra("idTournament",Integer.parseInt(SportId));
         startActivity(intent);
     }
 
