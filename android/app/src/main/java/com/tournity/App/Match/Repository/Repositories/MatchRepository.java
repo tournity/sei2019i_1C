@@ -5,6 +5,7 @@ import android.view.contentcapture.ContentCaptureCondition;
 
 import com.tournity.App.Match.Entities.MatchEntity;
 import com.tournity.Data.API.API;
+import com.tournity.Data.API.Enums.APIEndpoints.MatchEndpoint;
 import com.tournity.Data.API.Enums.APIEndpoints.TournamentEndpoint;
 import com.tournity.Data.API.Enums.APIErrors.APIError;
 import com.tournity.Data.API.Listeners.HttpLitener;
@@ -50,6 +51,6 @@ public class MatchRepository {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("idTournament",""+idTournament);
 
-        API.sendRequestToEndpoint(context,, params, DataListener);
+        API.sendRequestToEndpoint(context, MatchEndpoint.getAllByIdTournament, params, DataListener);
     }
 }
