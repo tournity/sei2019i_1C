@@ -7,7 +7,8 @@ import com.tournity.Data.API.Enums.APIResponseDataType;
 
 import com.android.volley.Request;
 public enum MatchEndpoint implements Endpoint {
-    getAllByIdTournament("match/%i", Request.Method.GET,APIResponseDataType.ARRAY);
+    getAllByIdTournament("match/%i", Request.Method.GET,APIResponseDataType.ARRAY),
+    getById("match/%i",Request.Method.GET,APIResponseDataType.OBJECT);
     private String endPoint;
     private int method;
     private APIResponseDataType dataType;
