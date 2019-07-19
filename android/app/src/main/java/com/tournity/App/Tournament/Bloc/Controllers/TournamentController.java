@@ -68,7 +68,7 @@ tournament.setUserSportGroup(iduser_sport_group);
 
             @Override
             public void onError(ModelError error) {
-
+                Toast.makeText(context, "Error al importar torneos", Toast.LENGTH_SHORT).show();
             }
         };
        TournamentModel.getAll(context,listener);
