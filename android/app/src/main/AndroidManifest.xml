@@ -10,13 +10,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".App.Player.View.Activities.EditPlayerProfileActivity"></activity>
-        <activity android:name=".App.Player.View.Activities.RecordPlayerActivity" />
-        <activity android:name=".View.Activities.MenuPlayerTeamActivity" />
+        <activity
+            android:name=".App.Match.View.Activities.EditResultActivity"
+            android:label="@string/title_activity_edit_result_view"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".App.Match.View.Activities.EditMatchActivity" />
+        <activity
+            android:name=".App.Match.View.Activities.MatchViewActivity"
+            android:label="@string/title_activity_match_view"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".View.Activities.HomeActivity"
+            android:label="@string/title_activity_home_activty" />
         <activity android:name=".App.User.View.Activities.RegisterActivity" />
         <activity android:name=".App.Group.View.Activities.PlayerOrTeamActivity" />
+        <activity android:name=".App.Group.View.Activities.ListGroupActivity" />
+        <activity android:name=".App.Tournament.View.Activities.TournamentViewActivity" />
+        <activity
+            android:name=".App.Match.View.Activities.SelectTypeMatchActivity"
+            android:label="@string/title_activity_select_type_match" />
         <activity android:name=".App.Authentication.View.Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

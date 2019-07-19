@@ -9,7 +9,7 @@
         android:textSize="30sp"/>
 
     <ListView
-        android:id="@+id/idListGroup"
+        android:id="@+id/idDataUser"
         android:layout_width="match_parent"
         android:layout_height="613dp" />
 
