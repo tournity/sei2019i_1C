@@ -2,6 +2,7 @@
 package com.tournity.App.Tournament.Bloc.Controllers;
 
 import android.content.Context;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.tournity.App.Tournament.Entities.TournamentEntity;
@@ -9,6 +10,7 @@ import com.tournity.App.Tournament.Repository.Models.TournamentModel;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
+import com.tournity.View.Activities.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,7 +38,7 @@ public class TournamentController {
 
         @Override
         public void onError(ModelError error) {
-
+            Toast.makeText(context, "No se pudo crear el torneo", Toast.LENGTH_SHORT).show();
         }
     };
         TournamentEntity tournament=new TournamentEntity();
@@ -49,10 +51,19 @@ tournament.setUserSportGroup(iduser_sport_group);
 
         TournamentModel.Create(tournament, context,createdTournament);
     }
-    public void getAllTournaments()throws Exception{
+    public void getAllTournaments(){
         ModelListener<ArrayList<TournamentModel>>listener=new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
+                if(context instanceof HomeActivity){
+                    HomeActivity activity=(HomeActivity)context;
+                    ArrayList<String>list=new ArrayList<>();
+                    for(TournamentModel t:model){
+                        list.add(t.getTournamentEntity().getName());
+                    }
+                    ArrayAdapter adaptader = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, list);
+                    activity.getTournamentFragment().getTournamentList().setAdapter(adaptader);
+                }
             }
 
             @Override
@@ -60,7 +71,7 @@ tournament.setUserSportGroup(iduser_sport_group);
 
             }
         };
-       this.tournamentModel.getAll(context,listener);
+       TournamentModel.getAll(context,listener);
 
 
 

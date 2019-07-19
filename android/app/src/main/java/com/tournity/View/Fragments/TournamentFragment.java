@@ -56,6 +56,10 @@ public class TournamentFragment extends Fragment {
         return fragment;
     }
 
+    public ListView getTournamentList() {
+        return tournamentList;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

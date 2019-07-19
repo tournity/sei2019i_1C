@@ -132,11 +132,11 @@ public class TournamentRepository {
     }
 
 
-    public static void SelectAllByDate(Date Initdate, Context context, RepositoryListener<ArrayList<TournamentEntity>> listener) {
+   /* public static void SelectAllByDate(Date Initdate, Context context, RepositoryListener<ArrayList<TournamentEntity>> listener) {
         ArrayList<TournamentEntity> result = new ArrayList<>();
 
 
-    }
+    }*/
 
     public static void SelectAllByOwner(int owner, Context context, final RepositoryListener<ArrayList<TournamentEntity>> listener) {
         HttpLitener DataListener = new HttpLitener<JSONArray>() {
