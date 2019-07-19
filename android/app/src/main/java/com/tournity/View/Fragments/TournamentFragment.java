@@ -94,7 +94,7 @@ public class TournamentFragment extends Fragment {
 
     public void onClick(String SportId){
         Intent intent = new Intent(this.getActivity(), TournamentViewActivity.class);
-        intent.putExtra("idsport",Integer.parseInt(SportId));
+        intent.putExtra("idTournament",Integer.parseInt(SportId));
         startActivity(intent);
     }
 
