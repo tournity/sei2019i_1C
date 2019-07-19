@@ -59,7 +59,7 @@ tournament.setUserSportGroup(iduser_sport_group);
                     HomeActivity activity=(HomeActivity)context;
                     ArrayList<String>list=new ArrayList<>();
                     for(TournamentModel t:model){
-                        list.add(t.getTournamentEntity().getName());
+                        list.add(t.getTournamentEntity().getId()+" "+t.getTournamentEntity().getName());
                     }
                     ArrayAdapter adaptader = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, list);
                     activity.getTournamentFragment().getTournamentList().setAdapter(adaptader);
