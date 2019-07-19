@@ -3,6 +3,7 @@ package com.tournity.App.Tournament.Repository.Models;
 import android.content.Context;
 
 import com.tournity.App.Tournament.Entities.TournamentEntity;
+import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
@@ -17,7 +18,7 @@ public class TournamentModel {
     private TournamentRepository tournamentRepository;
     public TournamentModel(Context context) {
         this.context = context;
-        this.tournamentRepository=new TournamentRepository();
+        this.tournamentRepository=new TournamentRepository(context);
     }
 
 
@@ -47,7 +48,7 @@ public static void Create (TournamentEntity tournament, Context context, final M
 
            @Override
            public void onQueryFailed(RepositoryError error) {
-
+               listener.onError(ModelError.DATA_CONVERSION_FAILED);
            }
        };
 

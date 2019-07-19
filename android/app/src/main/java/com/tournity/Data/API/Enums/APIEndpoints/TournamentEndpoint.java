@@ -8,7 +8,8 @@ import com.tournity.Data.API.Enums.APIResponseDataType;
 public enum TournamentEndpoint implements Endpoint {
     getAll("tournamens/",Request.Method.GET,APIResponseDataType.ARRAY ),
     getById("tournaments/%i",Request.Method.GET,APIResponseDataType.OBJECT),
-    getByOwner("tournaments/%i",Request.Method.GET,APIResponseDataType.ARRAY);
+    getByOwner("tournaments/%i",Request.Method.GET,APIResponseDataType.ARRAY),
+    Insert("tournaments/",Request.Method.POST,APIResponseDataType.OBJECT);
 
 
     private String endPoint;
