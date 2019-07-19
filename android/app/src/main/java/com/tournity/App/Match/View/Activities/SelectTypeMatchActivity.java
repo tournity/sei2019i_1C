@@ -48,6 +48,14 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
         }
     };
 
+    public PlayedMatchesFragment getPlayed() {
+        return played;
+    }
+
+    public ForPlayMatchesFragment getForplay() {
+        return forplay;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
