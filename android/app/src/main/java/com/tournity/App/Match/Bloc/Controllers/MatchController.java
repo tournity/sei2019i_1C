@@ -5,6 +5,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.tournity.App.Match.Entities.MatchEntity;
 import com.tournity.App.Match.Repository.Models.MatchModel;
 import com.tournity.App.Match.View.Activities.MatchViewActivity;
 import com.tournity.App.Match.View.Activities.SelectTypeMatchActivity;
@@ -55,5 +56,21 @@ public class MatchController {
         };
 MatchModel.getByIdTournament(idTournament,this.context,matches);
 
+    }
+    public void getById(int id){
+        ModelListener<MatchModel>added=new ModelListener<MatchModel>() {
+            @Override
+            public void onSuccess(MatchModel model) {
+                if(context instanceof MatchViewActivity){
+                    MatchViewActivity activity=(MatchViewActivity)context;
+
+                }
+            }
+
+            @Override
+            public void onError(ModelError error) {
+
+            }
+        }
     }
 }
