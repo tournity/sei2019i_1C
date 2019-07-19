@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.tournity.App.Group.View.Activities.ListGroupActivity;
+import com.tournity.App.Sport.Bloc.Controllers.SportController;
 import com.tournity.R;
 
 /**
@@ -32,12 +33,11 @@ public class SportFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private ListView sportList;
-    private ArrayAdapter<String> sportAdapter;
 
+    public ListView sportList;
+    private ArrayAdapter<String> sportAdapter;
     private OnFragmentInteractionListener mListener;
+    private SportController sportController;
 
     public SportFragment() {
         // Required empty public constructor
@@ -60,6 +60,7 @@ public class SportFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sportController = new SportController(this);
     }
 
     @Override
@@ -67,9 +68,13 @@ public class SportFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.fragment_sport,container,false);
         sportList = root.findViewById(R.id.idListSport);
+
+        //--test------------------------------------------------------------
         String[] data={"Futbol","Tenis","Baloncesto","Beisbol"};
         sportAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
         sportList.setAdapter(sportAdapter);
+        //--------------------------------------------------------------------
+
         sportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
