@@ -60,18 +60,18 @@ public class SportFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sportController = new SportController(this);
+        sportController = new SportController(this.getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root= inflater.inflate(R.layout.fragment_sport,container,false);
+        View root = inflater.inflate(R.layout.fragment_sport, container, false);
         sportList = root.findViewById(R.id.idListSport);
 
         //--test------------------------------------------------------------
-        String[] data={"Futbol","Tenis","Baloncesto","Beisbol"};
-        sportAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
+        String[] data = {"Futbol", "Tenis", "Baloncesto", "Beisbol"};
+        sportAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, data);
         sportList.setAdapter(sportAdapter);
         //--------------------------------------------------------------------
 
@@ -85,7 +85,8 @@ public class SportFragment extends Fragment {
         // Inflate the layout for this fragment
         return root;
     }
-    public void onSelectedItem(){
+
+    public void onSelectedItem() {
         Intent intent = new Intent(this.getActivity(), ListGroupActivity.class);
         startActivity(intent);
     }
@@ -127,5 +128,9 @@ public class SportFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public ListView getSportList() {
+        return sportList;
     }
 }
