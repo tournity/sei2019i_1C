@@ -57,10 +57,10 @@ public class TournamentRepository {
         params.put("description", entity.getDescription());
         params.put("start_date", entity.getStartDate().toString());
         params.put("end_date", entity.getEndDate().toString());
-        params.put("user_sport_group", entity.getUserSportGroup()+"");
+        params.put("user_sport_group", entity.getUserSportGroup() + "");
         params.put("created_date", entity.getCreatedDate().toString());
         params.put("status", entity.getStatus());
-        API.sendRequestToEndpoint(context,TournamentEndpoint.Insert,params, DataListener);
+        API.sendRequestToEndpoint(context, TournamentEndpoint.Insert, params, DataListener);
     }
 
     public static void selectAll(Context context, final RepositoryListener<ArrayList<TournamentEntity>> listener) {//ANALIZAR COMO ES EL RESPOND DE UN GET
@@ -126,7 +126,7 @@ public class TournamentRepository {
 
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("idsport", "" + idSport);
-        API.sendRequestToEndpoint(context, TournamentEndpoint.getById, params, DataListener);
+        API.sendRequestToEndpoint(context, TournamentEndpoint.getByIdSport, params, DataListener);
 
 
     }
@@ -171,5 +171,27 @@ public class TournamentRepository {
 
     }
 
+    public static void SelectById(int id, Context context, final RepositoryListener<TournamentEntity> listener) {
+        HttpLitener DataListener = new HttpLitener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject responseData) {
+                try {
+                    listener.onQueryCompleted(TournamentEntity.fromJSON(responseData));
+                } catch (JSONException e) {
+                    listener.onQueryFailed(RepositoryError.JSON_ERROR);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onErrorResponse(APIError error) {
+                listener.onQueryFailed(RepositoryError.DATA_ERROR);
+            }
+        };
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("id", "" + id);
+        API.sendRequestToEndpoint(context, TournamentEndpoint.getById, params, DataListener);
+    }
 
 }

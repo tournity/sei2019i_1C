@@ -133,5 +133,20 @@ public static void Create (TournamentEntity tournament, Context context, final M
         TournamentRepository.SelectAllByOwner(idOwner,context,tournaments);
     }
 
+    public  static void getById(int id, Context context, final ModelListener<TournamentModel>listener){
+        RepositoryListener<TournamentEntity>tournaments=new RepositoryListener<TournamentEntity>() {
+            @Override
+            public void onQueryCompleted(TournamentEntity entity) {
 
+
+                listener.onSuccess(new TournamentModel(entity));
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
+            }
+        };
+        TournamentRepository.SelectById(id,context,tournaments);
+    }
 }

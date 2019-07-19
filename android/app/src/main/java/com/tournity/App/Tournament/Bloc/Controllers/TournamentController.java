@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.tournity.App.Tournament.Entities.TournamentEntity;
 import com.tournity.App.Tournament.Repository.Models.TournamentModel;
 import com.tournity.Bloc.Listeners.ControllerListener;
+import com.tournity.Bloc.Listeners.TournamentListener;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.View.Activities.HomeActivity;
@@ -130,6 +131,21 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
         };
         TournamentModel.getAllByOwner(IdOwner,context,tournaments);
 
+    }
+    public  void getById(int id,final TournamentListener <TournamentModel>listener){
+        ModelListener<TournamentModel>tournament=new ModelListener<TournamentModel>() {
+            @Override
+            public void onSuccess(TournamentModel model) {
+                listener.onTeamFound(model);
+
+            }
+
+            @Override
+            public void onError(ModelError error) {
+
+            }
+        };
+        TournamentModel.getById(id,context,tournament);
     }
 
 

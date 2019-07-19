@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tournity.App.Match.View.Activities.SelectTypeMatchActivity;
 import com.tournity.App.Tournament.Bloc.Controllers.TournamentController;
+import com.tournity.App.Tournament.Entities.TournamentEntity;
+import com.tournity.App.Tournament.Repository.Models.TournamentModel;
+import com.tournity.Bloc.Enums.ControllerError;
+import com.tournity.Bloc.Listeners.TournamentListener;
 import com.tournity.R;
 
 import java.util.ArrayList;
@@ -23,6 +27,7 @@ public class TournamentViewActivity extends AppCompatActivity {
     TextView txtFinishDate;
     TextView txtCreatedDate;
     TextView txtStatus;
+    private int idTournament;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +42,29 @@ public class TournamentViewActivity extends AppCompatActivity {
         txtStatus=(TextView)findViewById(R.id.txtStatus);
 
 
-        int idTournament = getIntent().getIntExtra("idTournament", 1);
+      idTournament = getIntent().getIntExtra("idTournament", 1);
+        TournamentListener<TournamentModel>listener=new TournamentListener<TournamentModel>() {
+            @Override
+            public void onTeamFound(TournamentModel data) {
+                TournamentEntity tournament=data.getTournamentEntity();
+                txtTournamentName.setText(tournament.getName());
+                txtdescription.setText(tournament.getDescription());
+                txtStartDate.setText(tournament.getStartDate().toString());
+                txtFinishDate.setText(tournament.getEndDate().toString());
+                txtCreatedDate.setText(tournament.getEndDate().toString());
+                txtStatus.setText(tournament.getStatus());
+            }
 
+            @Override
+            public void Catch(ControllerError e) {
+
+            }
+        }   ;
+      controller.getById(idTournament,listener);
 
     }
 
     public void gotoMatches(View view) {
-
-
         Intent intent = new Intent(this, SelectTypeMatchActivity.class);
         startActivity(intent);
 
