@@ -1,7 +1,7 @@
-const CompetitorRouter = require('../authentication/routes/competitor');
+const TournamentRouter = require('../authentication/routes/competitor');
 const AuthenticationRouter = require('../authentication');
 
 module.exports = {
-  CompetitorRouter,
+  TournamentRouter,
   AuthenticationRouter
 };
