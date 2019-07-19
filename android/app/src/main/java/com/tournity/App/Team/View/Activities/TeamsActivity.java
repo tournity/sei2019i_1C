@@ -24,6 +24,8 @@ public class TeamsActivity extends AppCompatActivity {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent myIntent=new Intent(TeamsActivity.this, CreateTeamActivity.class);
+                startActivity(myIntent);
             }
         });
     }

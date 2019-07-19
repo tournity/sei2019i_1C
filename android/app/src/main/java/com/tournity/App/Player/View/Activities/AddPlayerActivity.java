@@ -18,7 +18,7 @@ public class AddPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundleSavedInstance) {
         super.onCreate(bundleSavedInstance);
         setContentView(R.layout.activity_add_player);
-        btnAddPlayer = findViewById(R.id.idbtn_add_player);
+        btnAddPlayer = findViewById(R.id.idBtn_add_player);
         editTextName = findViewById(R.id.idNameAddPlayer);
         editTextType = findViewById(R.id.idTypeAddPlayer);
         editTextDesc = findViewById(R.id.idDescriptionAddPlayer);
