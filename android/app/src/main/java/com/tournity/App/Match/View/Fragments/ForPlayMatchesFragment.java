@@ -1,17 +1,24 @@
 package com.tournity.App.Match.View.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.tournity.App.Group.View.Activities.ListGroupActivity;
+import com.tournity.App.Match.View.Activities.EditMatchActivity;
+import com.tournity.App.Match.View.Activities.MatchViewActivity;
 import com.tournity.R;
+import com.tournity.View.Activities.HomeActivity;
 
 import java.util.ArrayList;
 
@@ -30,6 +37,7 @@ public class ForPlayMatchesFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private View view;
     private ListView listForPlay;
+    private ArrayAdapter adapter;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -76,9 +84,20 @@ public class ForPlayMatchesFragment extends Fragment {
         Partidos.add("Partido 3");
         Partidos.add("Partido 4");
         listForPlay = (ListView) view.findViewById(R.id.listmatchesforplay);
-        ArrayAdapter adaptador = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, Partidos);
-        listForPlay.setAdapter(adaptador);
+
+         adapter = new ArrayAdapter(this.getActivity(), android.R.layout.simple_list_item_1, Partidos);
+        listForPlay.setAdapter(adapter);
+
+
+
+
     }
+    public void GotoMatchViewActivity(){
+        Intent intent=new Intent(this.getActivity(), HomeActivity.class);
+        startActivity(intent);
+
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
 

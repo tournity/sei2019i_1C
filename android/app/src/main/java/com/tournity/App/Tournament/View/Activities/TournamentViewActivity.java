@@ -70,7 +70,7 @@ public class TournamentViewActivity extends AppCompatActivity {
 
     }
     public void gotoEditTournament(View v){
-        Intent intent = new Intent(this, SelectTypeMatchActivity.class);
-        startActivity(intent);
+       /* Intent intent = new Intent(this, SelectTypeMatchActivity.class);
+        startActivity(intent);*/
     }
 }
