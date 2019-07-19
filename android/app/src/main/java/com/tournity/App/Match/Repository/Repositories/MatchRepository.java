@@ -14,6 +14,7 @@ import com.tournity.Repository.Listeners.RepositoryListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public class MatchRepository {
 
     }
 
-    public static void getByIdTournament(int idTournament, Context context, final RepositoryListener<ArrayList<MatchEntity>> listener) {
+    public static void SelectByIdTournament(int idTournament, Context context, final RepositoryListener<ArrayList<MatchEntity>> listener) {
         HttpLitener DataListener = new HttpLitener<JSONArray>() {
             @Override
             public void onResponse(JSONArray responseData) {
@@ -52,5 +53,31 @@ public class MatchRepository {
         params.put("idTournament",""+idTournament);
 
         API.sendRequestToEndpoint(context, MatchEndpoint.getAllByIdTournament, params, DataListener);
+    }
+    public static void SelectById(int id,Context context,final RepositoryListener<MatchEntity>listener){
+        HttpLitener DataListener = new HttpLitener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject responseData) {
+                ArrayList<MatchEntity> array = new ArrayList<>();
+                try {
+
+                    listener.onQueryCompleted(MatchEntity.fromJSON(responseData));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.onQueryFailed(RepositoryError.JSON_ERROR);
+                }
+
+            }
+
+            @Override
+            public void onErrorResponse(APIError error) {
+                listener.onQueryFailed(RepositoryError.DATA_ERROR);
+            }
+        };
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("id",""+id);
+
+        API.sendRequestToEndpoint(context, MatchEndpoint.getById, params, DataListener);
     }
 }
