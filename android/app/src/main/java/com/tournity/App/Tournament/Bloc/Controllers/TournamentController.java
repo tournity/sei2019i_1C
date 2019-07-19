@@ -22,48 +22,51 @@ public class TournamentController {
 
     public TournamentController(Context context) {
         this.context = context;
-        this.tournamentModel=new TournamentModel(context);
+        this.tournamentModel = new TournamentModel(context);
     }
+
     public TournamentController() {
 
-        this.tournamentModel=new TournamentModel();
+        this.tournamentModel = new TournamentModel();
     }
-    public static void Create(String name, String description, String st_date, String end_date, int iduser_sport_group, final Context context){
-    ModelListener<TournamentModel>createdTournament=new ModelListener<TournamentModel>() {
-        @Override
-        public void onSuccess(TournamentModel model) {
 
-            Toast.makeText(context, "Sucessful Registered Tournament", Toast.LENGTH_SHORT).show();
+    public static void Create(String name, String description, String st_date, String end_date, int iduser_sport_group, final Context context) {
+        ModelListener<TournamentModel> createdTournament = new ModelListener<TournamentModel>() {
+            @Override
+            public void onSuccess(TournamentModel model) {
 
-        }
+                Toast.makeText(context, "Sucessful Registered Tournament", Toast.LENGTH_SHORT).show();
 
-        @Override
-        public void onError(ModelError error) {
-            Toast.makeText(context, "No se pudo crear el torneo", Toast.LENGTH_SHORT).show();
-        }
-    };
-        TournamentEntity tournament=new TournamentEntity();
-tournament.setName(name);
-tournament.setDescription(description);
-tournament.setStartDate(new Date(st_date));
-tournament.setEndDate(new Date(end_date));
-tournament.setUserSportGroup(iduser_sport_group);
+            }
+
+            @Override
+            public void onError(ModelError error) {
+                Toast.makeText(context, "No se pudo crear el torneo", Toast.LENGTH_SHORT).show();
+            }
+        };
+        TournamentEntity tournament = new TournamentEntity();
+        tournament.setName(name);
+        tournament.setDescription(description);
+        tournament.setStartDate(new Date(st_date));
+        tournament.setEndDate(new Date(end_date));
+        tournament.setUserSportGroup(iduser_sport_group);
 
 
-        TournamentModel.Create(tournament, context,createdTournament);
+        TournamentModel.Create(tournament, context, createdTournament);
     }
-    public void getAllTournaments(){
-        ModelListener<ArrayList<TournamentModel>>listener=new ModelListener<ArrayList<TournamentModel>>() {
+
+    public void getAllTournaments() {
+        ModelListener<ArrayList<TournamentModel>> listener = new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
-                if(context instanceof HomeActivity){
-                    HomeActivity activity=(HomeActivity)context;
-                    ArrayList<String>list=new ArrayList<>();
-                    for(TournamentModel t:model){
-                        list.add(t.getTournamentEntity().getId()+" "+t.getTournamentEntity().getName());
+                if (context instanceof HomeActivity) {
+                    HomeActivity activity = (HomeActivity) context;
+                    ArrayList<String> list = new ArrayList<>();
+                    for (TournamentModel t : model) {
+                        list.add(t.getTournamentEntity().getId() + " " + t.getTournamentEntity().getName());
                     }
-                    ArrayAdapter adaptader = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, list);
-                    activity.getTournamentFragment().getTournamentList().setAdapter(adaptader);
+                    ArrayAdapter adapter = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, list);
+                    activity.getTournamentFragment().getTournamentList().setAdapter(adapter);
                 }
             }
 
@@ -72,22 +75,21 @@ tournament.setUserSportGroup(iduser_sport_group);
                 Toast.makeText(context, "Error al importar torneos", Toast.LENGTH_SHORT).show();
             }
         };
-       TournamentModel.getAll(context,listener);
+        TournamentModel.getAll(context, listener);
 
 
+    }
 
-
-}
-    public static ArrayList<String> getAllNamesOfTournaments(ArrayList<TournamentModel> listTournaments){
+    public static ArrayList<String> getAllNamesOfTournaments(ArrayList<TournamentModel> listTournaments) {
         ArrayList<String> namesList = new ArrayList<>();
-            for (int i = 0; i<listTournaments.size();i++){
-                namesList.add(listTournaments.get(i).getTournamentEntity().getName());
-            }
+        for (int i = 0; i < listTournaments.size(); i++) {
+            namesList.add(listTournaments.get(i).getTournamentEntity().getName());
+        }
         return namesList;
-}
+    }
 
-public void getAllTournamentsBySportId(int idSport, final ControllerListener<ArrayList<TournamentModel>>listener){
-        ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
+    public void getAllTournamentsBySportId(int idSport, final ControllerListener<ArrayList<TournamentModel>> listener) {
+        ModelListener<ArrayList<TournamentModel>> tournaments = new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
                 listener.Then();
@@ -98,12 +100,27 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
 
             }
         };
-        TournamentModel.getAllBySportId(idSport,context,tournaments);
+        TournamentModel.getAllBySportId(idSport, context, tournaments);
 
     }
 
- /*  public void getAllTournamentsByDate(String initDate, final ControllerListener<ArrayList<TournamentModel>>listener){
-        ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
+    /*  public void getAllTournamentsByDate(String initDate, final ControllerListener<ArrayList<TournamentModel>>listener){
+           ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
+               @Override
+               public void onSuccess(ArrayList<TournamentModel> model) {
+                   listener.Then();
+               }
+
+               @Override
+               public void onError(ModelError error) {
+
+               }
+           };
+           TournamentModel.getAllByDate(initDate,context,tournaments);
+
+       }*/
+    public void getAllTournamentsByOwner(int IdOwner, final ControllerListener<ArrayList<TournamentModel>> listener) {
+        ModelListener<ArrayList<TournamentModel>> tournaments = new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
                 listener.Then();
@@ -114,26 +131,12 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
 
             }
         };
-        TournamentModel.getAllByDate(initDate,context,tournaments);
-
-    }*/
-    public void getAllTournamentsByOwner(int IdOwner, final ControllerListener<ArrayList<TournamentModel>>listener){
-        ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
-            @Override
-            public void onSuccess(ArrayList<TournamentModel> model) {
-                listener.Then();
-            }
-
-            @Override
-            public void onError(ModelError error) {
-
-            }
-        };
-        TournamentModel.getAllByOwner(IdOwner,context,tournaments);
+        TournamentModel.getAllByOwner(IdOwner, context, tournaments);
 
     }
-    public  void getById(int id,final TournamentListener <TournamentModel>listener){
-        ModelListener<TournamentModel>tournament=new ModelListener<TournamentModel>() {
+
+    public void getById(int id, final TournamentListener<TournamentModel> listener) {
+        ModelListener<TournamentModel> tournament = new ModelListener<TournamentModel>() {
             @Override
             public void onSuccess(TournamentModel model) {
                 listener.onTeamFound(model);
@@ -145,7 +148,7 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
 
             }
         };
-        TournamentModel.getById(id,context,tournament);
+        TournamentModel.getById(id, context, tournament);
     }
 
 

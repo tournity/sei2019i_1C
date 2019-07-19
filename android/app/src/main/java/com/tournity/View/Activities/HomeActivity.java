@@ -82,4 +82,8 @@ public class HomeActivity extends AppCompatActivity implements TournamentFragmen
     public TournamentFragment getTournamentFragment() {
         return tournamentFragment;
     }
+
+    public SportFragment getSportFragment() {
+        return sportFragment;
+    }
 }
