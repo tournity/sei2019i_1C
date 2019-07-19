@@ -68,7 +68,7 @@ public static void Create (TournamentEntity tournament, Context context, final M
 
             @Override
             public void onQueryFailed(RepositoryError error) {
-
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
         TournamentRepository.selectAll(context,tournaments);
@@ -87,7 +87,7 @@ public static void Create (TournamentEntity tournament, Context context, final M
 
             @Override
             public void onQueryFailed(RepositoryError error) {
-
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
         TournamentRepository.SelectAllBySportId(idSport,context,tournaments);
@@ -127,7 +127,7 @@ public static void Create (TournamentEntity tournament, Context context, final M
 
             @Override
             public void onQueryFailed(RepositoryError error) {
-
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
         TournamentRepository.SelectAllByOwner(idOwner,context,tournaments);
