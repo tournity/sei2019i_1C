@@ -90,7 +90,7 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
 
     }
 
-    public void getAllTournamentsByDate(String initDate, final ControllerListener<ArrayList<TournamentModel>>listener){
+ /*  public void getAllTournamentsByDate(String initDate, final ControllerListener<ArrayList<TournamentModel>>listener){
         ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
@@ -104,7 +104,7 @@ public void getAllTournamentsBySportId(int idSport, final ControllerListener<Arr
         };
         TournamentModel.getAllByDate(initDate,context,tournaments);
 
-    }
+    }*/
     public void getAllTournamentsByOwner(int IdOwner, final ControllerListener<ArrayList<TournamentModel>>listener){
         ModelListener<ArrayList<TournamentModel>>tournaments=new ModelListener<ArrayList<TournamentModel>>() {
             @Override

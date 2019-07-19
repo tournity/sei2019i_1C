@@ -93,7 +93,7 @@ public static void Create (TournamentEntity tournament, Context context, final M
         TournamentRepository.SelectAllBySportId(idSport,context,tournaments);
     }
 
-    public  static void getAllByDate(String InitDate, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
+  /*  public  static void getAllByDate(String InitDate, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
         RepositoryListener<ArrayList<TournamentEntity>>tournaments=new RepositoryListener<ArrayList<TournamentEntity>>() {
             @Override
             public void onQueryCompleted(ArrayList<TournamentEntity> entity) {
@@ -111,7 +111,7 @@ public static void Create (TournamentEntity tournament, Context context, final M
         };
 
         TournamentRepository.SelectAllByDate(new Date(InitDate),context,tournaments);
-    }
+    }*/
 
 
     public  static void getAllByOwner(int idOwner, Context context, final ModelListener<ArrayList<TournamentModel>>listener){
