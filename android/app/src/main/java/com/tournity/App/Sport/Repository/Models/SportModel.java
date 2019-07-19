@@ -3,6 +3,7 @@ package com.tournity.App.Sport.Repository.Models;
 import android.content.Context;
 
 import com.tournity.App.Sport.Entities.SportEntity;
+import com.tournity.App.Sport.Repository.Repositories.SportRepository;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
@@ -18,7 +19,7 @@ public class SportModel {
     }
 
     public static void listGroups(Context context, final ModelListener<ArrayList<SportModel>> listener){
-        RepositoryListener repositoryListener = new RepositoryListener<ArrayList<SportEntity>>() {
+        RepositoryListener<ArrayList<SportEntity>> repositoryListener = new RepositoryListener<ArrayList<SportEntity>>() {
             @Override
             public void onQueryCompleted(ArrayList<SportEntity> entities) {
                 ArrayList arrayList = new ArrayList<SportModel>();
@@ -35,6 +36,7 @@ public class SportModel {
                 listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
+        SportRepository.SelectAllBySportId(context,repositoryListener);
 
     }
 

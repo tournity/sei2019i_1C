@@ -40,6 +40,6 @@ public class SportController {
 
             }
         };
-
+        SportModel.listGroups(context,sportListener);
     }
 }

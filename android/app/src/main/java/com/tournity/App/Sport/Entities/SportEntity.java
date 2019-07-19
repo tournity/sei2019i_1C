@@ -1,5 +1,12 @@
 package com.tournity.App.Sport.Entities;
 
+import com.tournity.App.Tournament.Entities.TournamentEntity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Date;
+
 public class SportEntity {
     private int id;
     private String name;
@@ -54,5 +61,15 @@ public class SportEntity {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    public static SportEntity fromJSON(JSONObject sportData) throws JSONException {
+        SportEntity myEntity = new SportEntity();
+        myEntity.id = sportData.getInt("id");
+        myEntity.setName(sportData.getString("name"))  ;
+        myEntity.setDescription(sportData.getString("description"));
+        myEntity.setStatus(sportData.getString("status"));
+        myEntity.setCreatedAt(sportData.getString("createdAt"));
+        myEntity.setUpdatedAt(sportData.getString("updatedAt"));
+        return myEntity;
     }
 }

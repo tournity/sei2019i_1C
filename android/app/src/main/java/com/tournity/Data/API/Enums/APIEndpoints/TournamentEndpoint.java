@@ -6,7 +6,7 @@ import com.tournity.App.Tournament.Bloc.Controllers.TournamentController;
 import com.tournity.Data.API.Enums.APIResponseDataType;
 
 public enum TournamentEndpoint implements Endpoint {
-    getAll("tournamens/",Request.Method.GET,APIResponseDataType.ARRAY ),
+    getAll("tournaments/",Request.Method.GET,APIResponseDataType.ARRAY ),
     getByIdSport("tournament/",Request.Method.GET,APIResponseDataType.ARRAY),
     getById("tournaments/%i",Request.Method.GET,APIResponseDataType.OBJECT),
     getByOwner("tournaments/%i",Request.Method.GET,APIResponseDataType.ARRAY),
