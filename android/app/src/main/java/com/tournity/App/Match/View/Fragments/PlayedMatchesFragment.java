@@ -1,16 +1,20 @@
 package com.tournity.App.Match.View.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.tournity.App.Group.View.Activities.ListGroupActivity;
+import com.tournity.App.Match.View.Activities.MatchViewActivity;
 import com.tournity.R;
 
 import java.util.ArrayList;
@@ -64,7 +68,18 @@ public class PlayedMatchesFragment extends Fragment {
         // Inflate the layout for this fragment
         this.view = inflater.inflate(R.layout.fragment_played_matches, container, false);
         setData();
+        matchlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                onSelectedItem();
+            }
+        });
         return view;
+    }
+
+    public void onSelectedItem() {
+        Intent intent = new Intent(this.getActivity(), MatchViewActivity.class);
+        startActivity(intent);
     }
 
     public void setData(){
