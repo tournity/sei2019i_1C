@@ -73,8 +73,9 @@ public class TournamentRepository {
                 try {
                     for (int i = 0; i < responseData.length(); i++) {
                         tournaments.add(TournamentEntity.fromJSON(responseData.getJSONObject(i)));
-                        listener.onQueryCompleted(tournaments);
+
                     }
+                    listener.onQueryCompleted(tournaments);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     listener.onQueryFailed(RepositoryError.JSON_ERROR);
