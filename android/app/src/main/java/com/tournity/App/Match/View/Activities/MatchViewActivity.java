@@ -1,4 +1,4 @@
-package com.tournity.App.Match.View.Fragments;
+package com.tournity.App.Match.View.Activities;
 
 import android.os.Bundle;
 

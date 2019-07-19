@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".App.Match.View.Fragments.MatchViewActivity">
+    tools:context=".App.Match.View.Activities.MatchViewActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -154,27 +154,6 @@
         />
 
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Stage Group"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="410dp"
-        android:layout_marginStart="15dp"
-        android:textSize="15sp"
-        android:textStyle="bold"
-
-        />
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Stage Group txt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="410dp"
-        android:layout_marginStart="130dp"
-        />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -208,6 +187,7 @@
         android:layout_marginTop="540dp"
         android:layout_marginStart="90dp"
         android:text="Team A"
+        android:gravity="center"
         />
     <TextView
         android:layout_width="90dp"
@@ -217,6 +197,7 @@
         android:layout_marginTop="540dp"
         android:layout_marginStart="260dp"
         android:text="Team B"
+        android:gravity="center"
         />
     <TextView
         android:layout_width="90dp"
@@ -227,6 +208,7 @@
         android:layout_marginStart="90dp"
         android:text="0"
         android:textSize="50sp"
+        android:gravity="center"
         />
     <TextView
         android:layout_width="90dp"
@@ -236,21 +218,21 @@
         android:layout_marginTop="570dp"
         android:layout_marginStart="260dp"
         android:text="0"
-
+        android:gravity="center"
         android:textSize="50sp"
         />
+
     <ImageButton
         android:id="@+id/btneditResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="610dp"
-        android:layout_marginEnd="185dp"
+
+        android:layout_marginTop="588dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit"
 
-        />
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
