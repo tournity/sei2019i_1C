@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tournity.App.Match.Bloc.Controllers.MatchController;
 import com.tournity.App.Match.View.Fragments.ForPlayMatchesFragment;
 import com.tournity.App.Match.View.Fragments.PlayedMatchesFragment;
 import com.tournity.R;
@@ -19,6 +20,7 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
     private TextView mTextMessage;
     PlayedMatchesFragment played;
     ForPlayMatchesFragment forplay;
+    private MatchController controller;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,7 +68,7 @@ public class SelectTypeMatchActivity extends AppCompatActivity implements ForPla
         played = new PlayedMatchesFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.containerFragment, forplay).commit();
 
-
+this.controller=new MatchController(this);
     }
 
 
