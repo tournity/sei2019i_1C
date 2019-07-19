@@ -1,7 +1,5 @@
 package com.tournity.App.Player.Entities;
 
-import com.tournity.App.Groups.Entities.GroupEntity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 

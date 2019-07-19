@@ -1,6 +1,5 @@
 package com.tournity.App.Authentication.Bloc.Controllers;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,9 +7,7 @@ import android.widget.Toast;
 
 import com.tournity.App.Authentication.Repository.Models.AuthenticationModel;
 import com.tournity.App.Authentication.View.Activities.LoginActivity;
-import com.tournity.App.Groups.View.Activities.ListGroupActivity;
-import com.tournity.App.Groups.View.Activities.PlayerOrTeamActivity;
-import com.tournity.Bloc.Listeners.ControllerListener;
+import com.tournity.App.Group.View.Activities.PlayerOrTeamActivity;
 import com.tournity.Bloc.Listeners.SessionListener;
 import com.tournity.Bloc.Services.SessionService;
 import com.tournity.Repository.Enums.ModelError;
