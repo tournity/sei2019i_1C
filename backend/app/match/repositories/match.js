@@ -1,14 +1,15 @@
-const sequelize = require('../models').sequelize;
+const sequelize = require('../../models').sequelize;
 
-const Match = require('../models').Match;
+const Match = require('../../models').Match;
 
 const create = function(matchData, transaction) {
   return Match.create(
     {
-      type: matchData.type,
       name: matchData.name,
       description: matchData.description,
-      userSportGroup: matchData.userSportGroup,
+      startDate : matchData.startDate,
+      endDate : matchData.endDate,
+      stageGroup : matchData.stageGroup,
       status: 'active'
     },
     { transaction: transaction }

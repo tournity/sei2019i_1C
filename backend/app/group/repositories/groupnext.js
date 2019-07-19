@@ -5,10 +5,9 @@ const Group = require('../models').UserSportGroup;
 const create = function(groupData, transaction) {
   return Group.create(
     {
-      type: groupData.type,
       name: groupData.name,
       description: groupData.description,
-      userSportGroup: groupData.userSportGroup,
+      userSport: groupData.userSport,
       status: 'active'
     },
     { transaction: transaction }

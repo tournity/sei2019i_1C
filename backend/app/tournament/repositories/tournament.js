@@ -1,14 +1,15 @@
-const sequelize = require('../models').sequelize;
+const sequelize = require('../../models').sequelize;
 
-const Tournament = require('../models').Tournament;
+const Tournament = require('../../models').Tournament;
 
 const create = function(tournamentData, transaction) {
   return Tournament.create(
     {
-      type: tournamentData.type,
       name: tournamentData.name,
       description: tournamentData.description,
-      userSportGroup: tournamentData.userSportGroup,
+      startDate : tournamentData.startDate,
+      endDate : tournamentData.endDate,
+      userSport: tournamentData.userSport,
       status: 'active'
     },
     { transaction: transaction }
