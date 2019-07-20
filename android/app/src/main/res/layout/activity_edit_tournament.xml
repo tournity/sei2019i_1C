@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/txtdescriptionEditTournament"
         android:layout_width="380dp"
         android:layout_height="80dp"
         android:layout_marginTop="120dp"
@@ -36,42 +37,43 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="225dp"
-        android:text="Start Time"
+        android:text="Start Date"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/txtStartDateEditTournament"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginTop="210dp"
-        android:hint="Start Time txt"
+        android:hint="Start Date txt"
         app:layout_constraintStart_toStartOf="parent"
 
 
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="275dp"
-        android:text="Finish Time"
+        android:text="Finish Date"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/txtFinisDateEditTournament"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginTop="260dp"
-        android:hint="Finish Time txt"
+        android:hint="Finish Date txt"
         app:layout_constraintStart_toStartOf="parent"
 
 
@@ -89,7 +91,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txtCreatedDateEditTournament"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
@@ -112,7 +114,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txtStatusEditTournament"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
