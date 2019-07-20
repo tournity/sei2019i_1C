@@ -45,5 +45,9 @@ public class MatchViewActivity extends AppCompatActivity {
         Intent intent=new Intent(this,EditMatchActivity.class);
         startActivity(intent);
     }
+    public void goToEditResult(View v){
+        Intent intent=new Intent(this,EditResultActivity.class);
+        startActivity(intent);
+    }
 
 }

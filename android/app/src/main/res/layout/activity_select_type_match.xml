@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".App.Match.View.Activities.SelectTypeMatchActivity">
 
- 
+
 
     <FrameLayout
         android:id="@+id/containerFragment"
