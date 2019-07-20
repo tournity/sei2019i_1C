@@ -43,6 +43,6 @@ public class EditMatchActivity extends AppCompatActivity {
         entity.setCreatedDate(new Date(textCreatedDate.getText().toString()));
         entity.setStatus(textStatus.getText().toString());
         entity.setStageGroup(Integer.parseInt(textStageGroup.getText().toString()));
-        controller.update(entity);
+        controller.Update(entity);
     }
 }

@@ -80,7 +80,7 @@ public class MatchModel {
         RepositoryListener<MatchEntity> created = new RepositoryListener<MatchEntity>() {
             @Override
             public void onQueryCompleted(MatchEntity entity) {
-                listener.onSuccess(new TournamentModel(entity));
+                listener.onSuccess(new MatchModel(entity));
             }
 
             @Override
@@ -88,6 +88,6 @@ public class MatchModel {
                 listener.onError(ModelError.DATA_CONVERSION_FAILED);
             }
         };
-        TournamentRepository.Update(new TournamentModel(entity), context, created);
+        MatchRepository.Update(new MatchModel(entity), context, created);
     }
 }

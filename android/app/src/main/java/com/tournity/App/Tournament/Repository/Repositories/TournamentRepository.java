@@ -217,7 +217,7 @@ public class TournamentRepository {
             }
         };
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("id", entity.getTournamentEntity().getId()+"");
+        params.put("id", entity.getTournamentEntity().getId() + "");
         params.put("name", entity.getTournamentEntity().getName());
         params.put("description", entity.getTournamentEntity().getDescription());
         params.put("start_date", entity.getTournamentEntity().getStartDate().toString());
