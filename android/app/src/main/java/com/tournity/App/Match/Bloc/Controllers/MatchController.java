@@ -70,7 +70,7 @@ MatchModel.getByIdTournament(idTournament,this.context,matches);
                    activity.txtcreatedDate.setText(model.getMatchEntity().getCreatedDate().toString());
                    activity.txtstatus.setText(model.getMatchEntity().getStatus());
                    activity.txtstageGroup.setText(model.getMatchEntity().getStageGroup());
-                   
+
                 }
             }
 
@@ -79,5 +79,6 @@ MatchModel.getByIdTournament(idTournament,this.context,matches);
 
             }
         };
+        MatchModel.getById(id,context,added);
     }
 }
