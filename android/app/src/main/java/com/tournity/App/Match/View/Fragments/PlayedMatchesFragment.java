@@ -93,6 +93,10 @@ public class PlayedMatchesFragment extends Fragment {
         matchlist.setAdapter(adaptador);
 
     }
+    public void setAdapter(ArrayAdapter adapter){
+
+        this.matchlist.setAdapter(adapter);
+    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {

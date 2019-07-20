@@ -9,26 +9,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.EditText;
 
+import com.tournity.App.MatchCompetitor.Bloc.Controllers.MatchCompetitorController;
 import com.tournity.R;
 
 public class EditResultActivity extends AppCompatActivity {
+    EditText txtpointsTeamA;
+    EditText txtpointsTeamB;
+    MatchCompetitorController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_result_view);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        txtpointsTeamA = (EditText) findViewById(R.id.pointsTeamAEdit);
+        txtpointsTeamB = (EditText) findViewById(R.id.pointsTeamBEdit);
+        this.controller = new MatchCompetitorController(this);
+        //this.controller.getResult(); se obtiene el resultado actual.
     }
 
+    public EditText getTxtpointsTeamA() {
+        return txtpointsTeamA;
+    }
+
+    public EditText getTxtpointsTeamB() {
+        return txtpointsTeamB;
+    }
 }

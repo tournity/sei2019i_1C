@@ -4,10 +4,14 @@ import android.content.Context;
 
 import com.tournity.App.Match.Entities.MatchEntity;
 import com.tournity.App.Match.Repository.Repositories.MatchRepository;
+import com.tournity.App.Tournament.Entities.TournamentEntity;
+import com.tournity.App.Tournament.Repository.Models.TournamentModel;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
+
+import java.util.ArrayList;
 
 public class MatchModel {
     private Context context;
@@ -47,5 +51,28 @@ public class MatchModel {
             }
         };
         MatchRepository.SelectById(id,context,match);
+    }
+
+
+
+
+    public static void getByIdTournament(int idTournament, Context context, final ModelListener<ArrayList<MatchModel>>listener){
+        RepositoryListener<ArrayList<MatchEntity>> match=new RepositoryListener<ArrayList<MatchEntity>>() {
+            @Override
+            public void onQueryCompleted(ArrayList<MatchEntity> entities) {
+         ArrayList<MatchModel> array=new ArrayList<>();
+                for(MatchEntity t:entities){
+             array.add(new MatchModel(t));
+         }
+
+                listener.onSuccess(array);
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
+            }
+        };
+        MatchRepository.SelectByIdTournament(idTournament,context,match);
     }
 }

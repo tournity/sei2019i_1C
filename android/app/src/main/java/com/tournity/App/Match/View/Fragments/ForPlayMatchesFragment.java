@@ -92,6 +92,10 @@ public class ForPlayMatchesFragment extends Fragment {
 
 
     }
+    public void SetAdapter(ArrayAdapter adapter){
+        this.adapter=adapter;
+        this.listForPlay.setAdapter(this.adapter);
+    }
     public void GotoMatchViewActivity(){
         Intent intent=new Intent(this.getActivity(), HomeActivity.class);
         startActivity(intent);
