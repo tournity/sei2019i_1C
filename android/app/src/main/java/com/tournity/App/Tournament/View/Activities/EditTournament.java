@@ -15,6 +15,7 @@ public class EditTournament extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_tournament);
    this.controller=new TournamentController(this);
+
    }
     public void Edit(View v){
 
