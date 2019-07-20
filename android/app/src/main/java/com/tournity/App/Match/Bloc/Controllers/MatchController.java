@@ -63,7 +63,14 @@ MatchModel.getByIdTournament(idTournament,this.context,matches);
             public void onSuccess(MatchModel model) {
                 if(context instanceof MatchViewActivity){
                     MatchViewActivity activity=(MatchViewActivity)context;
-
+                   activity.txtname.setText(model.getMatchEntity().getName());
+                   activity.txtdescription.setText(model.getMatchEntity().getDescription());
+                   activity.txtstartime.setText(model.getMatchEntity().getStartDate().toString());
+                   activity.txtfinishtime.setText(model.getMatchEntity().getEndDate().toString());
+                   activity.txtcreatedDate.setText(model.getMatchEntity().getCreatedDate().toString());
+                   activity.txtstatus.setText(model.getMatchEntity().getStatus());
+                   activity.txtstageGroup.setText(model.getMatchEntity().getStageGroup());
+                   
                 }
             }
 
@@ -71,6 +78,6 @@ MatchModel.getByIdTournament(idTournament,this.context,matches);
             public void onError(ModelError error) {
 
             }
-        }
+        };
     }
 }

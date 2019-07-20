@@ -15,15 +15,15 @@ import android.widget.TextView;
 import com.tournity.R;
 
 public class MatchViewActivity extends AppCompatActivity {
-    TextView txtname;
-    TextView txtdescription;
-    TextView txtstartime;
-    TextView txtfinishtime;
-    TextView txtcreatedDate;
-    TextView txtstatus;
-    TextView txtstageGroup;
-    TextView txtresultTeamA;
-    TextView txtresultTeamB;
+   public TextView txtname;
+    public TextView txtdescription;
+    public TextView txtstartime;
+    public TextView txtfinishtime;
+    public TextView txtcreatedDate;
+    public TextView txtstatus;
+    public TextView txtstageGroup;
+    public TextView txtresultTeamA;
+    public TextView txtresultTeamB;
 
 
     @Override
