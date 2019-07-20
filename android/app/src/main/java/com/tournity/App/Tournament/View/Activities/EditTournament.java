@@ -34,12 +34,12 @@ public class EditTournament extends AppCompatActivity {
     }
 
     public void Edit(View v) {
-        TournamentEntity create=new TournamentEntity();
-        create.setDescription(txtdescription.getText().toString());
-        create.setStartDate(new Date(txtStartDate.getText().toString()));
-        create.setEndDate(new Date(txtFinisDate.getText().toString()));
-        create.setCreatedDate(new Date(txtCreatedDate.getText().toString()));
-        create.setStatus(txtStatus.getText().toString());
-        controller.Update(create);
+        TournamentEntity entity=new TournamentEntity();
+        entity.setDescription(txtdescription.getText().toString());
+        entity.setStartDate(new Date(txtStartDate.getText().toString()));
+        entity.setEndDate(new Date(txtFinisDate.getText().toString()));
+        entity.setCreatedDate(new Date(txtCreatedDate.getText().toString()));
+        entity.setStatus(txtStatus.getText().toString());
+        controller.Update(entity);
     }
 }

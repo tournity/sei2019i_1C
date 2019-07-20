@@ -123,13 +123,13 @@ public class TournamentController {
         ModelListener<ArrayList<TournamentModel>> tournaments = new ModelListener<ArrayList<TournamentModel>>() {
             @Override
             public void onSuccess(ArrayList<TournamentModel> model) {
-                if(context instanceof HomeActivity){
-                    HomeActivity activity=(HomeActivity)context;
-                    ArrayList<String>tournaments=new ArrayList<>();
-                    for(TournamentModel t:model){
-                        tournaments.add(t.getTournamentEntity().getId()+" "+t.getTournamentEntity().getName());
+                if (context instanceof HomeActivity) {
+                    HomeActivity activity = (HomeActivity) context;
+                    ArrayList<String> tournaments = new ArrayList<>();
+                    for (TournamentModel t : model) {
+                        tournaments.add(t.getTournamentEntity().getId() + " " + t.getTournamentEntity().getName());
                     }
-                    ArrayAdapter adapter=new ArrayAdapter(activity, android.R.layout.simple_list_item_1, tournaments);
+                    ArrayAdapter adapter = new ArrayAdapter(activity, android.R.layout.simple_list_item_1, tournaments);
                     activity.getTournamentFragment().getTournamentList().setAdapter(adapter);
                 }
             }
@@ -158,8 +158,9 @@ public class TournamentController {
         };
         TournamentModel.getById(id, context, tournament);
     }
-public  void Update(TournamentEntity tournament){
-        ModelListener<TournamentModel>created=new ModelListener<TournamentModel>() {
+
+    public void Update(TournamentEntity tournament) {
+        ModelListener<TournamentModel> created = new ModelListener<TournamentModel>() {
             @Override
             public void onSuccess(TournamentModel model) {
                 Toast.makeText(context, "Sucessful Update Tournament", Toast.LENGTH_SHORT).show();
@@ -170,7 +171,7 @@ public  void Update(TournamentEntity tournament){
                 Toast.makeText(context, "something was wrong", Toast.LENGTH_SHORT).show();
             }
         };
-        TournamentModel.Update(tournament,this.context,created);
-}
+        TournamentModel.Update(tournament, this.context, created);
+    }
 
 }
