@@ -24,7 +24,7 @@ public class MatchCompetitorRepository {
     }
 
 
-    public static void getAllByMatchId(int IdMatch, Context context, final RepositoryListener<ArrayList<MatchCompetitorEntity>> listener) {
+    public static void SelectAllByMatchId(int IdMatch, Context context, final RepositoryListener<ArrayList<MatchCompetitorEntity>> listener) {
         HttpLitener<JSONArray> DataListener = new HttpLitener<JSONArray>() {
             @Override
             public void onResponse(JSONArray responseData) {
