@@ -10,7 +10,8 @@ public enum TournamentEndpoint implements Endpoint {
     getByIdSport("tournament/",Request.Method.GET,APIResponseDataType.ARRAY),
     getById("tournaments/%i",Request.Method.GET,APIResponseDataType.OBJECT),
     getByOwner("tournaments/%i",Request.Method.GET,APIResponseDataType.ARRAY),
-    Insert("tournaments/",Request.Method.POST,APIResponseDataType.OBJECT);
+    Insert("tournaments/",Request.Method.POST,APIResponseDataType.OBJECT),
+    Update("tournaments/",Request.Method.PUT,APIResponseDataType.OBJECT);
 
 
     private String endPoint;

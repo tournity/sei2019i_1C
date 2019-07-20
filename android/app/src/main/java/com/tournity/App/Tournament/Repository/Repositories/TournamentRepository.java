@@ -6,17 +6,21 @@ import android.provider.ContactsContract;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.tournity.App.Tournament.Entities.TournamentEntity;
+import com.tournity.App.Tournament.Repository.Models.TournamentModel;
 import com.tournity.Data.API.API;
 import com.tournity.Data.API.Enums.APIEndpoints.GroupEndpoint;
 import com.tournity.Data.API.Enums.APIEndpoints.TournamentEndpoint;
 import com.tournity.Data.API.Enums.APIErrors.APIError;
 import com.tournity.Data.API.Listeners.HttpLitener;
+import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
+import com.tournity.Repository.Listeners.ModelListener;
 import com.tournity.Repository.Listeners.RepositoryListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -193,6 +197,36 @@ public class TournamentRepository {
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("id", "" + id);
         API.sendRequestToEndpoint(context, TournamentEndpoint.getById, params, DataListener);
+    }
+
+    public static void Update(TournamentModel entity, Context context, final RepositoryListener<TournamentEntity> listener) {
+        HttpLitener<JSONObject> DataListener = new HttpLitener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject responseData) {
+                try {
+                    listener.onQueryCompleted(TournamentEntity.fromJSON(responseData));
+                } catch (JSONException e) {
+                    listener.onQueryFailed(RepositoryError.JSON_ERROR);
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onErrorResponse(APIError error) {
+                listener.onQueryFailed(RepositoryError.DATA_ERROR);
+            }
+        };
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("id", entity.getTournamentEntity().getId()+"");
+        params.put("name", entity.getTournamentEntity().getName());
+        params.put("description", entity.getTournamentEntity().getDescription());
+        params.put("start_date", entity.getTournamentEntity().getStartDate().toString());
+        params.put("end_date", entity.getTournamentEntity().getEndDate().toString());
+        params.put("user_sport_group", entity.getTournamentEntity().getUserSportGroup() + "");
+        params.put("created_date", entity.getTournamentEntity().getCreatedDate().toString());
+        params.put("status", entity.getTournamentEntity().getStatus());
+        API.sendRequestToEndpoint(context, TournamentEndpoint.Update, params, DataListener);
+
     }
 
 }
