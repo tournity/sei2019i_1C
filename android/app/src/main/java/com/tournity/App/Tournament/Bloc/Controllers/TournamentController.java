@@ -158,6 +158,19 @@ public class TournamentController {
         };
         TournamentModel.getById(id, context, tournament);
     }
+public  void Update(TournamentEntity tournament){
+        ModelListener<TournamentModel>created=new ModelListener<TournamentModel>() {
+            @Override
+            public void onSuccess(TournamentModel model) {
+                Toast.makeText(context, "Sucessful Update Tournament", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onError(ModelError error) {
+                Toast.makeText(context, "something was wrong", Toast.LENGTH_SHORT).show();
+            }
+        };
+        TournamentModel.Update(tournament,this.context,created);
+}
 
 }
