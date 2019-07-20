@@ -6,6 +6,7 @@ import com.tournity.App.Match.Entities.MatchEntity;
 import com.tournity.App.Match.Repository.Repositories.MatchRepository;
 import com.tournity.App.Tournament.Entities.TournamentEntity;
 import com.tournity.App.Tournament.Repository.Models.TournamentModel;
+import com.tournity.App.Tournament.Repository.Repositories.TournamentRepository;
 import com.tournity.Repository.Enums.ModelError;
 import com.tournity.Repository.Enums.RepositoryError;
 import com.tournity.Repository.Listeners.ModelListener;
@@ -74,5 +75,19 @@ public class MatchModel {
             }
         };
         MatchRepository.SelectByIdTournament(idTournament,context,match);
+    }
+    public static void Update(MatchEntity entity, Context context, final ModelListener<MatchModel> listener) {
+        RepositoryListener<MatchEntity> created = new RepositoryListener<MatchEntity>() {
+            @Override
+            public void onQueryCompleted(MatchEntity entity) {
+                listener.onSuccess(new MatchModel(entity));
+            }
+
+            @Override
+            public void onQueryFailed(RepositoryError error) {
+                listener.onError(ModelError.DATA_CONVERSION_FAILED);
+            }
+        };
+        MatchRepository.Update(new MatchModel(entity), context, created);
     }
 }

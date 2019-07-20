@@ -1,6 +1,5 @@
 package com.tournity.App.MatchCompetitor.Bloc.Controllers;
 
-import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
@@ -34,8 +33,8 @@ public class MatchCompetitorController {
                     activity.txtresultTeamB.setText(model.get(1).getMatchCompetitorEntity().getPoints()+"");
                 }else if(context instanceof EditResultActivity){
                     EditResultActivity activity=(EditResultActivity)context;
-                    activity.getTxtpointsTeamA().setText(model.get(0).getMatchCompetitorEntity().getPoints()+"");
-                    activity.getTxtpointsTeamB().setText(model.get(1).getMatchCompetitorEntity().getPoints()+"");
+                    activity.getTextPointsTeamA().setText(model.get(0).getMatchCompetitorEntity().getPoints()+"");
+                    activity.getTextPointsTeamB().setText(model.get(1).getMatchCompetitorEntity().getPoints()+"");
                 }
 
             }
