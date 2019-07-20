@@ -42,6 +42,6 @@ public class MatchCompetitorModel {
                listener.onError(ModelError.DATA_CONVERSION_FAILED);
            }
        };
-       MatchCompetitorRepository.SelectAllByMatchId(IdMatch,context,competitors);
+       MatchCompetitorRepository.SelectAllByMatchId(IdMatch,context,competitors);   
    }
 }
