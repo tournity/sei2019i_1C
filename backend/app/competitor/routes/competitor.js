@@ -1,6 +1,5 @@
 const CompetitorController = require('../controllers').CompetitorController;
-const AuthenticationController = require('../app/authentication/controllers')
-  .AuthenticationController;
+const AuthenticationController = require('../../authentication/controllers').AuthenticationController;
 
 var router = require('express').Router();
 

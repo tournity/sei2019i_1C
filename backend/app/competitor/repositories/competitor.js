@@ -1,6 +1,6 @@
-const sequelize = require('../models').sequelize;
+const sequelize = require('../../../models').sequelize;
 
-const Competitor = require('../models').UserSportGroupCompetitor;
+const Competitor = require('../../../models').UserSportGroupCompetitor;
 
 const create = function(competitorData, transaction) {
   return Competitor.create(

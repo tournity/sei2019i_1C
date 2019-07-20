@@ -1,5 +1,5 @@
 const MatchController = require('../controllers').MatchController;
-const AuthenticationController = require('../app/authentication/controllers')
+const AuthenticationController = require('../../authentication/controllers')
   .AuthenticationController;
 
 var router = require('express').Router();

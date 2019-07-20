@@ -2,8 +2,7 @@ var express = require('express');
 var cors = require('cors');
 
 var AccountRouter = require('./app/account/routes').AccountRouter;
-var AuthenticationRouter = require('./app/authentication/routes')
-  .AuthenticationRouter;
+var AuthenticationRouter = require('./app/authentication/routes').AuthenticationRouter;
 var CompetitorRouter = require('./app/competitor/routes').CompetitorRouter;
 var GroupRouter = require('./app/group/routes').GroupRouter;
 var MatchRouter = require('./app/match/routes').MatchRouter;
@@ -20,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api/accounts', AccountRouter);
+// app.use('/api/accounts', AccountRouter);
 app.use('/api/auth', AuthenticationRouter);
 app.use('/api/competitor', CompetitorRouter);
 app.use('/api/group', GroupRouter);

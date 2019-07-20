@@ -1,5 +1,5 @@
-const SportRouter = require('./sport');
-
-module.exports = {
-  SportRouter
-};
+// const SportRouter = require('./sport');
+//
+// module.exports = {
+//   SportRouter
+// };
