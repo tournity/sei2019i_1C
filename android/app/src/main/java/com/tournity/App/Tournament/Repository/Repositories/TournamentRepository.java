@@ -199,7 +199,7 @@ public class TournamentRepository {
         API.sendRequestToEndpoint(context, TournamentEndpoint.getById, params, DataListener);
     }
 
-    public static void Update(TournamentEntity entity, Context context, final RepositoryListener<TournamentEntity> listener) {
+    public static void Update(TournamentModel entity, Context context, final RepositoryListener<TournamentEntity> listener) {
         HttpLitener<JSONObject> DataListener = new HttpLitener<JSONObject>() {
             @Override
             public void onResponse(JSONObject responseData) {
@@ -217,14 +217,14 @@ public class TournamentRepository {
             }
         };
         HashMap<String, String> params = new HashMap<String, String>();
-        params.put("id", entity.getId()+"");
-        params.put("name", entity.getName());
-        params.put("description", entity.getDescription());
-        params.put("start_date", entity.getStartDate().toString());
-        params.put("end_date", entity.getEndDate().toString());
-        params.put("user_sport_group", entity.getUserSportGroup() + "");
-        params.put("created_date", entity.getCreatedDate().toString());
-        params.put("status", entity.getStatus());
+        params.put("id", entity.getTournamentEntity().getId()+"");
+        params.put("name", entity.getTournamentEntity().getName());
+        params.put("description", entity.getTournamentEntity().getDescription());
+        params.put("start_date", entity.getTournamentEntity().getStartDate().toString());
+        params.put("end_date", entity.getTournamentEntity().getEndDate().toString());
+        params.put("user_sport_group", entity.getTournamentEntity().getUserSportGroup() + "");
+        params.put("created_date", entity.getTournamentEntity().getCreatedDate().toString());
+        params.put("status", entity.getTournamentEntity().getStatus());
         API.sendRequestToEndpoint(context, TournamentEndpoint.Update, params, DataListener);
 
     }
