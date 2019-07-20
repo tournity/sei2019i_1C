@@ -39,6 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".View.Activities.MainActivity" />
+        <activity android:name=".App.Tournament.View.Activities.EditTournament"/>
     </application>
 
 </manifest>
