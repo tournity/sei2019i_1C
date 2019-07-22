@@ -1,7 +1,6 @@
 const sequelize = require('../models').sequelize;
 
 const Competitor = require('../models').UserSportGroupCompetitor;
-const Guard = require('./guard');
 
 const create = function(competitorData, transaction) {
   return Competitor.create(
@@ -9,7 +8,7 @@ const create = function(competitorData, transaction) {
       type: competitorData.type,
       name: competitorData.name,
       description: competitorData.description,
-      userSportGroup : competitorData.userSportGroup,
+      userSportGroup: competitorData.userSportGroup,
       status: 'active'
     },
     { transaction: transaction }

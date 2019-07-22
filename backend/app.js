@@ -1,8 +1,9 @@
 var express = require('express');
 var cors = require('cors');
 
-var AccountRouter = require('./routes').AccountRouter;
-var GuardRouter = require('./routes').GuardRouter;
+var AccountRouter = require('./app/authentication/routes').AccountRouter;
+var AuthenticationRouter = require('./app/authentication/routes')
+  .AuthenticationRouter;
 var CompetitorRouter = require('./routes').CompetitorRouter;
 var TeamRouter = require('./routes').TeamRouter;
 var UserSportGroupRouter = require('./routes').UserSportGroupRouter;
@@ -16,9 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/accounts', AccountRouter);
-app.use('/api/guard', GuardRouter);
+app.use('/api/auth', AuthenticationRouter);
 app.use('/api/competitor', CompetitorRouter);
-app.use('/api/team',TeamRouter);
+app.use('/api/team', TeamRouter);
 app.use('/api/user-sport-groups', UserSportGroupRouter);
 app.use('/api/sports', SportRouter);
 app.use('/api/user-sports', UserSportRouter);

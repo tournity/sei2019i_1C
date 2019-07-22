@@ -1,12 +1,11 @@
 const sequelize = require('../models').sequelize;
 
 const Team = require('../models').UserSportGroupTeam;
-const Guard = require('./guard');
 
 const create = function(teamData, transaction) {
   return Team.create(
     {
-      userSportGroupCompetitor : teamData.userSportGroupCompetitor,
+      userSportGroupCompetitor: teamData.userSportGroupCompetitor,
       status: 'active'
     },
     { transaction: transaction }

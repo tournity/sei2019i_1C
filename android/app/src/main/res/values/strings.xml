@@ -22,4 +22,23 @@
     <string name="playerDescription">Description</string>
     <string name="playerGroup">User sport group</string>
     <string name="btn_add_player">Add player</string>
+    <string name="title_activity_home_activty">HomeActivty</string>
+    <string name="title_tournament">Tournament</string>
+    <string name="title_sport">Sport</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_sports">Sports</string>
+    <string name="title_login">Login</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_sign_up">Sign Up</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_select_type_match">SelectTypeMatch</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_match_view">MatchViewActivity</string>
+    <string name="title_activity_edit_result_view">EditResultView</string>
 </resources>
