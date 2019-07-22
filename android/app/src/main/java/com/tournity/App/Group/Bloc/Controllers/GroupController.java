@@ -26,6 +26,7 @@ public class GroupController {
                 for (GroupModel model:models) {
                     listGroupName.add(model.getName());
                 }
+
                 ArrayAdapter adapter = new ArrayAdapter(context,
                         android.R.layout.simple_expandable_list_item_1, listGroupName);
                 context.listView.setAdapter(adapter);

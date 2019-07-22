@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tournity.App.Tournament.Bloc.Controllers.TournamentController;
 import com.tournity.Bloc.Enums.ControllerError;
 import com.tournity.Bloc.Listeners.ControllerListener;
 import com.tournity.R;
@@ -21,6 +22,7 @@ public class CreateTournament extends AppCompatActivity {
     EditText txtDateFinish;
     Button btnCreateTournament;
     Context context;
+    TournamentController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class CreateTournament extends AppCompatActivity {
         txtDateInit = (EditText) findViewById(R.id.Date);
         txtDateFinish = (EditText) findViewById(R.id.DateFinish);
         btnCreateTournament = (Button) findViewById(R.id.CreateTournament);
-
+        this.controller = new TournamentController(this);
     }
 
     public void CreateTournament(View v) {
