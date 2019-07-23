@@ -10,7 +10,7 @@
         android:label="Tournity"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat"
+        android:theme="@style/Theme.AppCompat.Light"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".App.Match.View.Activities.EditResultActivity"
