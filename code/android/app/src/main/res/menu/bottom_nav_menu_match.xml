@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/navigation_forplay"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_tournament" />
+        android:icon="@drawable/podium"
+        android:title="For play" />
 
     <item
         android:id="@+id/navigation_played"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_sport" />
+        android:icon="@drawable/coup"
+        android:title="Played" />
 
 
 

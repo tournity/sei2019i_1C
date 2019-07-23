@@ -14,6 +14,7 @@ import com.tournity.R;
 public class PlayerOrTeamActivity extends AppCompatActivity {
     private Button btnPlayers;
     private Button btnTeams;
+    private String groupId;
 
     protected void onCreate(Bundle savedBundleInstance) {
         super.onCreate(savedBundleInstance);
@@ -21,10 +22,12 @@ public class PlayerOrTeamActivity extends AppCompatActivity {
         btnPlayers = findViewById(R.id.button2);
         btnTeams = findViewById(R.id.button3);
 
+        groupId = getIntent().getStringExtra("id");
         btnPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PlayerOrTeamActivity.this, PlayersActivity.class);
+                intent.putExtra("id", groupId);
                 startActivity(intent);
             }
         });
@@ -32,6 +35,7 @@ public class PlayerOrTeamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PlayerOrTeamActivity.this, TeamsActivity.class);
+                intent.putExtra("id", groupId);
                 startActivity(intent);
             }
         });

@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.tournity.App.Tournament.Bloc.Controllers.TournamentController;
 import com.tournity.Bloc.Enums.ControllerError;
 import com.tournity.Bloc.Listeners.ControllerListener;
@@ -38,20 +40,8 @@ public class CreateTournament extends AppCompatActivity {
     }
 
     public void CreateTournament(View v) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tournaments").push();
 
-
-        ControllerListener listener = new ControllerListener() {
-            @Override
-            public void Then() {
-                Toast.makeText(context, "Successful register", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void Catch(ControllerError error) {
-
-            }
-        };
-        //por defecto se pone el grupo 1 pero hay que reconocer el grupo al que se hace referencia
     }
 
 }

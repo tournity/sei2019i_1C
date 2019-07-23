@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.tournity.App.Tournament.View.Activities.TournamentViewActivity;
 import com.tournity.R;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -37,6 +45,7 @@ public class TournamentFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ListView tournamentList;
+    private ArrayList<TournamentM> tournamentMList;
     private ArrayAdapter<String> tournamentAdapter;
     private OnFragmentInteractionListener mListener;
 
@@ -64,26 +73,48 @@ public class TournamentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.fragment_tournament,container,false);
+        View root = inflater.inflate(R.layout.fragment_tournament, container, false);
         tournamentList = root.findViewById(R.id.idListTournaments);
 
         //----Test--------------------------------------
-        String[] data={"1 Liga","1 Torneo","3 Copa del rey","4 Libertadores"};
-        tournamentAdapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,data);
+        String[] data = {};
+        tournamentAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, data);
         tournamentList.setAdapter(tournamentAdapter);
         tournamentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item=(String)adapterView.getItemAtPosition(i);
-                StringTokenizer st=new StringTokenizer(item);
+                onClick(tournamentMList.get(i).id);
+            }
+        });
 
-                onClick(st.nextToken());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tournaments");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int count = (int)dataSnapshot.getChildrenCount();
+                String[] data = new String[count];
+                tournamentMList = new ArrayList<>();
+                int index = 0;
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    TournamentM post = postSnapshot.getValue(TournamentM.class);
+                    tournamentMList.add(post);
+                    data[index++] = post.name;
+                    Log.d("PEPE", post.name);
+                }
+                tournamentAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, data);
+                tournamentList.setAdapter(tournamentAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
         //---------------------------------------------------
 
         // Inflate the layout for this fragment
-        return root;    }
+        return root;
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -92,9 +123,9 @@ public class TournamentFragment extends Fragment {
         }
     }
 
-    public void onClick(String SportId){
+    public void onClick(String SportId) {
         Intent intent = new Intent(this.getActivity(), TournamentViewActivity.class);
-        intent.putExtra("idTournament",Integer.parseInt(SportId));
+        intent.putExtra("idTournament", SportId);
         startActivity(intent);
     }
 

@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/navigation_tournament"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/podium"
         android:title="@string/title_tournament" />
 
     <item
         android:id="@+id/navigation_sport"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/coup"
         android:title="@string/title_sport" />
 
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/account"
         android:title="@string/title_profile" />
 
 </menu>

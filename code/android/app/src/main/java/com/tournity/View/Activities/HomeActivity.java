@@ -1,9 +1,13 @@
 package com.tournity.View.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.tournity.App.Authentication.View.Activities.LoginActivity;
+import com.tournity.App.Tournament.View.Activities.CreateTournament;
 import com.tournity.R;
 import com.tournity.View.Fragments.SportFragment;
 import com.tournity.View.Fragments.TournamentFragment;
@@ -28,6 +32,7 @@ public class HomeActivity extends AppCompatActivity implements TournamentFragmen
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
             // Fragment selectedFragment = null;
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             switch (item.getItemId()) {
@@ -85,5 +90,17 @@ public class HomeActivity extends AppCompatActivity implements TournamentFragmen
 
     public SportFragment getSportFragment() {
         return sportFragment;
+    }
+
+
+
+    public void onSignOut(View v){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+    public void createTournament(View v){
+        Intent intent = new Intent(this, CreateTournament.class);
+        startActivity(intent);
     }
 }

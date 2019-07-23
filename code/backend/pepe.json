@@ -1,0 +1,61 @@
+{
+  "users": {
+    "ctZl4urOm7QBUDDvR3y3QmG8Obs2": {
+      "name": "pepe",
+      "email": "pepe@gmail",
+      "id": "ctZl4urOm7QBUDDvR3y3QmG8Obs2",
+      "sports": {
+        "sport1": {
+          "id": "sport1",
+          "name": "futbol",
+          "groups": {
+            "group1": {
+              "id": "group1",
+              "name": "ingesoft",
+              "players": {
+                "player1": {
+                  "id": "player1",
+                  "name": "jhonatan Torres"
+                }
+              },
+              "teams": {
+                "team1": {
+                  "id": "team1",
+                  "name": "equipo fuego",
+                  "players": {
+                    "player1": {
+                      "id": "player1",
+                      "name": "jhonatan Torres"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tournaments": {
+    "tournament1": {
+      "name": "pepe",
+      "id": "tournament1",
+      "owner": "ctZl4urOm7QBUDDvR3y3QmG8Obs2",
+      "sport": "sport1",
+      "group": "group1",
+      "matches": {
+        "match1": {
+          "id": "match1",
+          "team1": "team1",
+          "team2": "team2"
+        }
+      }
+    }
+  },
+  "sports": {
+    "sport1": {
+      "id": "sport1",
+      "name": "futbol"
+    }
+  }
+}

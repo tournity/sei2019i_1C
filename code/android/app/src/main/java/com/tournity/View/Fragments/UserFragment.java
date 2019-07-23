@@ -1,6 +1,7 @@
 package com.tournity.View.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.tournity.App.Authentication.View.Activities.LoginActivity;
 import com.tournity.R;
 
 /**

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "82192687230",
+    "firebase_url": "https://tournity-2ebf5.firebaseio.com",
+    "project_id": "tournity-2ebf5",
+    "storage_bucket": "tournity-2ebf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82192687230:android:b5ebc13fa5f4e7b2",
+        "android_client_info": {
+          "package_name": "com.tournity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82192687230-bh47vea30oagp1dr34ca6cm1vu5clck2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tournity",
+            "certificate_hash": "78388b3183c7d84ea94ed3bcd14774867bddd4d2"
+          }
+        },
+        {
+          "client_id": "82192687230-01d6g27sn7suc5tn9ro0cins7sta4pso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYc0AOPfGDieLv0fTKKIqYDOLZ7Pl2x7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82192687230-01d6g27sn7suc5tn9ro0cins7sta4pso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

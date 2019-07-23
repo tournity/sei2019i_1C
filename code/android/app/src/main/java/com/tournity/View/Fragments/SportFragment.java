@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.tournity.App.Group.View.Activities.ListGroupActivity;
 import com.tournity.App.Sport.Bloc.Controllers.SportController;
 import com.tournity.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +45,7 @@ public class SportFragment extends Fragment {
 
     public ListView sportList;
     private ArrayAdapter<String> sportAdapter;
+    private ArrayList<SportM> sportMList;
     private OnFragmentInteractionListener mListener;
     private SportController sportController;
 
@@ -70,7 +80,7 @@ public class SportFragment extends Fragment {
         sportList = root.findViewById(R.id.idListSport);
         sportController.listSports();
         //--test------------------------------------------------------------
-        String[] data = {"Futbol", "Tenis", "Baloncesto", "Beisbol"};
+        String[] data = {};
         sportAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, data);
         sportList.setAdapter(sportAdapter);
         //--------------------------------------------------------------------
@@ -78,7 +88,30 @@ public class SportFragment extends Fragment {
         sportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                onSelectedItem();
+                onSelectedItem(sportMList.get(i).id);
+            }
+        });
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("sports");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int count = (int)dataSnapshot.getChildrenCount();
+                String[] data = new String[count];
+                sportMList = new ArrayList<>();
+                int index = 0;
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    SportM post = postSnapshot.getValue(SportM.class);
+                    sportMList.add(post);
+                    data[index++] = post.name;
+                }
+                sportAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, data);
+                sportList.setAdapter(sportAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
@@ -86,8 +119,9 @@ public class SportFragment extends Fragment {
         return root;
     }
 
-    public void onSelectedItem() {
+    public void onSelectedItem(String id) {
         Intent intent = new Intent(this.getActivity(), ListGroupActivity.class);
+        intent.putExtra("id", id);
         startActivity(intent);
     }
 
